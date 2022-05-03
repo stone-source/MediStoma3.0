@@ -65,7 +65,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="MainWindow.xaml">
+    <Page Include="OknoStartowe_f.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -73,8 +73,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
+    <Compile Include="OknoStartowe_f.xaml.cs">
+      <DependentUpon>OknoStartowe_f.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -104,6 +104,28 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Obrazki\Ikony\128x128\dental-care.png" />
+    <Resource Include="Obrazki\Ikony\128x128\exit.png" />
+    <Resource Include="Obrazki\Ikony\128x128\home.png" />
+    <Resource Include="Obrazki\Ikony\128x128\patient.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Obrazki\Ikony\64x64\dental-care.png" />
+    <Resource Include="Obrazki\Ikony\64x64\exit.png" />
+    <Resource Include="Obrazki\Ikony\64x64\home.png" />
+    <Resource Include="Obrazki\Ikony\64x64\patient.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Obrazki\Ikony\dental-care.png" />
+    <Resource Include="Obrazki\Ikony\exit.png" />
+    <Resource Include="Obrazki\Ikony\home.png" />
+    <Resource Include="Obrazki\Ikony\patient.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Obrazki\Tła\main-menu.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
