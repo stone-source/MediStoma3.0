@@ -15,7 +15,12 @@
                 <Button x:Name="btnDane" Style="{StaticResource stylMenuPrzyciskiAkcji}">Dane</Button>
                 <Button x:Name="btnUsun" Style="{StaticResource stylMenuPrzyciskiAkcji}">Usuń</Button>
             </StackPanel>
-            <DataGrid x:Name="grdPacjenci" d:ItemsSource="{d:SampleData ItemCount=5}"/>
+            <DockPanel>
+                <StackPanel x:Name="pnlFiltry" Width="200">
+                    
+                </StackPanel>
+                <DataGrid x:Name="grdPacjenci" d:ItemsSource="{d:SampleData ItemCount=5}" FontSize="10"/>
+            </DockPanel>
         </DockPanel>
     </Grid>
 </Page>
