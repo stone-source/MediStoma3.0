@@ -7,24 +7,6 @@
         mc:Ignorable="d"
         Title="MediStoma" Height="600" Width="800" Background="White" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
-        <Button x:Name="btnKartoteka" Height="50" Width="200" Click="btnKartoteka_Click" Margin="561,32,39,502">
-            <DockPanel>
-                <Image DockPanel.Dock="Left" Source="/Obrazki/Ikony/64x64/patient.png"></Image>
-                <TextBlock DockPanel.Dock="Right">Gabinet</TextBlock>
-            </DockPanel>
-        </Button>
-        <Button x:Name="btnGabinet" Height="50" Width="200" Margin="561,163,39,371" Click="btnGabinet_Click">
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                <Image Height="43" Width="58" Source="/Obrazki/Ikony/64x64/dental-care.png" Stretch="None" VerticalAlignment="Stretch"/>
-                <TextBlock><Run Text="Gabinet"/></TextBlock>
-            </StackPanel>
-        </Button>
-        <Button x:Name="btnWyjscie" Height="50" Width="200" Click="btnWyjscie_Click" Margin="555,261,45,273">
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                <Image Height="46" Width="63" Source="/Obrazki/Ikony/64x64/exit.png" Stretch="None"/>
-                <TextBlock><Run Text="Wyjście"/></TextBlock>
-            </StackPanel>
-        </Button>
         <Label x:Name="lblTytulAplikacji" Content="MEDISTOMA" HorizontalAlignment="Left" Margin="10,0,0,10" VerticalAlignment="Bottom" Width="679" Height="57" FontSize="36" FontWeight="Thin" HorizontalContentAlignment="Center" Background="{x:Null}" Foreground="#FF0096C7" Grid.ColumnSpan="2"/>
         <Image x:Name="imgTlo" HorizontalAlignment="Left" Height="502" Margin="10,10,0,0" VerticalAlignment="Top" Width="509" Source="/Obrazki/Tła/main-menu.png"/>
     </Grid>

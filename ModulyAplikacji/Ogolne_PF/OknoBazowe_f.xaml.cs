@@ -23,5 +23,20 @@ namespace MediStoma3._0.ModulyAplikacji.Ogolne_PF
         {
             InitializeComponent();
         }
+
+        private void btnKartoteka_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnGabinet_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnMenuGlowne_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

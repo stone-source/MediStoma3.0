@@ -19,3 +19,14 @@ C:\Users\Sebastian\Documents\Repozytoria\GIT\MediStoma3.0\obj\Debug\MediStoma3.0
 C:\Users\Sebastian\Documents\Repozytoria\GIT\MediStoma3.0\obj\Debug\MediStoma3.0.pdb
 C:\Users\Sebastian\Documents\Repozytoria\GIT\MediStoma3.0\obj\Debug\OknoStartowe_f.g.cs
 C:\Users\Sebastian\Documents\Repozytoria\GIT\MediStoma3.0\obj\Debug\OknoStartowe_f.baml
+C:\Users\Sebastian\Documents\Repozytoria\GIT\MediStoma3.0\obj\Debug\ModulyAplikacji\Gabinet_PF\Wizyta_f.g.cs
+C:\Users\Sebastian\Documents\Repozytoria\GIT\MediStoma3.0\obj\Debug\ModulyAplikacji\Gabinet_PF\WizytyEwidencja_f.g.cs
+C:\Users\Sebastian\Documents\Repozytoria\GIT\MediStoma3.0\obj\Debug\ModulyAplikacji\Ogolne_PF\OknoBazowe_f.g.cs
+C:\Users\Sebastian\Documents\Repozytoria\GIT\MediStoma3.0\obj\Debug\ModulyAplikacji\Pacjent_PF\PacjenciEwidencja_f.g.cs
+C:\Users\Sebastian\Documents\Repozytoria\GIT\MediStoma3.0\obj\Debug\ModulyAplikacji\Pacjent_PF\Pacjent_f.g.cs
+C:\Users\Sebastian\Documents\Repozytoria\GIT\MediStoma3.0\obj\Debug\ModulyAplikacji\Gabinet_PF\Wizyta_f.baml
+C:\Users\Sebastian\Documents\Repozytoria\GIT\MediStoma3.0\obj\Debug\ModulyAplikacji\Gabinet_PF\WizytyEwidencja_f.baml
+C:\Users\Sebastian\Documents\Repozytoria\GIT\MediStoma3.0\obj\Debug\ModulyAplikacji\Ogolne_PF\OknoBazowe_f.baml
+C:\Users\Sebastian\Documents\Repozytoria\GIT\MediStoma3.0\obj\Debug\ModulyAplikacji\Pacjent_PF\PacjenciEwidencja_f.baml
+C:\Users\Sebastian\Documents\Repozytoria\GIT\MediStoma3.0\obj\Debug\ModulyAplikacji\Pacjent_PF\Pacjent_f.baml
+C:\Users\Sebastian\Documents\Repozytoria\GIT\MediStoma3.0\obj\Debug\App.baml
