@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using System.Collections.Generic;
+using System.Windows;
+using System.Windows.Controls;
 using MediStoma3._0.ModulyAplikacji.Gabinet_PF;
 using MediStoma3._0.ModulyAplikacji.Pacjent_PF;
 
@@ -9,28 +11,41 @@ namespace MediStoma3._0.ModulyAplikacji.Ogolne_PF
     /// </summary>
     public partial class OknoBazowe_f : Window
     {
-        //private WizytaEwidencja_f _ctnGabinetEwidencja { get; set; }
-        private PacjenciEwidencja_f _ctnPacjenciEwidencja { get; set; }
-
-        public OknoBazowe_f()
+        private enum formatkaBazowa: int
         {
+            fbKartoteka = 0,
+            fbGabinet
+        };
+        
+        Dictionary<formatkaBazowa, Page> _formatkiBazowe = new Dictionary<formatkaBazowa, Page>();
+        
+        public OknoBazowe_f()
+        { 
             InitializeComponent();
-            PacjenciEwidencja_f _ctnPacjenciEwidencja = new PacjenciEwidencja_f();
+
+            _formatkiBazowe.Add(formatkaBazowa.fbGabinet, new WizytyEwidencja_f());
+            _formatkiBazowe.Add(formatkaBazowa.fbKartoteka, new PacjenciEwidencja_f());
         }
 
         private void btnKartoteka_Click(object sender, RoutedEventArgs e)
         {
-            frmKontent.Content = new PacjenciEwidencja_f();
+            UstawAktywneOkno(formatkaBazowa.fbKartoteka);
         }
 
         private void btnGabinet_Click(object sender, RoutedEventArgs e)
         {
-
+            UstawAktywneOkno(formatkaBazowa.fbGabinet);
         }
 
         private void btnMenuGlowne_Click(object sender, RoutedEventArgs e)
         {
+            //
+        }
 
+        private void UstawAktywneOkno(in formatkaBazowa p_OknoBazowe)
+        {
+
+            frmKontent.Content = _formatkiBazowe[p_OknoBazowe];
         }
     }
 }
