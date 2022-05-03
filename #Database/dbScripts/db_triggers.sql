@@ -34,7 +34,7 @@ BEGIN
     )
     SELECT
         id_pac,
-        f_zatrzask_pacjent(id_pac),
+        dbo.f_zatrzask_pacjent(id_pac),
         status,
         data_rezerwacji_wizyty,
         data_anulowania_wizyty,
