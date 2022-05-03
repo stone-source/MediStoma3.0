@@ -1,16 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+﻿using System.Windows;
+using MediStoma3._0.ModulyAplikacji.Gabinet_PF;
+using MediStoma3._0.ModulyAplikacji.Pacjent_PF;
 
 namespace MediStoma3._0.ModulyAplikacji.Ogolne_PF
 {
@@ -19,14 +9,18 @@ namespace MediStoma3._0.ModulyAplikacji.Ogolne_PF
     /// </summary>
     public partial class OknoBazowe_f : Window
     {
+        //private WizytaEwidencja_f _ctnGabinetEwidencja { get; set; }
+        private PacjenciEwidencja_f _ctnPacjenciEwidencja { get; set; }
+
         public OknoBazowe_f()
         {
             InitializeComponent();
+            PacjenciEwidencja_f _ctnPacjenciEwidencja = new PacjenciEwidencja_f();
         }
 
         private void btnKartoteka_Click(object sender, RoutedEventArgs e)
         {
-
+            frmKontent.Content = new PacjenciEwidencja_f();
         }
 
         private void btnGabinet_Click(object sender, RoutedEventArgs e)
