@@ -1,0 +1,21 @@
+﻿<Window x:Class="MediStoma3._0.ModulyAplikacji.Ogolne_PF.OknoBazowe_f"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MediStoma3._0.ModulyAplikacji.Ogolne_PF"
+        mc:Ignorable="d"
+        Title="MotherForm" Height="600" Width="800" WindowStartupLocation="CenterScreen" WindowState="Maximized">
+    <Grid x:Name="grdMain" Margin="3,3,3,3">
+        <ScrollViewer x:Name="scrlMain" Margin="3,3,3,3">
+            <DockPanel x:Name="pnlMain" Margin="3,3,3,3">
+                <StackPanel x:Name="pnlPrzyciskiMenu" Orientation="Horizontal" DockPanel.Dock="Top" Margin="3,3,3,3">
+                    <Button x:Name="btnKartoteka" Click="btnKartoteka_Click">Kartoteka</Button>
+                    <Button x:Name="btnGabinet" Click="btnGabinet_Click">Gabinet</Button>
+                    <Button x:Name="btnMenuGlowne">Home</Button>
+                </StackPanel>
+                <Frame x:Name="frmKontent" Content="Frame" Height="537" NavigationUIVisibility="Hidden" Margin="3,3,3,3"/>
+            </DockPanel>
+        </ScrollViewer>
+    </Grid>
+</Window>

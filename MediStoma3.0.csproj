@@ -37,6 +37,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>MediStoma3._0.App</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
@@ -105,7 +108,10 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="ModulyAplikacji\Gabinet_PF\" />
+    <Folder Include="ModulyAplikacji\Pacjent_PF\" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Obrazki\Ikony\128x128\dental-care.png" />
     <Resource Include="Obrazki\Ikony\128x128\exit.png" />
