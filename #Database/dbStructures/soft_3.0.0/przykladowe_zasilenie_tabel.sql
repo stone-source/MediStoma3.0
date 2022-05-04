@@ -1,6 +1,6 @@
+DELETE FROM wizyta;
 DELETE FROM pacjent_zatrzask;
 DELETE FROM pacjent;
-DELETE FROM wizyta;
 
 ----------------------------------------------------------------------------------------------
 
