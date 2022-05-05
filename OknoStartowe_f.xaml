@@ -7,24 +7,24 @@
         mc:Ignorable="d"
         Title="MediStoma" Height="600" Width="1000" Background="White" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
-        <DockPanel LastChildFill="True">
+        <DockPanel x:Name="pnlGlownyPanel" LastChildFill="True">
             <StackPanel x:Name="pnlInformacje" Orientation="Vertical" DockPanel.Dock="Right" Background="#FF495057" Width="300">
                 <StackPanel x:Name="pnlATH" Background="DarkBlue">
                     <Image x:Name="imgLogoATH" Source="/Obrazki/Ikony/ath.png" Margin="6"/>
                 </StackPanel>
-                <TextBlock Style="{DynamicResource stylInformacjeOAutorzeTextBlock}">
+                <TextBlock x:Name="lblImieNazwisko" Style="{DynamicResource stylInformacjeOAutorzeTextBlock}">
                     Sebastian Markiton
                 </TextBlock>
-                <TextBlock Style="{DynamicResource stylInformacjeOAutorzeTextBlock}">
+                <TextBlock x:Name="lblNrAlbumu" Style="{DynamicResource stylInformacjeOAutorzeTextBlock}">
                     Nr albumu: D/49804
                 </TextBlock>
-                <TextBlock Style="{DynamicResource stylInformacjeOAutorzeTextBlock}">
+                <TextBlock x:Name="lblKierunek" Style="{DynamicResource stylInformacjeOAutorzeTextBlock}">
                     Kierunek: Informatyka
                 </TextBlock>
-                <TextBlock TextWrapping="Wrap" Style="{DynamicResource stylInformacjeOAutorzeTextBlock}">
+                <TextBlock x:Name="lblSpecjalnosc" TextWrapping="Wrap" Style="{DynamicResource stylInformacjeOAutorzeTextBlock}">
                     Specjalność: Inżynieria Oprogramowania i Systemy Informatyczne
                 </TextBlock>
-                <TextBlock TextWrapping="Wrap" Style="{DynamicResource stylInformacjeOAutorzeTextBlock}">
+                <TextBlock x:Name="lblTemat" TextWrapping="Wrap" Style="{DynamicResource stylInformacjeOAutorzeTextBlock}">
                     Temat: Program wspomagający dokumentację medyczną pacjenta dla stomatologów
                 </TextBlock>
             </StackPanel>
