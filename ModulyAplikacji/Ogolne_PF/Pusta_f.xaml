@@ -1,0 +1,17 @@
+﻿<Page x:Class="MediStoma3._0.ModulyAplikacji.Ogolne_PF.Pusta_f"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MediStoma3._0.ModulyAplikacji.Ogolne_PF"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Style="{DynamicResource stylStronyAplikacji}"
+      Title="Pusta_f">
+
+    <Grid>
+        <DockPanel x:Name="pnlMain">
+            <Label DockPanel.Dock="Bottom" x:Name="lblTytulAplikacji" Content="MEDISTOMA" FontSize="36" FontWeight="Thin" HorizontalContentAlignment="Center" VerticalAlignment="Bottom" Foreground="#343a40"/>
+        </DockPanel>
+    </Grid>
+</Page>

@@ -31,3 +31,5 @@ C:\Users\Sebastian\Documents\Repozytoria\GIT\MediStoma3.0\obj\Debug\MediStoma3.0
 C:\Users\Sebastian\Documents\Repozytoria\GIT\MediStoma3.0\obj\Debug\MediStoma3.0.exe
 C:\Users\Sebastian\Documents\Repozytoria\GIT\MediStoma3.0\obj\Debug\MediStoma3.0.pdb
 C:\Users\Sebastian\Documents\Repozytoria\GIT\MediStoma3.0\obj\Debug\MediStoma3.0_Content.g.cs
+C:\Users\Sebastian\Documents\Repozytoria\GIT\MediStoma3.0\obj\Debug\ModulyAplikacji\Ogolne_PF\Pusta_f.g.cs
+C:\Users\Sebastian\Documents\Repozytoria\GIT\MediStoma3.0\obj\Debug\ModulyAplikacji\Ogolne_PF\Pusta_f.baml

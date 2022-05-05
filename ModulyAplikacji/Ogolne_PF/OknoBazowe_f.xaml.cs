@@ -10,7 +10,7 @@ namespace MediStoma3._0.ModulyAplikacji.Ogolne_PF
     {
         private enum formatkaBazowa : int
         {
-            fbPusty = 0,
+            fbPusta = 0,
             fbKartoteka,
             fbGabinet
         };
@@ -19,10 +19,12 @@ namespace MediStoma3._0.ModulyAplikacji.Ogolne_PF
 
         public OknoBazowe_f()
         {
-            InitializeComponent();
-
+            _formatkiBazowe.Add(formatkaBazowa.fbPusta, new Pusta_f());
             _formatkiBazowe.Add(formatkaBazowa.fbGabinet, new WizytyEwidencja_f());
             _formatkiBazowe.Add(formatkaBazowa.fbKartoteka, new PacjenciEwidencja_f());
+
+            InitializeComponent();
+            UstawWlasciwosciFormatki();
         }
 
         private void btnKartoteka_Click(object sender, RoutedEventArgs e)
@@ -40,6 +42,11 @@ namespace MediStoma3._0.ModulyAplikacji.Ogolne_PF
             //
         }
 
+        private void UstawWlasciwosciFormatki()
+        {
+            UstawAktywneOkno(formatkaBazowa.fbPusta);
+        }
+
         private void UstawAktywneOkno(in formatkaBazowa p_OknoBazowe)
         {
             frmKontent.Content = _formatkiBazowe[p_OknoBazowe];
@@ -47,7 +54,7 @@ namespace MediStoma3._0.ModulyAplikacji.Ogolne_PF
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            if (string(frmKontent.Content) == "")
+            if (frmKontent.Content == _formatkiBazowe[formatkaBazowa.fbPusta])
             {
                 Ogolne_Funkcje.WyswietlInformacjeOAutorze();
             }
