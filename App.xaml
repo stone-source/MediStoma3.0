@@ -28,5 +28,17 @@
             <Setter Property="Margin" Value="6"/>
         </Style>
 
+        <Style TargetType="Label" x:Key="stylInformacjeOAutorzeLabel">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontFamily" Value="Cortana"/>
+        </Style>
+
+        <Style TargetType="TextBlock" x:Key="stylInformacjeOAutorzeTextBlock">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="FontFamily" Value="Lato"/>
+            <Setter Property="Margin" Value="6,12,0,0"/>
+        </Style>
+
     </Application.Resources>
 </Application>

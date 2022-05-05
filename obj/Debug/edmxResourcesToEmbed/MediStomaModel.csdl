@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MEDISTOMAModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="pacjent">
+    <Key>
+      <PropertyRef Name="id_pac" />
+    </Key>
+    <Property Name="id_pac" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nazwisko" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="nazwisko_pan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="imie" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="pesel" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="plec" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="nr_dokumentu" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="miasto" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="kod_poczt" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ulica" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="nr_domu" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="nr_lokalu" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="wpis_data_dodania" Type="DateTime" Precision="3" />
+    <Property Name="wpis_data_aktualizacji" Type="DateTime" Precision="3" />
+    <Property Name="wpis_czy_aktualny" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="wizyta" Relationship="Self.fk_wizyta_pacjent" FromRole="pacjent" ToRole="wizyta" />
+  </EntityType>
+  <EntityType Name="wizyta">
+    <Key>
+      <PropertyRef Name="id_wiz" />
+    </Key>
+    <Property Name="id_wiz" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_pac" Type="Int32" Nullable="false" />
+    <Property Name="id_pac_zatrzask" Type="Int32" Nullable="false" />
+    <Property Name="status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="data_rezerwacji_wizyty" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="data_anulowania_wizyty" Type="DateTime" Precision="3" />
+    <Property Name="data_rozpoczecia_wizyty" Type="DateTime" Precision="3" />
+    <Property Name="data_zakonczenia_wizyty" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="pacjent" Relationship="Self.fk_wizyta_pacjent" FromRole="wizyta" ToRole="pacjent" />
+  </EntityType>
+  <Association Name="fk_wizyta_pacjent">
+    <End Role="pacjent" Type="Self.pacjent" Multiplicity="1" />
+    <End Role="wizyta" Type="Self.wizyta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="pacjent">
+        <PropertyRef Name="id_pac" />
+      </Principal>
+      <Dependent Role="wizyta">
+        <PropertyRef Name="id_pac" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MEDISTOMAEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="pacjent" EntityType="Self.pacjent" />
+    <EntitySet Name="wizyta" EntityType="Self.wizyta" />
+    <AssociationSet Name="fk_wizyta_pacjent" Association="Self.fk_wizyta_pacjent">
+      <End Role="pacjent" EntitySet="pacjent" />
+      <End Role="wizyta" EntitySet="wizyta" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

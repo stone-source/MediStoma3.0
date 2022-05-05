@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="MEDISTOMAModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="pacjent">
+          <Key>
+            <PropertyRef Name="id_pac" />
+          </Key>
+          <Property Name="id_pac" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nazwisko" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="nazwisko_pan" Type="nvarchar" MaxLength="50" />
+          <Property Name="imie" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="pesel" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="plec" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="nr_dokumentu" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="miasto" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="kod_poczt" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="ulica" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="nr_domu" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="nr_lokalu" Type="varchar" MaxLength="10" />
+          <Property Name="wpis_data_dodania" Type="datetime" />
+          <Property Name="wpis_data_aktualizacji" Type="datetime" />
+          <Property Name="wpis_czy_aktualny" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="wizyta">
+          <Key>
+            <PropertyRef Name="id_wiz" />
+          </Key>
+          <Property Name="id_wiz" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_pac" Type="int" Nullable="false" />
+          <Property Name="id_pac_zatrzask" Type="int" Nullable="false" />
+          <Property Name="status" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="data_rezerwacji_wizyty" Type="datetime" Nullable="false" />
+          <Property Name="data_anulowania_wizyty" Type="datetime" />
+          <Property Name="data_rozpoczecia_wizyty" Type="datetime" />
+          <Property Name="data_zakonczenia_wizyty" Type="datetime" />
+        </EntityType>
+        <Association Name="fk_wizyta_pacjent">
+          <End Role="pacjent" Type="Self.pacjent" Multiplicity="1" />
+          <End Role="wizyta" Type="Self.wizyta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pacjent">
+              <PropertyRef Name="id_pac" />
+            </Principal>
+            <Dependent Role="wizyta">
+              <PropertyRef Name="id_pac" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="MEDISTOMAModelStoreContainer">
+          <EntitySet Name="pacjent" EntityType="Self.pacjent" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="wizyta" EntityType="Self.wizyta" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="fk_wizyta_pacjent" Association="Self.fk_wizyta_pacjent">
+            <End Role="pacjent" EntitySet="pacjent" />
+            <End Role="wizyta" EntitySet="wizyta" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MEDISTOMAModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="pacjent">
+          <Key>
+            <PropertyRef Name="id_pac" />
+          </Key>
+          <Property Name="id_pac" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nazwisko" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="nazwisko_pan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="imie" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="pesel" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="plec" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="nr_dokumentu" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="miasto" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="kod_poczt" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ulica" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="nr_domu" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nr_lokalu" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="wpis_data_dodania" Type="DateTime" Precision="3" />
+          <Property Name="wpis_data_aktualizacji" Type="DateTime" Precision="3" />
+          <Property Name="wpis_czy_aktualny" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="wizyta" Relationship="Self.fk_wizyta_pacjent" FromRole="pacjent" ToRole="wizyta" />
+        </EntityType>
+        <EntityType Name="wizyta">
+          <Key>
+            <PropertyRef Name="id_wiz" />
+          </Key>
+          <Property Name="id_wiz" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_pac" Type="Int32" Nullable="false" />
+          <Property Name="id_pac_zatrzask" Type="Int32" Nullable="false" />
+          <Property Name="status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="data_rezerwacji_wizyty" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="data_anulowania_wizyty" Type="DateTime" Precision="3" />
+          <Property Name="data_rozpoczecia_wizyty" Type="DateTime" Precision="3" />
+          <Property Name="data_zakonczenia_wizyty" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="pacjent" Relationship="Self.fk_wizyta_pacjent" FromRole="wizyta" ToRole="pacjent" />
+        </EntityType>
+        <Association Name="fk_wizyta_pacjent">
+          <End Role="pacjent" Type="Self.pacjent" Multiplicity="1" />
+          <End Role="wizyta" Type="Self.wizyta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pacjent">
+              <PropertyRef Name="id_pac" />
+            </Principal>
+            <Dependent Role="wizyta">
+              <PropertyRef Name="id_pac" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="MEDISTOMAEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="pacjent" EntityType="Self.pacjent" />
+          <EntitySet Name="wizyta" EntityType="Self.wizyta" />
+          <AssociationSet Name="fk_wizyta_pacjent" Association="Self.fk_wizyta_pacjent">
+            <End Role="pacjent" EntitySet="pacjent" />
+            <End Role="wizyta" EntitySet="wizyta" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MEDISTOMAModelStoreContainer" CdmEntityContainer="MEDISTOMAEntities">
+          <EntitySetMapping Name="pacjent">
+            <EntityTypeMapping TypeName="MEDISTOMAModel.pacjent">
+              <MappingFragment StoreEntitySet="pacjent">
+                <ScalarProperty Name="id_pac" ColumnName="id_pac" />
+                <ScalarProperty Name="nazwisko" ColumnName="nazwisko" />
+                <ScalarProperty Name="nazwisko_pan" ColumnName="nazwisko_pan" />
+                <ScalarProperty Name="imie" ColumnName="imie" />
+                <ScalarProperty Name="pesel" ColumnName="pesel" />
+                <ScalarProperty Name="plec" ColumnName="plec" />
+                <ScalarProperty Name="nr_dokumentu" ColumnName="nr_dokumentu" />
+                <ScalarProperty Name="miasto" ColumnName="miasto" />
+                <ScalarProperty Name="kod_poczt" ColumnName="kod_poczt" />
+                <ScalarProperty Name="ulica" ColumnName="ulica" />
+                <ScalarProperty Name="nr_domu" ColumnName="nr_domu" />
+                <ScalarProperty Name="nr_lokalu" ColumnName="nr_lokalu" />
+                <ScalarProperty Name="wpis_data_dodania" ColumnName="wpis_data_dodania" />
+                <ScalarProperty Name="wpis_data_aktualizacji" ColumnName="wpis_data_aktualizacji" />
+                <ScalarProperty Name="wpis_czy_aktualny" ColumnName="wpis_czy_aktualny" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="wizyta">
+            <EntityTypeMapping TypeName="MEDISTOMAModel.wizyta">
+              <MappingFragment StoreEntitySet="wizyta">
+                <ScalarProperty Name="id_wiz" ColumnName="id_wiz" />
+                <ScalarProperty Name="id_pac" ColumnName="id_pac" />
+                <ScalarProperty Name="id_pac_zatrzask" ColumnName="id_pac_zatrzask" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="data_rezerwacji_wizyty" ColumnName="data_rezerwacji_wizyty" />
+                <ScalarProperty Name="data_anulowania_wizyty" ColumnName="data_anulowania_wizyty" />
+                <ScalarProperty Name="data_rozpoczecia_wizyty" ColumnName="data_rozpoczecia_wizyty" />
+                <ScalarProperty Name="data_zakonczenia_wizyty" ColumnName="data_zakonczenia_wizyty" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

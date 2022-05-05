@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MEDISTOMAModelStoreContainer" CdmEntityContainer="MEDISTOMAEntities">
+    <EntitySetMapping Name="pacjent">
+      <EntityTypeMapping TypeName="MEDISTOMAModel.pacjent">
+        <MappingFragment StoreEntitySet="pacjent">
+          <ScalarProperty Name="id_pac" ColumnName="id_pac" />
+          <ScalarProperty Name="nazwisko" ColumnName="nazwisko" />
+          <ScalarProperty Name="nazwisko_pan" ColumnName="nazwisko_pan" />
+          <ScalarProperty Name="imie" ColumnName="imie" />
+          <ScalarProperty Name="pesel" ColumnName="pesel" />
+          <ScalarProperty Name="plec" ColumnName="plec" />
+          <ScalarProperty Name="nr_dokumentu" ColumnName="nr_dokumentu" />
+          <ScalarProperty Name="miasto" ColumnName="miasto" />
+          <ScalarProperty Name="kod_poczt" ColumnName="kod_poczt" />
+          <ScalarProperty Name="ulica" ColumnName="ulica" />
+          <ScalarProperty Name="nr_domu" ColumnName="nr_domu" />
+          <ScalarProperty Name="nr_lokalu" ColumnName="nr_lokalu" />
+          <ScalarProperty Name="wpis_data_dodania" ColumnName="wpis_data_dodania" />
+          <ScalarProperty Name="wpis_data_aktualizacji" ColumnName="wpis_data_aktualizacji" />
+          <ScalarProperty Name="wpis_czy_aktualny" ColumnName="wpis_czy_aktualny" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="wizyta">
+      <EntityTypeMapping TypeName="MEDISTOMAModel.wizyta">
+        <MappingFragment StoreEntitySet="wizyta">
+          <ScalarProperty Name="id_wiz" ColumnName="id_wiz" />
+          <ScalarProperty Name="id_pac" ColumnName="id_pac" />
+          <ScalarProperty Name="id_pac_zatrzask" ColumnName="id_pac_zatrzask" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="data_rezerwacji_wizyty" ColumnName="data_rezerwacji_wizyty" />
+          <ScalarProperty Name="data_anulowania_wizyty" ColumnName="data_anulowania_wizyty" />
+          <ScalarProperty Name="data_rozpoczecia_wizyty" ColumnName="data_rozpoczecia_wizyty" />
+          <ScalarProperty Name="data_zakonczenia_wizyty" ColumnName="data_zakonczenia_wizyty" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

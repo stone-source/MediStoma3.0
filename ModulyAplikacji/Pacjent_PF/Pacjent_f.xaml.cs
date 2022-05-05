@@ -20,6 +20,8 @@ namespace MediStoma3._0.ModulyAplikacji.Pacjent_PF
     /// </summary>
     public partial class Pacjent_f : Page
     {
+        public int _idEdytowanegoPacjenta;
+
         public Pacjent_f()
         {
             InitializeComponent();

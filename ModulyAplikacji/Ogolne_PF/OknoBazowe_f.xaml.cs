@@ -11,17 +11,18 @@ namespace MediStoma3._0.ModulyAplikacji.Ogolne_PF
     /// </summary>
     public partial class OknoBazowe_f : Window
     {
-        private enum formatkaBazowa: int
+        private enum formatkaBazowa : int
         {
             fbKartoteka = 0,
             fbGabinet
         };
-        
+
         Dictionary<formatkaBazowa, Page> _formatkiBazowe = new Dictionary<formatkaBazowa, Page>();
-        
+
         public OknoBazowe_f()
-        { 
+        {
             InitializeComponent();
+            WyswietlInformacjeOAutorze();
 
             _formatkiBazowe.Add(formatkaBazowa.fbGabinet, new WizytyEwidencja_f());
             _formatkiBazowe.Add(formatkaBazowa.fbKartoteka, new PacjenciEwidencja_f());
@@ -46,6 +47,17 @@ namespace MediStoma3._0.ModulyAplikacji.Ogolne_PF
         {
 
             frmKontent.Content = _formatkiBazowe[p_OknoBazowe];
+        }
+
+        private void WyswietlInformacjeOAutorze()
+        {
+            OknoStartowe_f form = new OknoStartowe_f();
+            form.ShowDialog();
+        }
+
+        private void Window_Activated(object sender, System.EventArgs e)
+        {
+
         }
     }
 }

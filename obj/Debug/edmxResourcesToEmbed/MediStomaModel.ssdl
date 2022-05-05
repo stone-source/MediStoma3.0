@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MEDISTOMAModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="pacjent">
+    <Key>
+      <PropertyRef Name="id_pac" />
+    </Key>
+    <Property Name="id_pac" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nazwisko" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="nazwisko_pan" Type="nvarchar" MaxLength="50" />
+    <Property Name="imie" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="pesel" Type="varchar" MaxLength="11" Nullable="false" />
+    <Property Name="plec" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="nr_dokumentu" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="miasto" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="kod_poczt" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="ulica" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="nr_domu" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="nr_lokalu" Type="varchar" MaxLength="10" />
+    <Property Name="wpis_data_dodania" Type="datetime" />
+    <Property Name="wpis_data_aktualizacji" Type="datetime" />
+    <Property Name="wpis_czy_aktualny" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="wizyta">
+    <Key>
+      <PropertyRef Name="id_wiz" />
+    </Key>
+    <Property Name="id_wiz" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_pac" Type="int" Nullable="false" />
+    <Property Name="id_pac_zatrzask" Type="int" Nullable="false" />
+    <Property Name="status" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="data_rezerwacji_wizyty" Type="datetime" Nullable="false" />
+    <Property Name="data_anulowania_wizyty" Type="datetime" />
+    <Property Name="data_rozpoczecia_wizyty" Type="datetime" />
+    <Property Name="data_zakonczenia_wizyty" Type="datetime" />
+  </EntityType>
+  <Association Name="fk_wizyta_pacjent">
+    <End Role="pacjent" Type="Self.pacjent" Multiplicity="1" />
+    <End Role="wizyta" Type="Self.wizyta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="pacjent">
+        <PropertyRef Name="id_pac" />
+      </Principal>
+      <Dependent Role="wizyta">
+        <PropertyRef Name="id_pac" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MEDISTOMAModelStoreContainer">
+    <EntitySet Name="pacjent" EntityType="Self.pacjent" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="wizyta" EntityType="Self.wizyta" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="fk_wizyta_pacjent" Association="Self.fk_wizyta_pacjent">
+      <End Role="pacjent" EntitySet="pacjent" />
+      <End Role="wizyta" EntitySet="wizyta" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

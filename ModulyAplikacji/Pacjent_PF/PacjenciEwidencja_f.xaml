@@ -11,15 +11,28 @@
     <Grid x:Name="pnlMain">
         <DockPanel>
             <StackPanel x:Name="pnlPrzyciskiMenu" Orientation="Horizontal" DockPanel.Dock="Bottom" Margin="3,3,3,3" Background="#6c757d">
-                <Button x:Name="btnDodaj" Style="{StaticResource stylMenuPrzyciskiAkcji}">Dodaj</Button>
+                <Button x:Name="btnDodaj" Click="btnDodaj_Click" Style="{StaticResource stylMenuPrzyciskiAkcji}">Dodaj</Button>
                 <Button x:Name="btnDane" Style="{StaticResource stylMenuPrzyciskiAkcji}">Dane</Button>
                 <Button x:Name="btnUsun" Style="{StaticResource stylMenuPrzyciskiAkcji}">Usuń</Button>
             </StackPanel>
             <DockPanel>
                 <StackPanel x:Name="pnlFiltry" Width="200">
-                    
+                    <Label x:Name="lblFiltrNazwisko" Content="Nazwisko"/>
+                    <TextBox x:Name="edFiltrNazwisko"/>
+                    <Label Content="Imię"/>
+                    <TextBox x:Name="edFiltrImie"/>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Usunięty"/>
+                        <CheckBox VerticalAlignment="Center"/>
+                    </StackPanel>
                 </StackPanel>
-                <DataGrid x:Name="grdPacjenci" d:ItemsSource="{d:SampleData ItemCount=5}" FontSize="10"/>
+                <DataGrid AutoGenerateColumns="False" x:Name="grdPacjenci" FontSize="10">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Binding="{Binding nazwisko}" Header="Nazwisko" Width="80"/>
+                        <DataGridTextColumn Binding="{Binding imie}" Header="Imię" Width="80"/>
+                        <DataGridTextColumn Binding="{Binding pesel}" Header="PESEL" Width="80"/>
+                    </DataGrid.Columns>
+                </DataGrid>
             </DockPanel>
         </DockPanel>
     </Grid>

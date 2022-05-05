@@ -5,9 +5,31 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MediStoma3._0"
         mc:Ignorable="d"
-        Title="MediStoma" Height="600" Width="800" Background="White" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        Title="MediStoma" Height="600" Width="1000" Background="White" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
-        <Label x:Name="lblTytulAplikacji" Content="MEDISTOMA" HorizontalAlignment="Left" Margin="10,0,0,10" VerticalAlignment="Bottom" Width="679" Height="57" FontSize="36" FontWeight="Thin" HorizontalContentAlignment="Center" Background="{x:Null}" Foreground="#FF0096C7" Grid.ColumnSpan="2"/>
-        <Image x:Name="imgTlo" HorizontalAlignment="Left" Height="502" Margin="10,10,0,0" VerticalAlignment="Top" Width="509" Source="/Obrazki/Tła/main-menu.png"/>
+        <DockPanel LastChildFill="True">
+            <StackPanel x:Name="pnlInformacje" Orientation="Vertical" DockPanel.Dock="Right" Background="#FF495057" Width="300">
+                <StackPanel x:Name="pnlATH" Background="DarkBlue">
+                    <Image x:Name="imgLogoATH" Source="/Obrazki/Ikony/ath.png" Margin="6"/>
+                </StackPanel>
+                <TextBlock Style="{DynamicResource stylInformacjeOAutorzeTextBlock}">
+                    Sebastian Markiton
+                </TextBlock>
+                <TextBlock Style="{DynamicResource stylInformacjeOAutorzeTextBlock}">
+                    Nr albumu: D/49804
+                </TextBlock>
+                <TextBlock Style="{DynamicResource stylInformacjeOAutorzeTextBlock}">
+                    Kierunek: Informatyka
+                </TextBlock>
+                <TextBlock TextWrapping="Wrap" Style="{DynamicResource stylInformacjeOAutorzeTextBlock}">
+                    Specjalność: Inżynieria Oprogramowania i Systemy Informatyczne
+                </TextBlock>
+                <TextBlock TextWrapping="Wrap" Style="{DynamicResource stylInformacjeOAutorzeTextBlock}">
+                    Temat: Program wspomagający dokumentację medyczną pacjenta dla stomatologów
+                </TextBlock>
+            </StackPanel>
+            <Label x:Name="lblTytulAplikacji" Content="MEDISTOMA" DockPanel.Dock="Bottom" FontSize="36" FontWeight="Thin" HorizontalContentAlignment="Center" Foreground="#FF0096C7"/>
+            <Image x:Name="imgTlo" HorizontalAlignment="Center" VerticalAlignment="Top" Source="/Obrazki/Tła/main-menu.png"/>
+        </DockPanel>
     </Grid>
 </Window>
