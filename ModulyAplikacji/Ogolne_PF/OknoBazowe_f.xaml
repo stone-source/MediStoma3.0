@@ -8,7 +8,7 @@
         Title="OknoBazowe_f"
         Style="{DynamicResource stylOknaAplikacji}"
         WindowStartupLocation="CenterScreen" Height="720" Width="1280"
-        Activated="Window_Activated">
+        Loaded="Window_Loaded">
 
     <Grid x:Name="grdMain" Margin="3,3,3,3">
         <DockPanel x:Name="pnlMain" Margin="3,3,3,3" LastChildFill="True">

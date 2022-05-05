@@ -93,6 +93,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MediStomaModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="ModulyAplikacji\Ogolne_PF\PF_Ogolne_Funkcje.cs" />
     <Compile Include="pacjent.cs">
       <DependentUpon>MediStomaModel.tt</DependentUpon>
     </Compile>

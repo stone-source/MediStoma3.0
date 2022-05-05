@@ -6,14 +6,12 @@ using MediStoma3._0.ModulyAplikacji.Pacjent_PF;
 
 namespace MediStoma3._0.ModulyAplikacji.Ogolne_PF
 {
-    /// <summary>
-    /// Logika interakcji dla klasy OknoBazowe_f.xaml
-    /// </summary>
     public partial class OknoBazowe_f : Window
     {
         private enum formatkaBazowa : int
         {
-            fbKartoteka = 0,
+            fbPusty = 0,
+            fbKartoteka,
             fbGabinet
         };
 
@@ -22,7 +20,6 @@ namespace MediStoma3._0.ModulyAplikacji.Ogolne_PF
         public OknoBazowe_f()
         {
             InitializeComponent();
-            WyswietlInformacjeOAutorze();
 
             _formatkiBazowe.Add(formatkaBazowa.fbGabinet, new WizytyEwidencja_f());
             _formatkiBazowe.Add(formatkaBazowa.fbKartoteka, new PacjenciEwidencja_f());
@@ -45,19 +42,15 @@ namespace MediStoma3._0.ModulyAplikacji.Ogolne_PF
 
         private void UstawAktywneOkno(in formatkaBazowa p_OknoBazowe)
         {
-
             frmKontent.Content = _formatkiBazowe[p_OknoBazowe];
         }
 
-        private void WyswietlInformacjeOAutorze()
+        private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            OknoStartowe_f form = new OknoStartowe_f();
-            form.ShowDialog();
-        }
-
-        private void Window_Activated(object sender, System.EventArgs e)
-        {
-
+            if (string(frmKontent.Content) == "")
+            {
+                Ogolne_Funkcje.WyswietlInformacjeOAutorze();
+            }
         }
     }
 }
