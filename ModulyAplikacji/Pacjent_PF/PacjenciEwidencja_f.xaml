@@ -16,21 +16,27 @@
                 <Button x:Name="btnUsun" Style="{StaticResource stylMenuPrzyciskiAkcji}">Usuń</Button>
             </StackPanel>
             <DockPanel>
-                <StackPanel x:Name="pnlFiltry" Width="200">
-                    <Label x:Name="lblFiltrNazwisko" Content="Nazwisko"/>
-                    <TextBox x:Name="edFiltrNazwisko"/>
-                    <Label Content="Imię"/>
-                    <TextBox x:Name="edFiltrImie"/>
-                    <StackPanel Orientation="Horizontal">
-                        <Label Content="Usunięty"/>
-                        <CheckBox VerticalAlignment="Center"/>
+                <DockPanel x:Name="pnlFiltry" Width="200">
+                    <StackPanel x:Name="pnlWartosciEdycyjne" DockPanel.Dock="Top">
+                        <Label x:Name="lblFiltrPesel" Content="PESEL"/>
+                        <TextBox x:Name="edFiltrPesel"/>
+                        <Label x:Name="lblFiltrNazwisko" Content="Nazwisko"/>
+                        <TextBox x:Name="edFiltrNazwisko"/>
+                        <Label Content="Imię"/>
+                        <TextBox x:Name="edFiltrImie"/>
+                        <StackPanel Orientation="Horizontal">
+                            <CheckBox VerticalAlignment="Center"/>
+                            <Label Content="Usunięty/a"/>
+                        </StackPanel>
                     </StackPanel>
-                </StackPanel>
-                <DataGrid AutoGenerateColumns="False" x:Name="grdPacjenci" FontSize="10">
+                    <Button Content="Zastosuj" Style="{StaticResource stylMenuPrzyciskiAkcji}" VerticalAlignment="Top" Margin="0,12,0,0"/>
+                </DockPanel>
+                <DataGrid x:Name="grdPacjenci" Style="{DynamicResource stylTabelePrezentujaceDane}">
                     <DataGrid.Columns>
                         <DataGridTextColumn Binding="{Binding nazwisko}" Header="Nazwisko" Width="80"/>
                         <DataGridTextColumn Binding="{Binding imie}" Header="Imię" Width="80"/>
                         <DataGridTextColumn Binding="{Binding pesel}" Header="PESEL" Width="80"/>
+                        <DataGridTextColumn Binding="{Binding nr_dokumentu}" Header="Nr dokumentu"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </DockPanel>
