@@ -51,20 +51,6 @@ namespace MediStoma3._0.ModulyAplikacji.Pacjent_PF
             }
         }
 
-        private void WprowadzDanePacjenta(ref pacjent p_Pacjent)
-        {
-            p_Pacjent.imie = edImie.Text;
-            p_Pacjent.nazwisko = edNazwisko.Text;
-            p_Pacjent.nazwisko_pan = edNazwiskoRodowe.Text;
-            p_Pacjent.pesel = edPesel.Text;
-
-            p_Pacjent.ulica = edUlica.Text;
-            p_Pacjent.nr_domu = edNrDomu.Text;
-            p_Pacjent.nr_lokalu = edNrLokalu.Text;
-            p_Pacjent.kod_poczt = edKodPocztowy.Text;
-            p_Pacjent.miasto = edMiasto.Text;
-        }
-
         private void WalidujDane()
         {
 
@@ -72,7 +58,7 @@ namespace MediStoma3._0.ModulyAplikacji.Pacjent_PF
 
         private void ZapiszDane()
         {
-            if ((_idEdytowanegoPacjenta == null) && (_CelUruchomionegoOkna == (int)CelUruchomonegoOkna.coAktualizacjaDanych))
+            if (_CelUruchomionegoOkna == (int)CelUruchomonegoOkna.coNoweDane)
             {
                 pacjent nowy_pacjent = new pacjent();
                 nowy_pacjent.imie = edImie.Text;
@@ -80,12 +66,15 @@ namespace MediStoma3._0.ModulyAplikacji.Pacjent_PF
                 nowy_pacjent.nazwisko_pan = edNazwiskoRodowe.Text;
                 nowy_pacjent.pesel = edPesel.Text;
                 nowy_pacjent.nr_dokumentu = edNrDokumentu.Text;
-
                 nowy_pacjent.ulica = edUlica.Text;
                 nowy_pacjent.nr_domu = edNrDomu.Text;
                 nowy_pacjent.nr_lokalu = edNrLokalu.Text;
                 nowy_pacjent.kod_poczt = edKodPocztowy.Text;
                 nowy_pacjent.miasto = edMiasto.Text;
+                nowy_pacjent.wpis_data_dodania = DateTime.Now;
+                nowy_pacjent.wpis_data_aktualizacji = DateTime.Now;
+                nowy_pacjent.plec = PF_Pacjent_Funkcje.WyznaczPlec(edPesel.Text);
+                nowy_pacjent.wpis_czy_aktualny = true;
                 _MSEntities.pacjent.Add(nowy_pacjent);
                 _MSEntities.SaveChanges();
             }

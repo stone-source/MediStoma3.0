@@ -16,48 +16,6 @@ BEGIN
 	  pacjent.id_pac = i.id_pac;
 END;
 
-DROP TRIGGER IF EXISTS trg_pacjnt_ii;
-CREATE OR ALTER TRIGGER trg_pacjnt_ii ON pacjent
-INSTEAD of INSERT
-AS
-BEGIN
-    INSERT INTO pacjent (
-        id_pac,
-        nazwisko,
-        nazwisko_pan,
-        imie,
-        pesel,
-        plec,
-        nr_dokumentu,
-        miasto,
-        kod_poczt,
-        ulica,
-        nr_domu,
-        nr_lokalu,
-        wpis_data_dodania,
-        wpis_data_aktualizacji,
-        wpis_czy_aktualny
-    )
-    SELECT
-        i.id_pac,
-        i.nazwisko,
-        i.nazwisko_pan,
-        i.imie,
-        i.pesel,
-        CASE WHEN CAST(SUBSTRING(i.plec, 10, 1) AS INTEGER)%2 = 0 THEN 'K' ELSE 'M' END,
-        i.nr_dokumentu,
-        i.miasto,
-        i.kod_poczt,
-        i.ulica,
-        i.nr_domu,
-        i.nr_lokalu,
-        i.wpis_data_dodania,
-        i.wpis_data_aktualizacji,
-        i.wpis_czy_aktualny
-    FROM
-        inserted i
-END;
-
 ----------------------------------------------------------------------------------------------
 
 DROP TRIGGER IF EXISTS trg_wizyta_ii;

@@ -9,6 +9,12 @@ namespace MediStoma3._0.ModulyAplikacji.Pacjent_PF
 {
     internal class PF_Pacjent_Funkcje
     {
+        public static string WyznaczPlec(in string p_Pesel)
+        {
+            int indexKontrolny = (int)p_Pesel[10];
+            return (indexKontrolny % 2 == 0) ? "K" : "M";
+        }
+
         public static void UsunPacjenta(MEDISTOMAEntities p_entity, int p_idPac) 
         {
             if (Ogolne_Pytania.Pytanie(PF_Pacjent_Powiadomienia.c_Pacjent_CzyUsunac))
