@@ -54,5 +54,21 @@
       <End Role="pacjent" EntitySet="pacjent" />
       <End Role="wizyta" EntitySet="wizyta" />
     </AssociationSet>
+    <EntitySet Name="v_pacjent" EntityType="MEDISTOMAModel.v_pacjent" />
   </EntityContainer>
+  <EntityType Name="v_pacjent">
+    <Key>
+      <PropertyRef Name="id_pac" />
+    </Key>
+    <Property Name="id_pac" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="imie_nazwisko" Type="String" Nullable="false" MaxLength="201" FixedLength="false" Unicode="true" />
+    <Property Name="nazwisko_pan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="pesel" Type="String" Nullable="false" MaxLength="11" FixedLength="false" Unicode="false" />
+    <Property Name="plec" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="nr_dokumentu" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="miejsce_zamieszkania" Type="String" Nullable="false" MaxLength="340" FixedLength="false" Unicode="true" />
+    <Property Name="wpis_data_dodania" Type="DateTime" Precision="3" />
+    <Property Name="wpis_data_aktualizacji" Type="DateTime" Precision="3" />
+    <Property Name="wpis_czy_aktualny" Type="Boolean" Nullable="false" />
+  </EntityType>
 </Schema>

@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MediStoma3._0.ModulyAplikacji.Pacjent_PF;
+using MediStoma3._0.ModulyAplikacji.Ogolne_PF;
+using static MediStoma3._0.ModulyAplikacji.Ogolne_PF.PF_Ogolne_Stale;
 
 namespace MediStoma3._0.ModulyAplikacji.Pacjent_PF
 {
@@ -22,7 +24,7 @@ namespace MediStoma3._0.ModulyAplikacji.Pacjent_PF
     public partial class PacjenciEwidencja_f : Page
     {
         private MEDISTOMAEntities _MSEntities = new MEDISTOMAEntities();
-        private pacjent _aktualnyPacjent = new pacjent();
+        private v_pacjent _aktualnyPacjent = new v_pacjent();
 
         public PacjenciEwidencja_f()
         {
@@ -32,16 +34,33 @@ namespace MediStoma3._0.ModulyAplikacji.Pacjent_PF
 
         private void ZaladujDane()
         {
-            var pacjenci = from p in _MSEntities.pacjent select p;
-            grdPacjenci.ItemsSource = pacjenci.ToList();
+            var v_pacjenci = from p in _MSEntities.v_pacjent select p;
+            grdPacjenci.ItemsSource = v_pacjenci.ToList();
         }
 
         private void btnDodaj_Click(object sender, RoutedEventArgs e)
         {
-            _aktualnyPacjent = (pacjent)grdPacjenci.SelectedItem;
-            Pacjent_f form = new Pacjent_f();
-            form._idEdytowanegoPacjenta = _aktualnyPacjent.id_pac;
             
+        }
+
+        private void btnDane_Click(object sender, RoutedEventArgs e)
+        {
+            _aktualnyPacjent = (v_pacjent)grdPacjenci.SelectedItem;
+            //_glownyKontentAplikacji.Content = new Pacjent_f(_aktualnyPacjent.id_pac, (int)CelUruchomonegoOkna.coAktualizacjaDanych);
+        }
+
+        private void btnUsun_Click(object sender, RoutedEventArgs e)
+        {
+            _aktualnyPacjent = (v_pacjent)grdPacjenci.SelectedItem;
+            if (_aktualnyPacjent != null)
+            {
+                PF_Pacjent_Funkcje.UsunPacjenta(_MSEntities, _aktualnyPacjent.id_pac);
+                ZaladujDane();
+            }
+            else
+            {
+                Ogolne_Informacja.Informacja(PF_Pacjent_Powiadomienia.c_Pacjent_NieZaznaczono);
+            }
         }
     }
 }

@@ -12,19 +12,28 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static MediStoma3._0.ModulyAplikacji.Ogolne_PF.PF_Ogolne_Stale;
 
 namespace MediStoma3._0.ModulyAplikacji.Pacjent_PF
 {
-    /// <summary>
-    /// Logika interakcji dla klasy Pacjent_f.xaml
-    /// </summary>
-    public partial class Pacjent_f : Page
+    public partial class Pacjent_f : Window
     {
-        public int _idEdytowanegoPacjenta;
+        private int _idEdytowanegoPacjenta;
+        private int _CelUruchomionegoOkna;
 
-        public Pacjent_f()
+        public Pacjent_f(int p_IdEdytowanegoPacjenta, int p_CelUruchomionegoOkna)
         {
+            _idEdytowanegoPacjenta = p_IdEdytowanegoPacjenta;
+            _CelUruchomionegoOkna = p_CelUruchomionegoOkna;
+
             InitializeComponent();
+            f();
+        }
+
+        private void f()
+        {
+            _idEdytowanegoPacjenta = 5;
+            _CelUruchomionegoOkna = 2;
         }
     }
 }

@@ -12,8 +12,8 @@
         <DockPanel>
             <StackPanel x:Name="pnlPrzyciskiMenu" Orientation="Horizontal" DockPanel.Dock="Bottom" Margin="3,3,3,3" Background="#6c757d">
                 <Button x:Name="btnDodaj" Click="btnDodaj_Click" Style="{StaticResource stylMenuPrzyciskiAkcji}">Dodaj</Button>
-                <Button x:Name="btnDane" Style="{StaticResource stylMenuPrzyciskiAkcji}">Dane</Button>
-                <Button x:Name="btnUsun" Style="{StaticResource stylMenuPrzyciskiAkcji}">Usuń</Button>
+                <Button x:Name="btnDane" Click="btnDane_Click"  Style="{StaticResource stylMenuPrzyciskiAkcji}">Dane</Button>
+                <Button x:Name="btnUsun" Click="btnUsun_Click"  Style="{StaticResource stylMenuPrzyciskiAkcji}">Usuń</Button>
             </StackPanel>
             <DockPanel>
                 <DockPanel x:Name="pnlFiltry" Width="200">
@@ -33,10 +33,13 @@
                 </DockPanel>
                 <DataGrid x:Name="grdPacjenci" Style="{DynamicResource stylTabelePrezentujaceDane}">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Binding="{Binding nazwisko}" Header="Nazwisko" Width="80"/>
-                        <DataGridTextColumn Binding="{Binding imie}" Header="Imię" Width="80"/>
+                        <DataGridTextColumn Binding="{Binding imie_nazwisko}" Header="Imię i nazwisko" Width="200"/>
+                        <DataGridTextColumn Binding="{Binding nazwisko_pan}" Header="Nazwisko rodowe" Width="150"/>
                         <DataGridTextColumn Binding="{Binding pesel}" Header="PESEL" Width="80"/>
-                        <DataGridTextColumn Binding="{Binding nr_dokumentu}" Header="Nr dokumentu"/>
+                        <DataGridTextColumn Binding="{Binding nr_dokumentu}" Header="Nr dokumentu" Width="90"/>
+                        <DataGridTextColumn Binding="{Binding plec}" Header="Płeć" Width="80"/>
+                        <DataGridTextColumn Binding="{Binding miejsce_zamieszkania}" Header="Miejsce zamieszkania" Width="350"/>
+                        <DataGridCheckBoxColumn Binding="{Binding wpis_czy_aktualny}" Header="Czy aktualny" Width="80"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </DockPanel>

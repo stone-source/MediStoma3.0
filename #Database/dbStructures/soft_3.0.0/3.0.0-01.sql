@@ -21,6 +21,7 @@ CREATE TABLE pacjent (
     wpis_data_dodania DATETIME NOT NULL DEFAULT GETDATE(),
     wpis_data_aktualizacji DATETIME NOT NULL DEFAULT GETDATE(),
     wpis_czy_aktualny BIT NOT NULL DEFAULT 1,
+    wpis_zabezp INT NOT NULL DEFAULT 1,
     CONSTRAINT pk_id_pac PRIMARY KEY CLUSTERED (id_pac),
     CONSTRAINT ck_plec CHECK ((plec = 'K') or (plec = 'M'))
 );

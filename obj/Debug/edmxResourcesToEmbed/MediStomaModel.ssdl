@@ -33,6 +33,23 @@
     <Property Name="data_rozpoczecia_wizyty" Type="datetime" />
     <Property Name="data_zakonczenia_wizyty" Type="datetime" />
   </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'MEDISTOMA.dbo.v_pacjent' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="v_pacjent">
+    <Key>
+      <PropertyRef Name="id_pac" />
+    </Key>
+    <Property Name="id_pac" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="imie_nazwisko" Type="nvarchar" MaxLength="201" Nullable="false" />
+    <Property Name="nazwisko_pan" Type="nvarchar" MaxLength="50" />
+    <Property Name="pesel" Type="varchar" MaxLength="11" Nullable="false" />
+    <Property Name="plec" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="nr_dokumentu" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="miejsce_zamieszkania" Type="nvarchar" MaxLength="340" Nullable="false" />
+    <Property Name="wpis_data_dodania" Type="datetime" />
+    <Property Name="wpis_data_aktualizacji" Type="datetime" />
+    <Property Name="wpis_czy_aktualny" Type="bit" Nullable="false" />
+  </EntityType>
   <Association Name="fk_wizyta_pacjent">
     <End Role="pacjent" Type="Self.pacjent" Multiplicity="1" />
     <End Role="wizyta" Type="Self.wizyta" Multiplicity="*" />
@@ -48,6 +65,20 @@
   <EntityContainer Name="MEDISTOMAModelStoreContainer">
     <EntitySet Name="pacjent" EntityType="Self.pacjent" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="wizyta" EntityType="Self.wizyta" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="v_pacjent" EntityType="Self.v_pacjent" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [v_pacjent].[id_pac] AS [id_pac], 
+    [v_pacjent].[imie_nazwisko] AS [imie_nazwisko], 
+    [v_pacjent].[nazwisko_pan] AS [nazwisko_pan], 
+    [v_pacjent].[pesel] AS [pesel], 
+    [v_pacjent].[plec] AS [plec], 
+    [v_pacjent].[nr_dokumentu] AS [nr_dokumentu], 
+    [v_pacjent].[miejsce_zamieszkania] AS [miejsce_zamieszkania], 
+    [v_pacjent].[wpis_data_dodania] AS [wpis_data_dodania], 
+    [v_pacjent].[wpis_data_aktualizacji] AS [wpis_data_aktualizacji], 
+    [v_pacjent].[wpis_czy_aktualny] AS [wpis_czy_aktualny]
+    FROM [dbo].[v_pacjent] AS [v_pacjent]</DefiningQuery>
+    </EntitySet>
     <AssociationSet Name="fk_wizyta_pacjent" Association="Self.fk_wizyta_pacjent">
       <End Role="pacjent" EntitySet="pacjent" />
       <End Role="wizyta" EntitySet="wizyta" />

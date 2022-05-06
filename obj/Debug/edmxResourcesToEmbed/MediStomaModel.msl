@@ -36,5 +36,21 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="v_pacjent">
+      <EntityTypeMapping TypeName="MEDISTOMAModel.v_pacjent">
+        <MappingFragment StoreEntitySet="v_pacjent">
+          <ScalarProperty Name="wpis_czy_aktualny" ColumnName="wpis_czy_aktualny" />
+          <ScalarProperty Name="wpis_data_aktualizacji" ColumnName="wpis_data_aktualizacji" />
+          <ScalarProperty Name="wpis_data_dodania" ColumnName="wpis_data_dodania" />
+          <ScalarProperty Name="miejsce_zamieszkania" ColumnName="miejsce_zamieszkania" />
+          <ScalarProperty Name="nr_dokumentu" ColumnName="nr_dokumentu" />
+          <ScalarProperty Name="plec" ColumnName="plec" />
+          <ScalarProperty Name="pesel" ColumnName="pesel" />
+          <ScalarProperty Name="nazwisko_pan" ColumnName="nazwisko_pan" />
+          <ScalarProperty Name="imie_nazwisko" ColumnName="imie_nazwisko" />
+          <ScalarProperty Name="id_pac" ColumnName="id_pac" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

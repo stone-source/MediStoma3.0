@@ -70,6 +70,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -94,10 +95,17 @@
       <DependentUpon>MediStomaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="ModulyAplikacji\Ogolne_PF\PF_Ogolne_Funkcje.cs" />
+    <Compile Include="ModulyAplikacji\Ogolne_PF\PF_Ogolne_Stale.cs" />
     <Compile Include="ModulyAplikacji\Ogolne_PF\Pusta_f.xaml.cs">
       <DependentUpon>Pusta_f.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ModulyAplikacji\Pacjent_PF\PF_Pacjent_Funkcje.cs" />
+    <Compile Include="ModulyAplikacji\Pacjent_PF\PF_Pacjent_Powiadomienia.cs" />
+    <Compile Include="ModulyAplikacji\Pacjent_PF\PF_Pacjent_Stale.cs" />
     <Compile Include="pacjent.cs">
+      <DependentUpon>MediStomaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_pacjent.cs">
       <DependentUpon>MediStomaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="wizyta.cs">
