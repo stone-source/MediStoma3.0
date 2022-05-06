@@ -20,7 +20,7 @@ namespace MediStoma3._0.ModulyAplikacji.Pacjent_PF
 {
     public partial class PacjenciEwidencja_f : Page
     {
-        private MEDISTOMAEntities _MSEntities = new MEDISTOMAEntities();
+        private MEDISTOMAEntities _MSEntities;
         private v_pacjent _aktualnyPacjent = new v_pacjent();
 
         public PacjenciEwidencja_f()
@@ -31,35 +31,47 @@ namespace MediStoma3._0.ModulyAplikacji.Pacjent_PF
 
         private void ZaladujDane()
         {
+            _MSEntities = new MEDISTOMAEntities();
             var v_pacjenci = from p in _MSEntities.v_pacjent select p;
             grdPacjenci.ItemsSource = v_pacjenci.ToList();
         }
 
         private void btnDodaj_Click(object sender, RoutedEventArgs e)
         {
-            Pacjent_f form = new Pacjent_f(null, (int)CelUruchomonegoOkna.coNoweDane);
+            Pacjent_f form = new Pacjent_f(null, (int)CelUruchomonegoOkna.coNoweDane, _MSEntities);
             form.ShowDialog();
+            ZaladujDane();
         }
 
         private void btnDane_Click(object sender, RoutedEventArgs e)
         {
-            _aktualnyPacjent = (v_pacjent)grdPacjenci.SelectedItem;
-            Pacjent_f form = new Pacjent_f(_aktualnyPacjent.id_pac, (int)CelUruchomonegoOkna.coNoweDane);
-            form.ShowDialog();
+            if (SprawdzCzyZaznaczonoPacjenta())
+            {
+                _aktualnyPacjent = (v_pacjent)grdPacjenci.SelectedItem;
+                Pacjent_f form = new Pacjent_f(_aktualnyPacjent.id_pac, (int)CelUruchomonegoOkna.coAktualizacjaDanych, _MSEntities);
+                form.ShowDialog();
+                ZaladujDane();
+            }    
         }
 
         private void btnUsun_Click(object sender, RoutedEventArgs e)
-        {
-            _aktualnyPacjent = (v_pacjent)grdPacjenci.SelectedItem;
-            if (_aktualnyPacjent != null)
+        {     
+            if (SprawdzCzyZaznaczonoPacjenta())
             {
                 PF_Pacjent_Funkcje.UsunPacjenta(_MSEntities, _aktualnyPacjent.id_pac);
                 ZaladujDane();
             }
-            else
+        }
+
+        private bool SprawdzCzyZaznaczonoPacjenta()
+        {
+            _aktualnyPacjent = (v_pacjent)grdPacjenci.SelectedItem;
+            bool czyZaznaczonyPacjent = _aktualnyPacjent != null;
+            if (!czyZaznaczonyPacjent)
             {
                 Ogolne_Informacja.Informacja(PF_Pacjent_Powiadomienia.c_Pacjent_NieZaznaczono);
             }
+            return czyZaznaczonyPacjent;
         }
     }
 }

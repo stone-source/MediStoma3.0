@@ -21,7 +21,7 @@ namespace MediStoma3._0.ModulyAplikacji.Pacjent_PF
 
                     if (pac_usun != null)
                     {
-                        p_entity.pacjent.Remove(pac_usun);
+                        pac_usun.wpis_czy_aktualny = false;
                         p_entity.SaveChanges();
                     }
                 }
