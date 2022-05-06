@@ -21,7 +21,6 @@
             <DockPanel x:Name="pnlDanePacjenta" LastChildFill="False">
                 <GroupBox x:Name="pnlDaneOgolne" Header="Dane ogólne" Width="400" DockPanel.Dock="Left" Style="{DynamicResource stylGrupowanieDanychPacjentaGroupBox}">
                     <DockPanel x:Name="pnlKontrolkiDanychOgolnych" LastChildFill="False">
-
                         <DockPanel x:Name="pnlImie" DockPanel.Dock="Top">
                             <DockPanel x:Name="pnlKontrolkiImie" LastChildFill="False">
                                 <TextBox x:Name="edImie" DockPanel.Dock="Right" MaxLength="100" Style="{DynamicResource stylKontrolkiDanychTextBox}"></TextBox>
@@ -64,7 +63,7 @@
 
                         <DockPanel x:Name="pnlNrDokumentu" DockPanel.Dock="Top">
                             <DockPanel x:Name="pnlKontrolkiNrDokumentu" LastChildFill="False">
-                                <TextBox x:Name="edNrDokumentu" DockPanel.Dock="Right" PreviewTextInput="TextBox_PreviewTextInput" MaxLength="100" Style="{DynamicResource stylKontrolkiDanychTextBox}"></TextBox>
+                                <TextBox x:Name="edNrDokumentu" DockPanel.Dock="Right" MaxLength="100" Style="{DynamicResource stylKontrolkiDanychTextBox}"></TextBox>
                                 <StackPanel x:Name="pnlEtykietaNrDokumentu" Orientation="Horizontal">
                                     <Label x:Name="lblNrDokumentu" Content="Nr dokumentu:" Style="{DynamicResource stylEtykietyDanychOgolnychLabel}"/>
                                     <Label x:Name="lblNrDokumentuWymagalnosc" Content="*" Style="{DynamicResource stylEtykietaWymaganeDane}"/>
@@ -124,7 +123,6 @@
                                 </StackPanel>
                             </DockPanel>
                         </DockPanel>
-
                     </DockPanel>
                 </GroupBox>
             </DockPanel>

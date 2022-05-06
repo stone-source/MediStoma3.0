@@ -1,17 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using MediStoma3._0.ModulyAplikacji.Ogolne_PF;
 
 namespace MediStoma3._0.ModulyAplikacji.Pacjent_PF
@@ -51,9 +41,64 @@ namespace MediStoma3._0.ModulyAplikacji.Pacjent_PF
             }
         }
 
-        private void WalidujDane()
+        private bool WalidujDane()
         {
+            bool bladWalidacji = false;
+            if (!bladWalidacji && (edImie.Text.Length == 0))
+            {
+                bladWalidacji = Ogolne_Walidacje.Walidacja(PF_Pacjent_Powiadomienia.c_Pacjnt_BrakImienia);
+                edImie.Focus();
+            }
 
+            if (!bladWalidacji && (edNazwisko.Text.Length == 0))
+            {
+                bladWalidacji = Ogolne_Walidacje.Walidacja(PF_Pacjent_Powiadomienia.c_Pacjent_BrakNazwiska);
+                edNazwisko.Focus();
+            }
+
+            if (!bladWalidacji && (edPesel.Text.Length == 0))
+            {
+                bladWalidacji = Ogolne_Walidacje.Walidacja(PF_Pacjent_Powiadomienia.c_Pacjnt_BrakPeselu);
+                edPesel.Focus();
+
+            }
+            else if (!bladWalidacji && !PF_Pacjent_Funkcje.WalidujPesel(edPesel.Text))
+            {
+                bladWalidacji = Ogolne_Walidacje.Walidacja(PF_Pacjent_Powiadomienia.c_Pacjent_PeselNieprawidlowy);
+                edPesel.Focus();
+            }
+
+            if (!bladWalidacji && (edNrDokumentu.Text.Length == 0))
+            {
+                bladWalidacji = Ogolne_Walidacje.Walidacja(PF_Pacjent_Powiadomienia.c_Pacjent_BrakNrDokumentu);
+                edNrDokumentu.Focus();
+            }
+
+            if (!bladWalidacji && (edUlica.Text.Length == 0))
+            {
+                bladWalidacji = Ogolne_Walidacje.Walidacja(PF_Pacjent_Powiadomienia.c_Pacjent_BrakUlicy);
+                edUlica.Focus();
+            }
+
+            if (!bladWalidacji && (edNrDomu.Text.Length == 0))
+            {
+                bladWalidacji = Ogolne_Walidacje.Walidacja(PF_Pacjent_Powiadomienia.c_Pacjent_BrakNumruDomu);
+                edNrDomu.Focus();
+            }
+
+            if (!bladWalidacji && (edKodPocztowy.Text.Length == 0))
+            {
+                bladWalidacji = Ogolne_Walidacje.Walidacja(PF_Pacjent_Powiadomienia.c_Pacjent_BrakKoduPocztowego);
+                edKodPocztowy.Focus();
+            }
+
+            if (!bladWalidacji && (edMiasto.Text.Length == 0))
+            {
+                bladWalidacji = Ogolne_Walidacje.Walidacja(PF_Pacjent_Powiadomienia.c_Pacjent_BrakMiasta);
+                edMiasto.Focus();
+            }
+
+            return bladWalidacji;
         }
 
         private void ZapiszDane()
@@ -108,9 +153,11 @@ namespace MediStoma3._0.ModulyAplikacji.Pacjent_PF
 
         private void btnZapisz_Click(object sender, RoutedEventArgs e)
         {
-            WalidujDane();
-            ZapiszDane();
-            ZamknijOkno();
+            if (!WalidujDane())
+            {
+                ZapiszDane();
+                ZamknijOkno();
+            }
         }
 
         private void btnAnuluj_Click(object sender, RoutedEventArgs e)

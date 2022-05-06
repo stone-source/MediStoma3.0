@@ -19,21 +19,20 @@ namespace MediStoma3._0.ModulyAplikacji.Ogolne_PF
             Regex regex = new Regex("[^0-9]+");
             e.Handled = regex.IsMatch(e.Text);
         }
-}
+    }
 
     internal static class Ogolne_Walidacje
     {
         public static bool Walidacja(in string p_Wiadomosc)
         {
             System.Windows.MessageBox.Show(p_Wiadomosc, "Błąd!", MessageBoxButton.OK, MessageBoxImage.Error);
-            return false;
-             
+            return true;
         }
     }
 
     internal static class Ogolne_Ostrzezenia
     {
-        public static bool Ostrzezenie(in string p_Wiadomosc) 
+        public static bool Ostrzezenie(in string p_Wiadomosc)
         {
             return System.Windows.MessageBox.Show(p_Wiadomosc, "Uwaga!", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes;
         }
@@ -54,4 +53,5 @@ namespace MediStoma3._0.ModulyAplikacji.Ogolne_PF
             return System.Windows.MessageBox.Show(p_Wiadomosc, "Informacja", MessageBoxButton.OK, MessageBoxImage.Information) == MessageBoxResult.OK;
         }
     }
+
 }
