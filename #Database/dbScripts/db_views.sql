@@ -21,6 +21,7 @@ FROM
 DROP VIEW IF EXISTS v_wizyta;
 CREATE VIEW v_wizyta AS
 SELECT
+    p.imie + ' ' + p.nazwisko AS imie_nazwisko,
     p.nazwisko,
     p.nazwisko_pan,
     p.imie,
@@ -32,6 +33,7 @@ SELECT
     p.ulica,
     p.nr_domu,
     p.nr_lokalu,
+    pz.imie + ' ' + pz.nazwisko AS imie_nazwisko_zatrzask,
     pz.nazwisko AS nazwisko_zatrzask,
     pz.nazwisko_pan AS nazwisko_pan_zatrzask,
     pz.imie AS imie_zatrzask,
