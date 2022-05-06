@@ -59,7 +59,7 @@ CREATE TABLE wizyta (
     id_wiz INT IDENTITY(1,1) NOT NULL,
     id_pac INT NOT NULL,
     id_pac_zatrzask INT NOT NULL,
-    status CHAR(1) NOT NULL DEFAULT 'Z', 
+    status CHAR(1) NOT NULL DEFAULT 'Z',
     data_rezerwacji_wizyty DATETIME NOT NULL DEFAULT GETDATE(),
     data_anulowania_wizyty DATETIME,
     data_rozpoczecia_wizyty DATETIME,
@@ -73,7 +73,7 @@ CREATE TABLE wizyta (
 EXEC sp_addextendedproperty 
     @name = N'MS_Description', @value = 'Wizyta: Z - Zarezerwowana; R - W realizacji; A - Anulowana; K - Zakończona',
     @level0type = N'Schema', @level0name = 'dbo',
-    @level1type = N'Table', @level1name = 'wizyta', 
+    @level1type = N'Table', @level1name = 'wizyta',
     @level2type = N'Column', @level2name = 'status';
 
 ----------------------------------------------------------------------------------------------
