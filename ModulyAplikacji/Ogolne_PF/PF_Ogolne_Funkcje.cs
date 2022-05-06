@@ -1,6 +1,8 @@
 ﻿using System.Threading;
 using System.Windows;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
+using System.Windows.Input;
 
 namespace MediStoma3._0.ModulyAplikacji.Ogolne_PF
 {
@@ -11,7 +13,13 @@ namespace MediStoma3._0.ModulyAplikacji.Ogolne_PF
             OknoStartowe_f form = new OknoStartowe_f();
             form.ShowDialog();
         }
-    }
+
+        public static void DopuscTylkoZnakiNumeryczne(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
+        }
+}
 
     internal static class Ogolne_Walidacje
     {

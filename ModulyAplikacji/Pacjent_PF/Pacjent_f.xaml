@@ -7,9 +7,9 @@
       mc:Ignorable="d"      
       Title="Dane pacjenta"
       Topmost="True"
-      Style="{DynamicResource stylKolorOknaAplikacji}"
+      Background="#FF495057"
       WindowStartupLocation="CenterScreen"
-      Height="210" Width="80"
+      Height="210" Width="812"
       ResizeMode="NoResize">
 
     <Grid>
@@ -19,73 +19,113 @@
                 <Button x:Name="btnAnuluj" DockPanel.Dock="Right" Content="Zapisz" Style="{DynamicResource stylMenuPrzyciskiAkcji}"/>
             </DockPanel>
             <DockPanel x:Name="pnlDanePacjenta" LastChildFill="False">
-                <GroupBox x:Name="pnlDaneOgolne" Header="Dane ogólne" Width="400" DockPanel.Dock="Left" Style="{DynamicResource stylGrupowanieDanychPacjentaGroupBox}" FontFamily="">
+                <GroupBox x:Name="pnlDaneOgolne" Header="Dane ogólne" Width="400" DockPanel.Dock="Left" Style="{DynamicResource stylGrupowanieDanychPacjentaGroupBox}">
                     <DockPanel LastChildFill="False">
 
-                        <StackPanel Orientation="Horizontal" Height="25" DockPanel.Dock="Top">
-                            <Label Content="Imie"/>
-                            <Label Content="*"/>
-                            <TextBox Width="15" ></TextBox>
-                        </StackPanel>
+                        <DockPanel DockPanel.Dock="Top">
+                            <DockPanel LastChildFill="False">
+                                <TextBox DockPanel.Dock="Right" MaxLength="100" Style="{DynamicResource stylKontrolkiDanychTextBox}"></TextBox>
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Content="Imię:" Style="{DynamicResource stylEtykietyDanychOgolnychLabel}"/>
+                                    <Label Content="*" Style="{DynamicResource stylEtykietaWymaganeDane}"/>
+                                </StackPanel>
+                            </DockPanel>
+                        </DockPanel>
 
-                        <StackPanel Orientation="Horizontal" Height="25" DockPanel.Dock="Top">
-                            <Label Content="Nazwisko"/>
-                            <Label Content="*"/>
-                            <TextBox></TextBox>
-                        </StackPanel>
+                        <DockPanel DockPanel.Dock="Top">
+                            <DockPanel LastChildFill="False">
+                                <TextBox DockPanel.Dock="Right" MaxLength="100" Style="{DynamicResource stylKontrolkiDanychTextBox}"></TextBox>
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Content="Nazwisko:" Style="{DynamicResource stylEtykietyDanychOgolnychLabel}"/>
+                                    <Label Content="*" Style="{DynamicResource stylEtykietaWymaganeDane}"/>
+                                </StackPanel>
+                            </DockPanel>
+                        </DockPanel>
 
-                        <StackPanel Orientation="Horizontal" Height="25" DockPanel.Dock="Top">
-                            <Label Content="Nazwisko rodowe"/>
-                            <Label Content="*"/>
-                            <TextBox></TextBox>
-                        </StackPanel>
+                        <DockPanel DockPanel.Dock="Top">
+                            <DockPanel LastChildFill="False">
+                                <TextBox DockPanel.Dock="Right" MaxLength="50" Style="{DynamicResource stylKontrolkiDanychTextBox}"></TextBox>
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Content="Nazwisko rodowe:" Style="{DynamicResource stylEtykietyDanychOgolnychLabel}"/>
+                                    <Label Content="" Style="{DynamicResource stylEtykietaWymaganeDane}"/>
+                                </StackPanel>
+                            </DockPanel>
+                        </DockPanel>
 
-                        <StackPanel Orientation="Horizontal" Height="25" DockPanel.Dock="Top">
-                            <Label Content="PESEL"/>
-                            <Label Content="*"/>
-                            <TextBox></TextBox>
-                        </StackPanel>
+                        <DockPanel DockPanel.Dock="Top">
+                            <DockPanel LastChildFill="False">
+                                <TextBox DockPanel.Dock="Right" PreviewTextInput="TextBox_PreviewTextInput" MaxLength="11" Style="{DynamicResource stylKontrolkiDanychTextBox}"></TextBox>
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Content="PESEL:" Style="{DynamicResource stylEtykietyDanychOgolnychLabel}"/>
+                                    <Label Content="*" Style="{DynamicResource stylEtykietaWymaganeDane}"/>
+                                </StackPanel>
+                            </DockPanel>
+                        </DockPanel>
 
-                        <StackPanel Orientation="Horizontal" Height="25" DockPanel.Dock="Top">
-                            <Label Content="Płeć"/>
-                            <Label Content="*"/>
-                            <TextBox></TextBox>
-                        </StackPanel>
+                        <DockPanel DockPanel.Dock="Top">
+                            <DockPanel LastChildFill="False">
+                                <TextBox DockPanel.Dock="Right" Style="{DynamicResource stylKontrolkiDanychTextBox}"></TextBox>
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Content="Płeć:" Style="{DynamicResource stylEtykietyDanychOgolnychLabel}"/>
+                                    <Label Content="*" Style="{DynamicResource stylEtykietaWymaganeDane}"/>
+                                </StackPanel>
+                            </DockPanel>
+                        </DockPanel>
 
                     </DockPanel>
                 </GroupBox>
                 <GroupBox x:Name="pnlDaneAdresowe" Header="Dane adresowe" Width="400" DockPanel.Dock="Left" Style="{DynamicResource stylGrupowanieDanychPacjentaGroupBox}">
                     <DockPanel LastChildFill="False">
 
-                        <StackPanel Orientation="Horizontal" Height="25" DockPanel.Dock="Top">
-                            <Label Content="Ulica:"/>
-                            <Label Content="*"/>
-                            <TextBox></TextBox>
-                        </StackPanel>
+                        <DockPanel DockPanel.Dock="Top">
+                            <DockPanel LastChildFill="False">
+                                <TextBox DockPanel.Dock="Right" MaxLength="200" Style="{DynamicResource stylKontrolkiDanychTextBox}"></TextBox>
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Content="Ulica:" Style="{DynamicResource stylEtykietyDanychAdresowychLabel}"/>
+                                    <Label Content="*" Style="{DynamicResource stylEtykietaWymaganeDane}"/>
+                                </StackPanel>
+                            </DockPanel>
+                        </DockPanel>
 
-                        <StackPanel Orientation="Horizontal" Height="25" DockPanel.Dock="Top">
-                            <Label Content="Nr domu:"/>
-                            <Label Content="*"/>
-                            <TextBox></TextBox>
-                        </StackPanel>
+                        <DockPanel DockPanel.Dock="Top">
+                            <DockPanel LastChildFill="False">
+                                <TextBox DockPanel.Dock="Right" PreviewTextInput="TextBox_PreviewTextInput" MaxLength="10" Style="{DynamicResource stylKontrolkiDanychTextBox}"></TextBox>
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Content="Nr domu:" Style="{DynamicResource stylEtykietyDanychAdresowychLabel}"/>
+                                    <Label Content="*" Style="{DynamicResource stylEtykietaWymaganeDane}"/>
+                                </StackPanel>
+                            </DockPanel>
+                        </DockPanel>
+                        
+                        <DockPanel DockPanel.Dock="Top">
+                            <DockPanel LastChildFill="False">
+                                <TextBox DockPanel.Dock="Right" PreviewTextInput="TextBox_PreviewTextInput" MaxLength="10" Style="{DynamicResource stylKontrolkiDanychTextBox}"></TextBox>
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Content="Nr lokalu:" Style="{DynamicResource stylEtykietyDanychAdresowychLabel}"/>
+                                    <Label Content="" Style="{DynamicResource stylEtykietaWymaganeDane}"/>
+                                </StackPanel>
+                            </DockPanel>
+                        </DockPanel>
 
-                        <StackPanel Orientation="Horizontal" Height="25" DockPanel.Dock="Top">
-                            <Label Content="Nr lokalu:"/>
-                            <Label Content=""/>
-                            <TextBox></TextBox>
-                        </StackPanel>
+                        <DockPanel DockPanel.Dock="Top">
+                            <DockPanel LastChildFill="False">
+                                <TextBox DockPanel.Dock="Right" PreviewTextInput="TextBox_PreviewTextInput" MaxLength="10" Style="{DynamicResource stylKontrolkiDanychTextBox}"></TextBox>
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Content="Kod pocztowy:" Style="{DynamicResource stylEtykietyDanychAdresowychLabel}"/>
+                                    <Label Content="*" Style="{DynamicResource stylEtykietaWymaganeDane}"/>
+                                </StackPanel>
+                            </DockPanel>
+                        </DockPanel>
 
-                        <StackPanel Orientation="Horizontal" Height="25" DockPanel.Dock="Top">
-                            <Label Content="Kod pocztowy:"/>
-                            <Label Content="*"/>
-                            <TextBox></TextBox>
-                        </StackPanel>
-
-                        <StackPanel Orientation="Horizontal" Height="25" DockPanel.Dock="Top">
-                            <Label Content="Miasto:"/>
-                            <Label Content="*"/>
-                            <TextBox></TextBox>
-                        </StackPanel>
+                        <DockPanel DockPanel.Dock="Top">
+                            <DockPanel LastChildFill="False">
+                                <TextBox DockPanel.Dock="Right" MaxLength="100" Style="{DynamicResource stylKontrolkiDanychTextBox}"></TextBox>
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Content="Miasto:" Style="{DynamicResource stylEtykietyDanychAdresowychLabel}"/>
+                                    <Label Content="*" Style="{DynamicResource stylEtykietaWymaganeDane}"/>
+                                </StackPanel>
+                            </DockPanel>
+                        </DockPanel>
 
                     </DockPanel>
                 </GroupBox>

@@ -12,7 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using static MediStoma3._0.ModulyAplikacji.Ogolne_PF.PF_Ogolne_Stale;
+using MediStoma3._0.ModulyAplikacji.Ogolne_PF;
+
 
 namespace MediStoma3._0.ModulyAplikacji.Pacjent_PF
 {
@@ -34,6 +35,11 @@ namespace MediStoma3._0.ModulyAplikacji.Pacjent_PF
         {
             _idEdytowanegoPacjenta = 5;
             _CelUruchomionegoOkna = 2;
+        }
+
+        private void TextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            Ogolne_Funkcje.DopuscTylkoZnakiNumeryczne(sender, e);
         }
     }
 }
