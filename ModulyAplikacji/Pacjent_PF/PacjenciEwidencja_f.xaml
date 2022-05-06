@@ -9,29 +9,34 @@
       Style="{DynamicResource stylStronyAplikacji}"
       Title="PacjenciEwidencja_f">
     <Grid x:Name="pnlMain">
-        <DockPanel>
-            <StackPanel x:Name="pnlPrzyciskiMenu" Orientation="Horizontal" DockPanel.Dock="Bottom" Margin="3,3,3,3" Background="#6c757d">
+        <DockPanel x:Name="pnlPodzialSekcji">
+            <StackPanel x:Name="pnlPrzyciskiMenu" Orientation="Horizontal" DockPanel.Dock="Bottom" Background="#6c757d">
                 <Button x:Name="btnDodaj" Click="btnDodaj_Click" Style="{StaticResource stylMenuPrzyciskiAkcji}">Dodaj</Button>
                 <Button x:Name="btnDane" Click="btnDane_Click"  Style="{StaticResource stylMenuPrzyciskiAkcji}">Dane</Button>
                 <Button x:Name="btnUsun" Click="btnUsun_Click"  Style="{StaticResource stylMenuPrzyciskiAkcji}">Usuń</Button>
             </StackPanel>
-            <DockPanel>
-                <DockPanel x:Name="pnlFiltry" Width="200">
-                    <StackPanel x:Name="pnlWartosciEdycyjne" DockPanel.Dock="Top">
-                        <Label x:Name="lblFiltrPesel" Content="PESEL"/>
-                        <TextBox x:Name="edFiltrPesel"/>
-                        <Label x:Name="lblFiltrNazwisko" Content="Nazwisko"/>
-                        <TextBox x:Name="edFiltrNazwisko"/>
-                        <Label Content="Imię"/>
-                        <TextBox x:Name="edFiltrImie"/>
-                        <StackPanel Orientation="Horizontal">
-                            <CheckBox VerticalAlignment="Center"/>
-                            <Label Content="Usunięty/a"/>
+            <DockPanel x:Name="pnlEwidencja">
+                <GroupBox x:Name="pnlFiltry" Header="Filtry" Margin="0,0,3,3" BorderThickness="0.5">
+                    <GroupBox.BorderBrush>
+                        <SolidColorBrush Color="Black" Opacity="0"/>
+                    </GroupBox.BorderBrush>
+                    <DockPanel x:Name="pnlKontrolkiFiltru" Width="200">
+                        <StackPanel x:Name="pnlWartosciEdycyjne" DockPanel.Dock="Top">
+                            <Label x:Name="lblPesel" Content="PESEL" FontFamily="Lato" Margin="0,3,0,0"/>
+                            <TextBox x:Name="edPesel" FontFamily="Lato" Margin="3,0,3,0"/>
+                            <Label x:Name="lblNazwisko" Content="Nazwisko" FontFamily="Lato" Margin="0,3,0,0"/>
+                            <TextBox x:Name="edNazwisko" FontFamily="Lato" Margin="3,0,3,0"/>
+                            <Label x:Name="lblImie" Content="Imię" FontFamily="Lato" Margin="0,3,0,0"/>
+                            <TextBox x:Name="edFiltrImie" FontFamily="Lato" Margin="3,0,3,0"/>
+                            <StackPanel x:Name="pnlCzyUsuniety" Orientation="Horizontal" Margin="0,3,0,0">
+                                <CheckBox x:Name="cbUsuniety" VerticalAlignment="Center" Margin="3,0,0,0"/>
+                                <Label x:Name="lblUsuniety" Content="Usunięty/a" FontFamily="Lato"/>
+                            </StackPanel>
                         </StackPanel>
-                    </StackPanel>
-                    <Button Content="Zastosuj" Style="{StaticResource stylMenuPrzyciskiAkcji}" VerticalAlignment="Top" Margin="0,12,0,0"/>
-                </DockPanel>
-                <DataGrid x:Name="grdPacjenci" Style="{DynamicResource stylTabelePrezentujaceDane}">
+                        <Button Content="Zastosuj" Style="{StaticResource stylMenuPrzyciskiAkcji}" VerticalAlignment="Top" Margin="0,12,0,0"/>
+                    </DockPanel>
+                </GroupBox>
+                <DataGrid x:Name="grdPacjenci" Style="{DynamicResource stylTabelePrezentujaceDane}" Margin="3,0,0,3">
                     <DataGrid.Columns>
                         <DataGridTextColumn Binding="{Binding imie_nazwisko}" Header="Imię i nazwisko" Width="200"/>
                         <DataGridTextColumn Binding="{Binding nazwisko_pan}" Header="Nazwisko rodowe" Width="150"/>
