@@ -18,10 +18,10 @@ namespace MediStoma3._0.ModulyAplikacji.Pacjent_PF
 {
     public partial class Pacjent_f : Window
     {
-        private int _idEdytowanegoPacjenta;
+        private int? _idEdytowanegoPacjenta;
         private int _CelUruchomionegoOkna;
 
-        public Pacjent_f(int p_IdEdytowanegoPacjenta, int p_CelUruchomionegoOkna)
+        public Pacjent_f(int? p_IdEdytowanegoPacjenta, int p_CelUruchomionegoOkna)
         {
             _idEdytowanegoPacjenta = p_IdEdytowanegoPacjenta;
             _CelUruchomionegoOkna = p_CelUruchomionegoOkna;

@@ -4,11 +4,92 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:MediStoma3._0.ModulyAplikacji.Pacjent_PF"
-      mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"      
-      Title="Pacjent_f" Height="600" Width="1000" Background="White" WindowStartupLocation="CenterScreen" Topmost="True">
+      mc:Ignorable="d"      
+      Title="Dane pacjenta"
+      Topmost="True"
+      Style="{DynamicResource stylKolorOknaAplikacji}"
+      WindowStartupLocation="CenterScreen"
+      Height="210" Width="80"
+      ResizeMode="NoResize">
 
     <Grid>
-        
+        <DockPanel x:Name="pnlMain">
+            <DockPanel x:Name="pnlPrzyciskiAkcji" DockPanel.Dock="Bottom" LastChildFill="False">
+                <Button x:Name="btnZapisz" DockPanel.Dock="Right" Content="Anuluj" Style="{DynamicResource stylMenuPrzyciskiAkcji}"/>
+                <Button x:Name="btnAnuluj" DockPanel.Dock="Right" Content="Zapisz" Style="{DynamicResource stylMenuPrzyciskiAkcji}"/>
+            </DockPanel>
+            <DockPanel x:Name="pnlDanePacjenta" LastChildFill="False">
+                <GroupBox x:Name="pnlDaneOgolne" Header="Dane ogólne" Width="400" DockPanel.Dock="Left" Style="{DynamicResource stylGrupowanieDanychPacjentaGroupBox}" FontFamily="">
+                    <DockPanel LastChildFill="False">
+
+                        <StackPanel Orientation="Horizontal" Height="25" DockPanel.Dock="Top">
+                            <Label Content="Imie"/>
+                            <Label Content="*"/>
+                            <TextBox Width="15" ></TextBox>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Height="25" DockPanel.Dock="Top">
+                            <Label Content="Nazwisko"/>
+                            <Label Content="*"/>
+                            <TextBox></TextBox>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Height="25" DockPanel.Dock="Top">
+                            <Label Content="Nazwisko rodowe"/>
+                            <Label Content="*"/>
+                            <TextBox></TextBox>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Height="25" DockPanel.Dock="Top">
+                            <Label Content="PESEL"/>
+                            <Label Content="*"/>
+                            <TextBox></TextBox>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Height="25" DockPanel.Dock="Top">
+                            <Label Content="Płeć"/>
+                            <Label Content="*"/>
+                            <TextBox></TextBox>
+                        </StackPanel>
+
+                    </DockPanel>
+                </GroupBox>
+                <GroupBox x:Name="pnlDaneAdresowe" Header="Dane adresowe" Width="400" DockPanel.Dock="Left" Style="{DynamicResource stylGrupowanieDanychPacjentaGroupBox}">
+                    <DockPanel LastChildFill="False">
+
+                        <StackPanel Orientation="Horizontal" Height="25" DockPanel.Dock="Top">
+                            <Label Content="Ulica:"/>
+                            <Label Content="*"/>
+                            <TextBox></TextBox>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Height="25" DockPanel.Dock="Top">
+                            <Label Content="Nr domu:"/>
+                            <Label Content="*"/>
+                            <TextBox></TextBox>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Height="25" DockPanel.Dock="Top">
+                            <Label Content="Nr lokalu:"/>
+                            <Label Content=""/>
+                            <TextBox></TextBox>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Height="25" DockPanel.Dock="Top">
+                            <Label Content="Kod pocztowy:"/>
+                            <Label Content="*"/>
+                            <TextBox></TextBox>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Height="25" DockPanel.Dock="Top">
+                            <Label Content="Miasto:"/>
+                            <Label Content="*"/>
+                            <TextBox></TextBox>
+                        </StackPanel>
+
+                    </DockPanel>
+                </GroupBox>
+            </DockPanel>
+        </DockPanel>
     </Grid>
 </Window>

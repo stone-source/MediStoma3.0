@@ -18,9 +18,6 @@ using static MediStoma3._0.ModulyAplikacji.Ogolne_PF.PF_Ogolne_Stale;
 
 namespace MediStoma3._0.ModulyAplikacji.Pacjent_PF
 {
-    /// <summary>
-    /// Logika interakcji dla klasy PacjenciEwidencja_f.xaml
-    /// </summary>
     public partial class PacjenciEwidencja_f : Page
     {
         private MEDISTOMAEntities _MSEntities = new MEDISTOMAEntities();
@@ -40,13 +37,15 @@ namespace MediStoma3._0.ModulyAplikacji.Pacjent_PF
 
         private void btnDodaj_Click(object sender, RoutedEventArgs e)
         {
-            
+            Pacjent_f form = new Pacjent_f(null, (int)CelUruchomonegoOkna.coNoweDane);
+            form.ShowDialog();
         }
 
         private void btnDane_Click(object sender, RoutedEventArgs e)
         {
             _aktualnyPacjent = (v_pacjent)grdPacjenci.SelectedItem;
-            //_glownyKontentAplikacji.Content = new Pacjent_f(_aktualnyPacjent.id_pac, (int)CelUruchomonegoOkna.coAktualizacjaDanych);
+            Pacjent_f form = new Pacjent_f(_aktualnyPacjent.id_pac, (int)CelUruchomonegoOkna.coNoweDane);
+            form.ShowDialog();
         }
 
         private void btnUsun_Click(object sender, RoutedEventArgs e)
