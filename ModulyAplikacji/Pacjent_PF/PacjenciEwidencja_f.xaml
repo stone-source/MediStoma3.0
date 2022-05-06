@@ -24,16 +24,14 @@
                         <StackPanel x:Name="pnlWartosciEdycyjne" DockPanel.Dock="Top">
                             <Label x:Name="lblPesel" Content="PESEL" FontFamily="Lato" Margin="0,3,0,0"/>
                             <TextBox x:Name="edPesel" FontFamily="Lato" Margin="3,0,3,0"/>
-                            <Label x:Name="lblNazwisko" Content="Nazwisko" FontFamily="Lato" Margin="0,3,0,0"/>
-                            <TextBox x:Name="edNazwisko" FontFamily="Lato" Margin="3,0,3,0"/>
-                            <Label x:Name="lblImie" Content="Imię" FontFamily="Lato" Margin="0,3,0,0"/>
-                            <TextBox x:Name="edFiltrImie" FontFamily="Lato" Margin="3,0,3,0"/>
+                            <Label x:Name="lblImieNazwisko" Content="Imię i nazwisko" FontFamily="Lato" Margin="0,3,0,0"/>
+                            <TextBox x:Name="edImieNazwisko" FontFamily="Lato" Margin="3,0,3,0"/>
                             <StackPanel x:Name="pnlCzyUsuniety" Orientation="Horizontal" Margin="0,3,0,0">
                                 <CheckBox x:Name="cbUsuniety" VerticalAlignment="Center" Margin="3,0,0,0"/>
-                                <Label x:Name="lblUsuniety" Content="Usunięty/a" FontFamily="Lato"/>
+                                <Label x:Name="lblUsuniety" Content="Pokaż usuniętych" FontFamily="Lato"/>
                             </StackPanel>
                         </StackPanel>
-                        <Button Content="Zastosuj" Style="{StaticResource stylMenuPrzyciskiAkcji}" VerticalAlignment="Top" Margin="0,12,0,0"/>
+                        <Button x:Name="btnZastosujFiltr" Content="Zastosuj" Click="btnZastosujFiltr_Click" Style="{StaticResource stylMenuPrzyciskiAkcji}" VerticalAlignment="Top" Margin="0,12,0,0"/>
                     </DockPanel>
                 </GroupBox>
                 <DataGrid x:Name="grdPacjenci" Style="{DynamicResource stylTabelePrezentujaceDane}" Margin="3,0,0,3">
