@@ -94,6 +94,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MediStomaModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="ModulyAplikacji\Gabinet_PF\PF_Gabinet_Funkcje.cs" />
+    <Compile Include="ModulyAplikacji\Gabinet_PF\PF_Gabinet_Stale.cs" />
     <Compile Include="ModulyAplikacji\Ogolne_PF\PF_Ogolne_Funkcje.cs" />
     <Compile Include="ModulyAplikacji\Ogolne_PF\PF_Ogolne_Powiadomienia.cs" />
     <Compile Include="ModulyAplikacji\Ogolne_PF\PF_Ogolne_Stale.cs" />
@@ -107,6 +109,9 @@
       <DependentUpon>MediStomaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="v_pacjent.cs">
+      <DependentUpon>MediStomaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_wizyta.cs">
       <DependentUpon>MediStomaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="wizyta.cs">

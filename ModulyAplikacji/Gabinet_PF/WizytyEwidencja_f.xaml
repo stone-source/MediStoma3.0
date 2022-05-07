@@ -1,4 +1,4 @@
-﻿<Page x:Class="MediStoma3._0.ModulyAplikacji.Gabinet_PF.WizytyEwidencja_f"
+﻿<Page x:Name="pgWizytyEwidencja" x:Class="MediStoma3._0.ModulyAplikacji.Gabinet_PF.WizytyEwidencja_f"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -10,6 +10,43 @@
       Title="WizytyEwidencja_f">
 
     <Grid>
-        
+        <DockPanel x:Name="pnlPodzialSekcji">
+            <StackPanel x:Name="pnlPrzyciskiMenu" Orientation="Horizontal" DockPanel.Dock="Bottom" Background="#6c757d">
+                <Button x:Name="btnDodaj" Click="btnDodaj_Click" Style="{StaticResource stylMenuPrzyciskiAkcji}">Dodaj</Button>
+                <Button x:Name="btnUsun" Click="btnUsun_Click" Style="{StaticResource stylMenuPrzyciskiAkcji}">Usuń</Button>
+                <Button x:Name="btnRealizuj" Click="btnRealizuj_Click" Style="{StaticResource stylMenuPrzyciskiAkcji}">Realizuj</Button>
+                <Button x:Name="btnAnuluj" Click="btnAnuluj_Click" Style="{StaticResource stylMenuPrzyciskiAkcji}">Anuluj</Button>
+                <Button x:Name="btnZakoncz" Click="btnZakoncz_Click" Style="{StaticResource stylMenuPrzyciskiAkcji}">Zakończ</Button>
+            </StackPanel>
+            <DockPanel x:Name="pnlEwidencja">
+                <GroupBox x:Name="pnlFiltry" Header="Filtry" Margin="0,0,3,3" BorderThickness="0.5">
+                    <GroupBox.BorderBrush>
+                        <SolidColorBrush Color="Black" Opacity="0"/>
+                    </GroupBox.BorderBrush>
+                    <DockPanel x:Name="pnlKontrolkiFiltru" Width="200">
+                        <StackPanel x:Name="pnlWartosciEdycyjne" DockPanel.Dock="Top">
+                            <Label x:Name="lblPesel" Content="PESEL" FontFamily="Lato" Margin="0,3,0,0"/>
+                            <TextBox x:Name="edPesel" FontFamily="Lato" Margin="3,0,3,0"/>
+                            <Label x:Name="lblImieNazwisko" Content="Imię i nazwisko" FontFamily="Lato" Margin="0,3,0,0"/>
+                            <TextBox x:Name="edImieNazwisko" FontFamily="Lato" Margin="3,0,3,0"/>
+                        </StackPanel>
+                        <Button x:Name="btnZastosujFiltr" Content="Zastosuj" Click="btnZastosujFiltr_Click" Style="{StaticResource stylMenuPrzyciskiAkcji}" VerticalAlignment="Top" Margin="0,12,0,0"/>
+                    </DockPanel>
+                </GroupBox>
+                <DataGrid x:Name="grdWizyty" Style="{DynamicResource stylTabelePrezentujaceDane}" Margin="3,0,0,3">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Binding="{Binding imie_nazwisko}" Header="Imię i nazwisko" Width="200"/>
+                        <DataGridTextColumn Binding="{Binding nazwisko_pan}" Header="Nazwisko rodowe" Width="150"/>
+                        <DataGridTextColumn Binding="{Binding pesel}" Header="PESEL" Width="80"/>
+                        <DataGridTextColumn Binding="{Binding nr_dokumentu}" Header="Nr dokumentu" Width="90"/>
+                        <DataGridTextColumn Binding="{Binding status_wizyty}" Header="Status wizyty" Width="110"/>
+                        <DataGridTextColumn Binding="{Binding data_rezerwacji_wizyty}" Header="Data rezerwacji" Width="110"/>
+                        <DataGridTextColumn Binding="{Binding data_anulowania_wizyty}" Header="Data anulowania" Width="110"/>
+                        <DataGridTextColumn Binding="{Binding data_rozpoczecia_wizyty}" Header="Data rozpoczęcia" Width="110"/>
+                        <DataGridTextColumn Binding="{Binding data_zakonczenia_wizyty}" Header="Data zakończenia" Width="110"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </DockPanel>
+        </DockPanel>
     </Grid>
 </Page>

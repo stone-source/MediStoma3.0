@@ -21,8 +21,8 @@
           <Property Name="ulica" Type="nvarchar" MaxLength="200" Nullable="false" />
           <Property Name="nr_domu" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="nr_lokalu" Type="varchar" MaxLength="10" />
-          <Property Name="wpis_data_dodania" Type="datetime" />
-          <Property Name="wpis_data_aktualizacji" Type="datetime" />
+          <Property Name="wpis_data_dodania" Type="datetime" Nullable="false" />
+          <Property Name="wpis_data_aktualizacji" Type="datetime" Nullable="false" />
           <Property Name="wpis_czy_aktualny" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="wizyta">
@@ -43,17 +43,61 @@ warning 6002: The table/view 'MEDISTOMA.dbo.v_pacjent' does not have a primary k
         <EntityType Name="v_pacjent">
           <Key>
             <PropertyRef Name="id_pac" />
+            
+            
+            
+            
+            
+            
+            
+            
           </Key>
           <Property Name="id_pac" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="imie_nazwisko" Type="nvarchar" MaxLength="201" Nullable="false" />
           <Property Name="nazwisko_pan" Type="nvarchar" MaxLength="50" />
           <Property Name="pesel" Type="varchar" MaxLength="11" Nullable="false" />
-          <Property Name="plec" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="plec" Type="varchar" MaxLength="9" Nullable="false" />
           <Property Name="nr_dokumentu" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="miejsce_zamieszkania" Type="nvarchar" MaxLength="340" Nullable="false" />
-          <Property Name="wpis_data_dodania" Type="datetime" />
-          <Property Name="wpis_data_aktualizacji" Type="datetime" />
+          <Property Name="wpis_data_dodania" Type="datetime" Nullable="false" />
+          <Property Name="wpis_data_aktualizacji" Type="datetime" Nullable="false" />
           <Property Name="wpis_czy_aktualny" Type="bit" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'MEDISTOMA.dbo.v_wizyta' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="v_wizyta">
+          <Key>
+            <PropertyRef Name="imie_nazwisko" />
+          </Key>
+          <Property Name="imie_nazwisko" Type="nvarchar" MaxLength="201" Nullable="false" />
+          <Property Name="nazwisko" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="nazwisko_pan" Type="nvarchar" MaxLength="50" />
+          <Property Name="imie" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="pesel" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="plec" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="nr_dokumentu" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="miasto" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="kod_poczt" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="ulica" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="nr_domu" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="nr_lokalu" Type="varchar" MaxLength="10" />
+          <Property Name="imie_nazwisko_zatrzask" Type="nvarchar" MaxLength="201" Nullable="false" />
+          <Property Name="nazwisko_zatrzask" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="nazwisko_pan_zatrzask" Type="nvarchar" MaxLength="50" />
+          <Property Name="imie_zatrzask" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="pesel_zatrzask" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="plec_zatrzask" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="nr_dokumentu_zatrzask" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="miasto_zatrzask" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="kod_poczt_zatrzask" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="ulica_zatrzask" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="nr_domu_zatrzask" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="nr_lokalu_zatrzask" Type="varchar" MaxLength="10" />
+          <Property Name="status_wizyty" Type="varchar" MaxLength="13" Nullable="false" />
+          <Property Name="data_rezerwacji_wizyty" Type="datetime" Nullable="false" />
+          <Property Name="data_anulowania_wizyty" Type="datetime" />
+          <Property Name="data_rozpoczecia_wizyty" Type="datetime" />
+          <Property Name="data_zakonczenia_wizyty" Type="datetime" />
         </EntityType>
         <Association Name="fk_wizyta_pacjent">
           <End Role="pacjent" Type="Self.pacjent" Multiplicity="1" />
@@ -84,6 +128,39 @@ warning 6002: The table/view 'MEDISTOMA.dbo.v_pacjent' does not have a primary k
     [v_pacjent].[wpis_czy_aktualny] AS [wpis_czy_aktualny]
     FROM [dbo].[v_pacjent] AS [v_pacjent]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="v_wizyta" EntityType="Self.v_wizyta" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [v_wizyta].[imie_nazwisko] AS [imie_nazwisko], 
+    [v_wizyta].[nazwisko] AS [nazwisko], 
+    [v_wizyta].[nazwisko_pan] AS [nazwisko_pan], 
+    [v_wizyta].[imie] AS [imie], 
+    [v_wizyta].[pesel] AS [pesel], 
+    [v_wizyta].[plec] AS [plec], 
+    [v_wizyta].[nr_dokumentu] AS [nr_dokumentu], 
+    [v_wizyta].[miasto] AS [miasto], 
+    [v_wizyta].[kod_poczt] AS [kod_poczt], 
+    [v_wizyta].[ulica] AS [ulica], 
+    [v_wizyta].[nr_domu] AS [nr_domu], 
+    [v_wizyta].[nr_lokalu] AS [nr_lokalu], 
+    [v_wizyta].[imie_nazwisko_zatrzask] AS [imie_nazwisko_zatrzask], 
+    [v_wizyta].[nazwisko_zatrzask] AS [nazwisko_zatrzask], 
+    [v_wizyta].[nazwisko_pan_zatrzask] AS [nazwisko_pan_zatrzask], 
+    [v_wizyta].[imie_zatrzask] AS [imie_zatrzask], 
+    [v_wizyta].[pesel_zatrzask] AS [pesel_zatrzask], 
+    [v_wizyta].[plec_zatrzask] AS [plec_zatrzask], 
+    [v_wizyta].[nr_dokumentu_zatrzask] AS [nr_dokumentu_zatrzask], 
+    [v_wizyta].[miasto_zatrzask] AS [miasto_zatrzask], 
+    [v_wizyta].[kod_poczt_zatrzask] AS [kod_poczt_zatrzask], 
+    [v_wizyta].[ulica_zatrzask] AS [ulica_zatrzask], 
+    [v_wizyta].[nr_domu_zatrzask] AS [nr_domu_zatrzask], 
+    [v_wizyta].[nr_lokalu_zatrzask] AS [nr_lokalu_zatrzask], 
+    [v_wizyta].[status_wizyty] AS [status_wizyty], 
+    [v_wizyta].[data_rezerwacji_wizyty] AS [data_rezerwacji_wizyty], 
+    [v_wizyta].[data_anulowania_wizyty] AS [data_anulowania_wizyty], 
+    [v_wizyta].[data_rozpoczecia_wizyty] AS [data_rozpoczecia_wizyty], 
+    [v_wizyta].[data_zakonczenia_wizyty] AS [data_zakonczenia_wizyty]
+    FROM [dbo].[v_wizyta] AS [v_wizyta]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="fk_wizyta_pacjent" Association="Self.fk_wizyta_pacjent">
             <End Role="pacjent" EntitySet="pacjent" />
             <End Role="wizyta" EntitySet="wizyta" />
@@ -109,8 +186,8 @@ warning 6002: The table/view 'MEDISTOMA.dbo.v_pacjent' does not have a primary k
           <Property Name="ulica" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="nr_domu" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="nr_lokalu" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="wpis_data_dodania" Type="DateTime" Precision="3" />
-          <Property Name="wpis_data_aktualizacji" Type="DateTime" Precision="3" />
+          <Property Name="wpis_data_dodania" Type="DateTime" Precision="3" Nullable="false" />
+          <Property Name="wpis_data_aktualizacji" Type="DateTime" Precision="3" Nullable="false" />
           <Property Name="wpis_czy_aktualny" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="wizyta" Relationship="Self.fk_wizyta_pacjent" FromRole="pacjent" ToRole="wizyta" />
         </EntityType>
@@ -148,6 +225,7 @@ warning 6002: The table/view 'MEDISTOMA.dbo.v_pacjent' does not have a primary k
             <End Role="wizyta" EntitySet="wizyta" />
           </AssociationSet>
           <EntitySet Name="v_pacjent" EntityType="MEDISTOMAModel.v_pacjent" />
+          <EntitySet Name="v_wizyta" EntityType="MEDISTOMAModel.v_wizyta" />
         </EntityContainer>
         <EntityType Name="v_pacjent">
           <Key>
@@ -157,12 +235,46 @@ warning 6002: The table/view 'MEDISTOMA.dbo.v_pacjent' does not have a primary k
           <Property Name="imie_nazwisko" Type="String" Nullable="false" MaxLength="201" FixedLength="false" Unicode="true" />
           <Property Name="nazwisko_pan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="pesel" Type="String" Nullable="false" MaxLength="11" FixedLength="false" Unicode="false" />
-          <Property Name="plec" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="plec" Type="String" Nullable="false" MaxLength="9" FixedLength="false" Unicode="false" />
           <Property Name="nr_dokumentu" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="miejsce_zamieszkania" Type="String" Nullable="false" MaxLength="340" FixedLength="false" Unicode="true" />
-          <Property Name="wpis_data_dodania" Type="DateTime" Precision="3" />
-          <Property Name="wpis_data_aktualizacji" Type="DateTime" Precision="3" />
+          <Property Name="wpis_data_dodania" Type="DateTime" Precision="3" Nullable="false" />
+          <Property Name="wpis_data_aktualizacji" Type="DateTime" Precision="3" Nullable="false" />
           <Property Name="wpis_czy_aktualny" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="v_wizyta">
+          <Key>
+            <PropertyRef Name="imie_nazwisko" />
+          </Key>
+          <Property Name="imie_nazwisko" Type="String" Nullable="false" MaxLength="201" FixedLength="false" Unicode="true" />
+          <Property Name="nazwisko" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="nazwisko_pan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="imie" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="pesel" Type="String" Nullable="false" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="plec" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="nr_dokumentu" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="miasto" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="kod_poczt" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="ulica" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="nr_domu" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="nr_lokalu" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="imie_nazwisko_zatrzask" Type="String" Nullable="false" MaxLength="201" FixedLength="false" Unicode="true" />
+          <Property Name="nazwisko_zatrzask" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="nazwisko_pan_zatrzask" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="imie_zatrzask" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="pesel_zatrzask" Type="String" Nullable="false" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="plec_zatrzask" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="nr_dokumentu_zatrzask" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="miasto_zatrzask" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="kod_poczt_zatrzask" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="ulica_zatrzask" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="nr_domu_zatrzask" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="nr_lokalu_zatrzask" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="status_wizyty" Type="String" Nullable="false" MaxLength="13" FixedLength="false" Unicode="false" />
+          <Property Name="data_rezerwacji_wizyty" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="data_anulowania_wizyty" Type="DateTime" Precision="3" />
+          <Property Name="data_rozpoczecia_wizyty" Type="DateTime" Precision="3" />
+          <Property Name="data_zakonczenia_wizyty" Type="DateTime" Precision="3" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -218,6 +330,41 @@ warning 6002: The table/view 'MEDISTOMA.dbo.v_pacjent' does not have a primary k
                 <ScalarProperty Name="nazwisko_pan" ColumnName="nazwisko_pan" />
                 <ScalarProperty Name="imie_nazwisko" ColumnName="imie_nazwisko" />
                 <ScalarProperty Name="id_pac" ColumnName="id_pac" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_wizyta">
+            <EntityTypeMapping TypeName="MEDISTOMAModel.v_wizyta">
+              <MappingFragment StoreEntitySet="v_wizyta">
+                <ScalarProperty Name="data_zakonczenia_wizyty" ColumnName="data_zakonczenia_wizyty" />
+                <ScalarProperty Name="data_rozpoczecia_wizyty" ColumnName="data_rozpoczecia_wizyty" />
+                <ScalarProperty Name="data_anulowania_wizyty" ColumnName="data_anulowania_wizyty" />
+                <ScalarProperty Name="data_rezerwacji_wizyty" ColumnName="data_rezerwacji_wizyty" />
+                <ScalarProperty Name="status_wizyty" ColumnName="status_wizyty" />
+                <ScalarProperty Name="nr_lokalu_zatrzask" ColumnName="nr_lokalu_zatrzask" />
+                <ScalarProperty Name="nr_domu_zatrzask" ColumnName="nr_domu_zatrzask" />
+                <ScalarProperty Name="ulica_zatrzask" ColumnName="ulica_zatrzask" />
+                <ScalarProperty Name="kod_poczt_zatrzask" ColumnName="kod_poczt_zatrzask" />
+                <ScalarProperty Name="miasto_zatrzask" ColumnName="miasto_zatrzask" />
+                <ScalarProperty Name="nr_dokumentu_zatrzask" ColumnName="nr_dokumentu_zatrzask" />
+                <ScalarProperty Name="plec_zatrzask" ColumnName="plec_zatrzask" />
+                <ScalarProperty Name="pesel_zatrzask" ColumnName="pesel_zatrzask" />
+                <ScalarProperty Name="imie_zatrzask" ColumnName="imie_zatrzask" />
+                <ScalarProperty Name="nazwisko_pan_zatrzask" ColumnName="nazwisko_pan_zatrzask" />
+                <ScalarProperty Name="nazwisko_zatrzask" ColumnName="nazwisko_zatrzask" />
+                <ScalarProperty Name="imie_nazwisko_zatrzask" ColumnName="imie_nazwisko_zatrzask" />
+                <ScalarProperty Name="nr_lokalu" ColumnName="nr_lokalu" />
+                <ScalarProperty Name="nr_domu" ColumnName="nr_domu" />
+                <ScalarProperty Name="ulica" ColumnName="ulica" />
+                <ScalarProperty Name="kod_poczt" ColumnName="kod_poczt" />
+                <ScalarProperty Name="miasto" ColumnName="miasto" />
+                <ScalarProperty Name="nr_dokumentu" ColumnName="nr_dokumentu" />
+                <ScalarProperty Name="plec" ColumnName="plec" />
+                <ScalarProperty Name="pesel" ColumnName="pesel" />
+                <ScalarProperty Name="imie" ColumnName="imie" />
+                <ScalarProperty Name="nazwisko_pan" ColumnName="nazwisko_pan" />
+                <ScalarProperty Name="nazwisko" ColumnName="nazwisko" />
+                <ScalarProperty Name="imie_nazwisko" ColumnName="imie_nazwisko" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

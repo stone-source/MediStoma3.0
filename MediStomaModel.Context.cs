@@ -28,5 +28,6 @@ namespace MediStoma3._0
         public virtual DbSet<pacjent> pacjent { get; set; }
         public virtual DbSet<wizyta> wizyta { get; set; }
         public virtual DbSet<v_pacjent> v_pacjent { get; set; }
+        public virtual DbSet<v_wizyta> v_wizyta { get; set; }
     }
 }

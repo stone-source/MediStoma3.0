@@ -16,8 +16,8 @@
     <Property Name="ulica" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="nr_domu" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="nr_lokalu" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-    <Property Name="wpis_data_dodania" Type="DateTime" Precision="3" />
-    <Property Name="wpis_data_aktualizacji" Type="DateTime" Precision="3" />
+    <Property Name="wpis_data_dodania" Type="DateTime" Precision="3" Nullable="false" />
+    <Property Name="wpis_data_aktualizacji" Type="DateTime" Precision="3" Nullable="false" />
     <Property Name="wpis_czy_aktualny" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="wizyta" Relationship="Self.fk_wizyta_pacjent" FromRole="pacjent" ToRole="wizyta" />
   </EntityType>
@@ -55,6 +55,7 @@
       <End Role="wizyta" EntitySet="wizyta" />
     </AssociationSet>
     <EntitySet Name="v_pacjent" EntityType="MEDISTOMAModel.v_pacjent" />
+    <EntitySet Name="v_wizyta" EntityType="MEDISTOMAModel.v_wizyta" />
   </EntityContainer>
   <EntityType Name="v_pacjent">
     <Key>
@@ -64,11 +65,45 @@
     <Property Name="imie_nazwisko" Type="String" Nullable="false" MaxLength="201" FixedLength="false" Unicode="true" />
     <Property Name="nazwisko_pan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="pesel" Type="String" Nullable="false" MaxLength="11" FixedLength="false" Unicode="false" />
-    <Property Name="plec" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="plec" Type="String" Nullable="false" MaxLength="9" FixedLength="false" Unicode="false" />
     <Property Name="nr_dokumentu" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="miejsce_zamieszkania" Type="String" Nullable="false" MaxLength="340" FixedLength="false" Unicode="true" />
-    <Property Name="wpis_data_dodania" Type="DateTime" Precision="3" />
-    <Property Name="wpis_data_aktualizacji" Type="DateTime" Precision="3" />
+    <Property Name="wpis_data_dodania" Type="DateTime" Precision="3" Nullable="false" />
+    <Property Name="wpis_data_aktualizacji" Type="DateTime" Precision="3" Nullable="false" />
     <Property Name="wpis_czy_aktualny" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="v_wizyta">
+    <Key>
+      <PropertyRef Name="imie_nazwisko" />
+    </Key>
+    <Property Name="imie_nazwisko" Type="String" Nullable="false" MaxLength="201" FixedLength="false" Unicode="true" />
+    <Property Name="nazwisko" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="nazwisko_pan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="imie" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="pesel" Type="String" Nullable="false" MaxLength="11" FixedLength="false" Unicode="false" />
+    <Property Name="plec" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="nr_dokumentu" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="miasto" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="kod_poczt" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="ulica" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="nr_domu" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="nr_lokalu" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="imie_nazwisko_zatrzask" Type="String" Nullable="false" MaxLength="201" FixedLength="false" Unicode="true" />
+    <Property Name="nazwisko_zatrzask" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="nazwisko_pan_zatrzask" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="imie_zatrzask" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="pesel_zatrzask" Type="String" Nullable="false" MaxLength="11" FixedLength="false" Unicode="false" />
+    <Property Name="plec_zatrzask" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="nr_dokumentu_zatrzask" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="miasto_zatrzask" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="kod_poczt_zatrzask" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="ulica_zatrzask" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="nr_domu_zatrzask" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="nr_lokalu_zatrzask" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="status_wizyty" Type="String" Nullable="false" MaxLength="13" FixedLength="false" Unicode="false" />
+    <Property Name="data_rezerwacji_wizyty" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="data_anulowania_wizyty" Type="DateTime" Precision="3" />
+    <Property Name="data_rozpoczecia_wizyty" Type="DateTime" Precision="3" />
+    <Property Name="data_zakonczenia_wizyty" Type="DateTime" Precision="3" />
   </EntityType>
 </Schema>

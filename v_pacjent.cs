@@ -21,8 +21,8 @@ namespace MediStoma3._0
         public string plec { get; set; }
         public string nr_dokumentu { get; set; }
         public string miejsce_zamieszkania { get; set; }
-        public Nullable<System.DateTime> wpis_data_dodania { get; set; }
-        public Nullable<System.DateTime> wpis_data_aktualizacji { get; set; }
+        public System.DateTime wpis_data_dodania { get; set; }
+        public System.DateTime wpis_data_aktualizacji { get; set; }
         public bool wpis_czy_aktualny { get; set; }
     }
 }

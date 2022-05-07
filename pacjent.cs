@@ -32,8 +32,8 @@ namespace MediStoma3._0
         public string ulica { get; set; }
         public string nr_domu { get; set; }
         public string nr_lokalu { get; set; }
-        public Nullable<System.DateTime> wpis_data_dodania { get; set; }
-        public Nullable<System.DateTime> wpis_data_aktualizacji { get; set; }
+        public System.DateTime wpis_data_dodania { get; set; }
+        public System.DateTime wpis_data_aktualizacji { get; set; }
         public bool wpis_czy_aktualny { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

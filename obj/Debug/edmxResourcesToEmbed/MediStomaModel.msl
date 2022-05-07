@@ -52,5 +52,40 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="v_wizyta">
+      <EntityTypeMapping TypeName="MEDISTOMAModel.v_wizyta">
+        <MappingFragment StoreEntitySet="v_wizyta">
+          <ScalarProperty Name="data_zakonczenia_wizyty" ColumnName="data_zakonczenia_wizyty" />
+          <ScalarProperty Name="data_rozpoczecia_wizyty" ColumnName="data_rozpoczecia_wizyty" />
+          <ScalarProperty Name="data_anulowania_wizyty" ColumnName="data_anulowania_wizyty" />
+          <ScalarProperty Name="data_rezerwacji_wizyty" ColumnName="data_rezerwacji_wizyty" />
+          <ScalarProperty Name="status_wizyty" ColumnName="status_wizyty" />
+          <ScalarProperty Name="nr_lokalu_zatrzask" ColumnName="nr_lokalu_zatrzask" />
+          <ScalarProperty Name="nr_domu_zatrzask" ColumnName="nr_domu_zatrzask" />
+          <ScalarProperty Name="ulica_zatrzask" ColumnName="ulica_zatrzask" />
+          <ScalarProperty Name="kod_poczt_zatrzask" ColumnName="kod_poczt_zatrzask" />
+          <ScalarProperty Name="miasto_zatrzask" ColumnName="miasto_zatrzask" />
+          <ScalarProperty Name="nr_dokumentu_zatrzask" ColumnName="nr_dokumentu_zatrzask" />
+          <ScalarProperty Name="plec_zatrzask" ColumnName="plec_zatrzask" />
+          <ScalarProperty Name="pesel_zatrzask" ColumnName="pesel_zatrzask" />
+          <ScalarProperty Name="imie_zatrzask" ColumnName="imie_zatrzask" />
+          <ScalarProperty Name="nazwisko_pan_zatrzask" ColumnName="nazwisko_pan_zatrzask" />
+          <ScalarProperty Name="nazwisko_zatrzask" ColumnName="nazwisko_zatrzask" />
+          <ScalarProperty Name="imie_nazwisko_zatrzask" ColumnName="imie_nazwisko_zatrzask" />
+          <ScalarProperty Name="nr_lokalu" ColumnName="nr_lokalu" />
+          <ScalarProperty Name="nr_domu" ColumnName="nr_domu" />
+          <ScalarProperty Name="ulica" ColumnName="ulica" />
+          <ScalarProperty Name="kod_poczt" ColumnName="kod_poczt" />
+          <ScalarProperty Name="miasto" ColumnName="miasto" />
+          <ScalarProperty Name="nr_dokumentu" ColumnName="nr_dokumentu" />
+          <ScalarProperty Name="plec" ColumnName="plec" />
+          <ScalarProperty Name="pesel" ColumnName="pesel" />
+          <ScalarProperty Name="imie" ColumnName="imie" />
+          <ScalarProperty Name="nazwisko_pan" ColumnName="nazwisko_pan" />
+          <ScalarProperty Name="nazwisko" ColumnName="nazwisko" />
+          <ScalarProperty Name="imie_nazwisko" ColumnName="imie_nazwisko" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>
