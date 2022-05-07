@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MediStoma3._0.ModulyAplikacji.Gabinet_PF
+﻿namespace MediStoma3._0.ModulyAplikacji.Gabinet_PF
 {
     internal class PF_Gabinet_Stale
     {

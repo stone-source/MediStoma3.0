@@ -15,6 +15,9 @@
                 <Button x:Name="btnDane" Click="btnDane_Click"  Style="{StaticResource stylMenuPrzyciskiAkcji}">Dane</Button>
                 <Button x:Name="btnUsun" Click="btnUsun_Click"  Style="{StaticResource stylMenuPrzyciskiAkcji}">Usuń</Button>
             </StackPanel>
+            <StackPanel x:Name="pnlTytulFormatki" Orientation="Horizontal" DockPanel.Dock="Top" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Label x:Name="lblTytulFormatki">Kartoteka</Label>
+            </StackPanel>
             <DockPanel x:Name="pnlEwidencja">
                 <GroupBox x:Name="pnlFiltry" Header="Filtry" Margin="0,0,3,3" BorderThickness="0.5">
                     <GroupBox.BorderBrush>

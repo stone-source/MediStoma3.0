@@ -18,6 +18,9 @@
                 <Button x:Name="btnAnuluj" Click="btnAnuluj_Click" Style="{StaticResource stylMenuPrzyciskiAkcji}">Anuluj</Button>
                 <Button x:Name="btnZakoncz" Click="btnZakoncz_Click" Style="{StaticResource stylMenuPrzyciskiAkcji}">Zakończ</Button>
             </StackPanel>
+            <StackPanel x:Name="pnlTytulFormatki" Orientation="Horizontal" DockPanel.Dock="Top" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Label x:Name="lblTytulFormatki">Gabinet</Label>
+            </StackPanel>
             <DockPanel x:Name="pnlEwidencja">
                 <GroupBox x:Name="pnlFiltry" Header="Filtry" Margin="0,0,3,3" BorderThickness="0.5">
                     <GroupBox.BorderBrush>

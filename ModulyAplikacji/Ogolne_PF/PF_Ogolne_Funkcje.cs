@@ -1,6 +1,4 @@
-﻿using System.Threading;
-using System.Windows;
-using System.Windows.Forms;
+﻿using System.Windows;
 using System.Text.RegularExpressions;
 using System.Windows.Input;
 

@@ -37,9 +37,9 @@ namespace MediStoma3._0.ModulyAplikacji.Ogolne_PF
             UstawAktywneOkno(formatkaBazowa.fbGabinet);
         }
 
-        private void btnMenuGlowne_Click(object sender, RoutedEventArgs e)
+        private void btnAutor_Click(object sender, RoutedEventArgs e)
         {
-            //
+            Ogolne_Funkcje.WyswietlInformacjeOAutorze();
         }
 
         private void UstawWlasciwosciFormatki()

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MediStoma3._0.ModulyAplikacji.Ogolne_PF"
         mc:Ignorable="d"
-        Title="OknoBazowe_f"
+        Title="MediStoma - Sebastian Markiton; Nr albumu: D/49804; Kierunek: Informatyka; Specjalność: Inżynieria Oprogramowania i Systemy Informatyczne"
         Style="{DynamicResource stylOknaAplikacji}"
         WindowStartupLocation="CenterScreen"
         Height="600" Width="1000"
@@ -17,7 +17,7 @@
             <StackPanel x:Name="pnlPrzyciskiMenu" Orientation="Horizontal" DockPanel.Dock="Top" Margin="3,3,3,3" Background="#6c757d">
                 <Button x:Name="btnKartoteka" Style="{DynamicResource stylMenuPrzyciskiAkcji}" Click="btnKartoteka_Click">Kartoteka</Button>
                 <Button x:Name="btnGabinet" Style="{DynamicResource stylMenuPrzyciskiAkcji}" Click="btnGabinet_Click">Gabinet</Button>
-                <Button x:Name="btnMenuGlowne" Style="{DynamicResource stylMenuPrzyciskiAkcji}" Click="btnMenuGlowne_Click">Home</Button>
+                <Button x:Name="btnAutor" Style="{DynamicResource stylMenuPrzyciskiAkcji}" Click="btnAutor_Click">O autorze</Button>
             </StackPanel>
             <ScrollViewer x:Name="scrlMain" Margin="3,3,3,3">
                 <Frame x:Name="frmKontent" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="" NavigationUIVisibility="Hidden" Margin="3,0,3,0"/>
