@@ -7,7 +7,9 @@
       mc:Ignorable="d" 
       d:DesignHeight="720" d:DesignWidth="1280"
       Style="{DynamicResource stylStronyAplikacji}"
-      Title="WizytyEwidencja_f">
+      Title="WizytyEwidencja_f"
+      Loaded="pgWizytyEwidencja_Loaded"
+      >
 
     <Grid>
         <DockPanel x:Name="pnlPodzialSekcji">

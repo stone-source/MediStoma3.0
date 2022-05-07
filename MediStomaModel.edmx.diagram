@@ -9,11 +9,11 @@
         <EntityTypeShape EntityType="MEDISTOMAModel.v_pacjent" Width="1.5" PointX="6.75" PointY="0.625" />
         <EntityTypeShape EntityType="MEDISTOMAModel.v_wizyta" Width="1.5" PointX="8.375" PointY="0.625" />
         <EntityTypeShape EntityType="MEDISTOMAModel.pacjent_zatrzask" Width="1.5" PointX="2.625" PointY="4.375" />
-        <EntityTypeShape EntityType="MEDISTOMAModel.wizyta" Width="1.5" PointX="4.875" PointY="0.875" />
         <AssociationConnector Association="MEDISTOMAModel.fk_pacjent_zatrzask_pacjent" />
+        <EntityTypeShape EntityType="MEDISTOMAModel.wizyta" Width="1.5" PointX="4" PointY="1" />
         <AssociationConnector Association="MEDISTOMAModel.fk_wizyta_pacjent" />
         <AssociationConnector Association="MEDISTOMAModel.fk_wizyta_pacjent_zatrzask" />
-      </Diagram>
+        </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

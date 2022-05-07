@@ -36,7 +36,9 @@ namespace MediStoma3._0.ModulyAplikacji.Gabinet_PF
 
         private void btnDodaj_Click(object sender, RoutedEventArgs e)
         {
-
+            NowaWizytaPacjent_f form = new NowaWizytaPacjent_f();
+            form.ShowDialog();
+            ZaladujDane();
         }
 
         private void btnDane_Click(object sender, RoutedEventArgs e)
@@ -98,6 +100,11 @@ namespace MediStoma3._0.ModulyAplikacji.Gabinet_PF
                 Ogolne_Informacja.Informacja(PF_Gabinet_Powiadomienia.c_Wizyta_NieZaznaczono);
             }
             return czyZaznaczonaWizyta;
+        }
+
+        private void pgWizytyEwidencja_Loaded(object sender, RoutedEventArgs e)
+        {
+            ZaladujDane();
         }
     }
 }

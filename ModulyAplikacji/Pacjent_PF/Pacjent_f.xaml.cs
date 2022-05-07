@@ -32,6 +32,7 @@ namespace MediStoma3._0.ModulyAplikacji.Pacjent_PF
                 edNazwisko.Text = pacjent_edycja.nazwisko.ToString();
                 edNazwiskoRodowe.Text = pacjent_edycja.nazwisko_pan.ToString();
                 edPesel.Text = pacjent_edycja.pesel.ToString();
+                edNrDokumentu.Text = pacjent_edycja.nr_dokumentu.ToString();
 
                 edUlica.Text = pacjent_edycja.ulica.ToString();
                 edNrDomu.Text = pacjent_edycja.nr_domu.ToString();

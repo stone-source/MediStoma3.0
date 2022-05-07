@@ -5,16 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MediStoma3._0.ModulyAplikacji.Gabinet_PF"
         mc:Ignorable="d"
-        Style="{DynamicResource stylOknaAplikacji}"
-        Title="NowaWizytaPacjent_f" Height="450" Width="800">
+        Style="{DynamicResource stylKolorOknaAplikacji}"
+        Title="Nowa wizyta dla pacjenta"
+        ResizeMode="NoResize" Width="350" Height="140" WindowStartupLocation="CenterScreen">
     <Grid>
         <DockPanel x:Name="pnlMain">
-            <DockPanel x:Name="pnlPrzyciskiAkcji" DockPanel.Dock="Bottom" LastChildFill="False">
+            <DockPanel x:Name="pnlPrzyciskiAkcji" DockPanel.Dock="Bottom" LastChildFill="False" Margin="0,12,0,0">
                 <Button x:Name="btnOK" Click="btnOK_Click" DockPanel.Dock="Right" Content="OK" Style="{DynamicResource stylMenuPrzyciskiAkcji}"/>
             </DockPanel>
             <DockPanel x:Name="pnlDanePacjenta" LastChildFill="False">
-                
-               
+                <Label x:Name="lblDlaJakiegoPacjenta" Content="Dla jakiego pacjenta jest wizyta: " FontFamily="Lato" DockPanel.Dock="Top"/>
+                <ComboBox x:Name="cmbPacjent" DockPanel.Dock="Top" Margin="3,0,3,0" FontFamily="Lato">
+                </ComboBox>
             </DockPanel>
         </DockPanel>
     </Grid>

@@ -44,7 +44,7 @@
     </Key>
     <Property Name="id_wiz" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="id_pac" Type="int" Nullable="false" />
-    <Property Name="id_pac_zatrzask" Type="int" Nullable="false" />
+    <Property Name="id_pac_zatrzask" Type="int" />
     <Property Name="status" Type="char" MaxLength="1" Nullable="false" />
     <Property Name="data_rezerwacji_wizyty" Type="datetime" Nullable="false" />
     <Property Name="data_anulowania_wizyty" Type="datetime" />
@@ -130,7 +130,7 @@ warning 6002: The table/view 'MEDISTOMA.dbo.v_wizyta' does not have a primary ke
     </ReferentialConstraint>
   </Association>
   <Association Name="fk_wizyta_pacjent_zatrzask">
-    <End Role="pacjent_zatrzask" Type="Self.pacjent_zatrzask" Multiplicity="1" />
+    <End Role="pacjent_zatrzask" Type="Self.pacjent_zatrzask" Multiplicity="0..1" />
     <End Role="wizyta" Type="Self.wizyta" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="pacjent_zatrzask">

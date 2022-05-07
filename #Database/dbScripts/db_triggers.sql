@@ -18,9 +18,9 @@ END;
 
 ----------------------------------------------------------------------------------------------
 
-DROP TRIGGER IF EXISTS trg_wizyta_ii;
-CREATE OR ALTER TRIGGER trg_wizyta_ii ON wizyta
-INSTEAD OF INSERT
+DROP TRIGGER IF EXISTS trg_wizyta_ai;
+CREATE OR ALTER TRIGGER trg_wizyta_ai ON wizyta
+AFTER INSERT
 AS
 BEGIN
     DECLARE
@@ -72,25 +72,13 @@ BEGIN
             inserted i ON pz.id_pac = i.id_pac;
     END;
 
-    INSERT INTO wizyta (
-        id_pac,
-        id_pac_zatrzask,
-        status,
-        data_rezerwacji_wizyty,
-        data_anulowania_wizyty,
-        data_rozpoczecia_wizyty,
-        data_zakonczenia_wizyty
-    )
-    SELECT
-        id_pac,
-        @zatrzaskIdPac,
-        status,
-        data_rezerwacji_wizyty,
-        data_anulowania_wizyty,
-        data_rozpoczecia_wizyty,
-        data_zakonczenia_wizyty
+    UPDATE wizyta
+    SET
+        id_pac_zatrzask = @zatrzaskIdPac
     FROM
-        inserted;
+        inserted i
+    WHERE
+        i.id_wiz = wizyta.id_wiz;
 END;
 
 ----------------------------------------------------------------------------------------------

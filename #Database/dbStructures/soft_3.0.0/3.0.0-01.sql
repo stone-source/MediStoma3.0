@@ -58,7 +58,7 @@ DROP TABLE IF EXISTS wizyta;
 CREATE TABLE wizyta (
     id_wiz INT IDENTITY(1,1) NOT NULL,
     id_pac INT NOT NULL,
-    id_pac_zatrzask INT NOT NULL,
+    id_pac_zatrzask INT,
     status CHAR(1) NOT NULL DEFAULT 'Z',
     data_rezerwacji_wizyty DATETIME NOT NULL DEFAULT GETDATE(),
     data_anulowania_wizyty DATETIME,

@@ -94,6 +94,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MediStomaModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="ModulyAplikacji\Gabinet_PF\NowaWizytaPacjent_f.xaml.cs">
+      <DependentUpon>NowaWizytaPacjent_f.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ModulyAplikacji\Gabinet_PF\PF_Gabinet_Funkcje.cs" />
     <Compile Include="ModulyAplikacji\Gabinet_PF\PF_Gabinet_Powiadomienia.cs" />
     <Compile Include="ModulyAplikacji\Gabinet_PF\PF_Gabinet_Stale.cs" />
@@ -121,6 +124,10 @@
     <Compile Include="wizyta.cs">
       <DependentUpon>MediStomaModel.tt</DependentUpon>
     </Compile>
+    <Page Include="ModulyAplikacji\Gabinet_PF\NowaWizytaPacjent_f.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ModulyAplikacji\Gabinet_PF\Wizyta_f.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

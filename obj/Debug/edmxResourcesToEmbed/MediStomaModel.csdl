@@ -27,11 +27,11 @@
     <EntitySet Name="v_pacjent" EntityType="MEDISTOMAModel.v_pacjent" />
     <EntitySet Name="v_wizyta" EntityType="MEDISTOMAModel.v_wizyta" />
     <EntitySet Name="pacjent_zatrzask" EntityType="MEDISTOMAModel.pacjent_zatrzask" />
-    <EntitySet Name="wizyta" EntityType="MEDISTOMAModel.wizyta" />
     <AssociationSet Name="fk_pacjent_zatrzask_pacjent" Association="MEDISTOMAModel.fk_pacjent_zatrzask_pacjent">
       <End Role="pacjent" EntitySet="pacjent" />
       <End Role="pacjent_zatrzask" EntitySet="pacjent_zatrzask" />
     </AssociationSet>
+    <EntitySet Name="wizyta" EntityType="MEDISTOMAModel.wizyta" />
     <AssociationSet Name="fk_wizyta_pacjent" Association="MEDISTOMAModel.fk_wizyta_pacjent">
       <End Role="pacjent" EntitySet="pacjent" />
       <End Role="wizyta" EntitySet="wizyta" />
@@ -111,21 +111,6 @@
     <NavigationProperty Name="pacjent" Relationship="MEDISTOMAModel.fk_pacjent_zatrzask_pacjent" FromRole="pacjent_zatrzask" ToRole="pacjent" />
     <NavigationProperty Name="wizyta" Relationship="MEDISTOMAModel.fk_wizyta_pacjent_zatrzask" FromRole="pacjent_zatrzask" ToRole="wizyta" />
   </EntityType>
-  <EntityType Name="wizyta">
-    <Key>
-      <PropertyRef Name="id_wiz" />
-    </Key>
-    <Property Name="id_wiz" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="id_pac" Type="Int32" Nullable="false" />
-    <Property Name="id_pac_zatrzask" Type="Int32" Nullable="false" />
-    <Property Name="status" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
-    <Property Name="data_rezerwacji_wizyty" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="data_anulowania_wizyty" Type="DateTime" Precision="3" />
-    <Property Name="data_rozpoczecia_wizyty" Type="DateTime" Precision="3" />
-    <Property Name="data_zakonczenia_wizyty" Type="DateTime" Precision="3" />
-    <NavigationProperty Name="pacjent" Relationship="MEDISTOMAModel.fk_wizyta_pacjent" FromRole="wizyta" ToRole="pacjent" />
-    <NavigationProperty Name="pacjent_zatrzask" Relationship="MEDISTOMAModel.fk_wizyta_pacjent_zatrzask" FromRole="wizyta" ToRole="pacjent_zatrzask" />
-  </EntityType>
   <Association Name="fk_pacjent_zatrzask_pacjent">
     <End Type="MEDISTOMAModel.pacjent" Role="pacjent" Multiplicity="1" />
     <End Type="MEDISTOMAModel.pacjent_zatrzask" Role="pacjent_zatrzask" Multiplicity="*" />
@@ -138,6 +123,21 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityType Name="wizyta">
+    <Key>
+      <PropertyRef Name="id_wiz" />
+    </Key>
+    <Property Name="id_wiz" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_pac" Type="Int32" Nullable="false" />
+    <Property Name="id_pac_zatrzask" Type="Int32" />
+    <Property Name="status" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="data_rezerwacji_wizyty" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="data_anulowania_wizyty" Type="DateTime" Precision="3" />
+    <Property Name="data_rozpoczecia_wizyty" Type="DateTime" Precision="3" />
+    <Property Name="data_zakonczenia_wizyty" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="pacjent" Relationship="MEDISTOMAModel.fk_wizyta_pacjent" FromRole="wizyta" ToRole="pacjent" />
+    <NavigationProperty Name="pacjent_zatrzask" Relationship="MEDISTOMAModel.fk_wizyta_pacjent_zatrzask" FromRole="wizyta" ToRole="pacjent_zatrzask" />
+  </EntityType>
   <Association Name="fk_wizyta_pacjent">
     <End Type="MEDISTOMAModel.pacjent" Role="pacjent" Multiplicity="1" />
     <End Type="MEDISTOMAModel.wizyta" Role="wizyta" Multiplicity="*" />
@@ -151,7 +151,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="fk_wizyta_pacjent_zatrzask">
-    <End Type="MEDISTOMAModel.pacjent_zatrzask" Role="pacjent_zatrzask" Multiplicity="1" />
+    <End Type="MEDISTOMAModel.pacjent_zatrzask" Role="pacjent_zatrzask" Multiplicity="0..1" />
     <End Type="MEDISTOMAModel.wizyta" Role="wizyta" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="pacjent_zatrzask">
