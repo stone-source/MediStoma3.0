@@ -34,6 +34,8 @@ namespace MediStoma3._0.ModulyAplikacji.Gabinet_PF
             if (Ogolne_Pytania.Pytanie(PF_Gabinet_Powiadomienia.c_Wizyta_CzyRozpoczac))
             {
                 ZmienStatusWizyty(p_entity, p_IdWizyty, PF_Gabinet_Stale.StatusWizyty.swWRealizacji);
+                Wizyta_f form = new Wizyta_f(p_IdWizyty, p_entity);
+                form.ShowDialog();
             }
         }
 

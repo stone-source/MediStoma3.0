@@ -1,14 +1,229 @@
-﻿<Page x:Class="MediStoma3._0.ModulyAplikacji.Gabinet_PF.Wizyta_f"
+﻿<Window x:Class="MediStoma3._0.ModulyAplikacji.Gabinet_PF.Wizyta_f"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:MediStoma3._0.ModulyAplikacji.Gabinet_PF"
-      mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="Wizyta_f">
+      mc:Ignorable="d"
+      Title="Wizyta_f"
+      Topmost="True"
+      Background="#FF495057"
+      WindowStartupLocation="CenterScreen"
+      Height="475" Width="850"
+      ResizeMode="NoResize" WindowStyle="SingleBorderWindow">
 
     <Grid>
-        
+        <DockPanel x:Name="pnlMain">
+            <StackPanel DockPanel.Dock="Bottom">
+                <TextBlock TextWrapping="Wrap" FontFamily="Lato" FontSize="18" Margin="12" Foreground="White" Height="100">
+                    W niniejszym oknie wyświetlane są aktualne dane pacjenta oraz dane pacjenta, które zostały zatrzaśnięte w trakcie tworzenia wizyty.
+                    Dowodzi to stwierdzeniu, że system wspomaga dokumentację medyczną pacjenta poprzez zapisanie danych, które miały mejsce w określonym czasie - w tym przypadku, w trakcie tworzenia wizyty.
+                </TextBlock>
+            </StackPanel>
+            <GroupBox x:Name="pnlDaneAktualne" DockPanel.Dock="Top" Header="Dane aktualne" FontFamily="Lato">
+                <DockPanel x:Name="pnlDanePacjenta" LastChildFill="False">
+                    <GroupBox x:Name="pnlDaneOgolne" Header="Dane ogólne" Width="400" DockPanel.Dock="Left" Style="{DynamicResource stylGrupowanieDanychPacjentaGroupBox}">
+                        <DockPanel x:Name="pnlKontrolkiDanychOgolnych" LastChildFill="False">
+                            <DockPanel x:Name="pnlImie" DockPanel.Dock="Top">
+                                <DockPanel x:Name="pnlKontrolkiImie" LastChildFill="False">
+                                    <TextBox x:Name="edImie" DockPanel.Dock="Right" MaxLength="100" Style="{DynamicResource stylKontrolkiDanychTextBox}" IsReadOnly="True"></TextBox>
+                                    <StackPanel x:Name="pnlEtykietaImie" Orientation="Horizontal">
+                                        <Label x:Name="lblImie" Content="Imię:" Style="{DynamicResource stylEtykietyDanychOgolnychLabel}"/>
+                                    </StackPanel>
+                                </DockPanel>
+                            </DockPanel>
+
+                            <DockPanel x:Name="pnlNazwisko" DockPanel.Dock="Top">
+                                <DockPanel x:Name="pnlKontrolkiNazwisko" LastChildFill="False">
+                                    <TextBox x:Name="edNazwisko" DockPanel.Dock="Right" MaxLength="100" Style="{DynamicResource stylKontrolkiDanychTextBox}" IsReadOnly="True"></TextBox>
+                                    <StackPanel x:Name="pnlEtykietaNazwisko" Orientation="Horizontal">
+                                        <Label x:Name="lblNazwisko" Content="Nazwisko:" Style="{DynamicResource stylEtykietyDanychOgolnychLabel}"/>
+                                    </StackPanel>
+                                </DockPanel>
+                            </DockPanel>
+
+                            <DockPanel x:Name="pnlNazwiskoRodowe" DockPanel.Dock="Top">
+                                <DockPanel x:Name="pnlKontrolkiNazwiskoRodowe" LastChildFill="False">
+                                    <TextBox x:Name="edNazwiskoRodowe" DockPanel.Dock="Right" MaxLength="50" Style="{DynamicResource stylKontrolkiDanychTextBox}" IsReadOnly="True"></TextBox>
+                                    <StackPanel x:Name="pnlEtykietaNazwiskoRodowe" Orientation="Horizontal">
+                                        <Label x:Name="lblNazwiskoRodowe" Content="Nazwisko rodowe:" Style="{DynamicResource stylEtykietyDanychOgolnychLabel}"/>
+                                        <Label x:Name="lblNazwiskoRodoweWymagalnosc" Content="" Style="{DynamicResource stylEtykietaWymaganeDane}"/>
+                                    </StackPanel>
+                                </DockPanel>
+                            </DockPanel>
+
+                            <DockPanel x:Name="pnlPesel" DockPanel.Dock="Top">
+                                <DockPanel x:Name="pnlKontrolkiPesel" LastChildFill="False">
+                                    <TextBox x:Name="edPesel" DockPanel.Dock="Right" MaxLength="11" Style="{DynamicResource stylKontrolkiDanychTextBox}" IsReadOnly="True"></TextBox>
+                                    <StackPanel x:Name="pnlEtykietaPesel" Orientation="Horizontal">
+                                        <Label x:Name="lblPesel" Content="PESEL:" Style="{DynamicResource stylEtykietyDanychOgolnychLabel}"/>
+                                    </StackPanel>
+                                </DockPanel>
+                            </DockPanel>
+
+                            <DockPanel x:Name="pnlNrDokumentu" DockPanel.Dock="Top">
+                                <DockPanel x:Name="pnlKontrolkiNrDokumentu" LastChildFill="False">
+                                    <TextBox x:Name="edNrDokumentu" DockPanel.Dock="Right" MaxLength="100" Style="{DynamicResource stylKontrolkiDanychTextBox}" IsReadOnly="True"></TextBox>
+                                    <StackPanel x:Name="pnlEtykietaNrDokumentu" Orientation="Horizontal">
+                                        <Label x:Name="lblNrDokumentu" Content="Nr dokumentu:" Style="{DynamicResource stylEtykietyDanychOgolnychLabel}"/>
+                                    </StackPanel>
+                                </DockPanel>
+                            </DockPanel>
+                        </DockPanel>
+                    </GroupBox>
+                    <GroupBox x:Name="pnlDaneAdresowe" Header="Dane adresowe" Width="400" DockPanel.Dock="Left" Style="{DynamicResource stylGrupowanieDanychPacjentaGroupBox}">
+                        <DockPanel x:Name="pnlKontrolkiDanychAdresowych" LastChildFill="False">
+
+                            <DockPanel x:Name="pnlUlica" DockPanel.Dock="Top">
+                                <DockPanel x:Name="pnlKontrolkiUlica" LastChildFill="False">
+                                    <TextBox x:Name="edUlica" DockPanel.Dock="Right" MaxLength="200" Style="{DynamicResource stylKontrolkiDanychTextBox}" IsReadOnly="True"></TextBox>
+                                    <StackPanel x:Name="pnlEtykietaUlica" Orientation="Horizontal">
+                                        <Label x:Name="lblUlica" Content="Ulica:" Style="{DynamicResource stylEtykietyDanychAdresowychLabel}"/>
+                                    </StackPanel>
+                                </DockPanel>
+                            </DockPanel>
+
+                            <DockPanel x:Name="pnlNrDomu" DockPanel.Dock="Top">
+                                <DockPanel x:Name="pnlKontrolkiNrDomu" LastChildFill="False">
+                                    <TextBox x:Name="edNrDomu" DockPanel.Dock="Right" MaxLength="10" Style="{DynamicResource stylKontrolkiDanychTextBox}" IsReadOnly="True"></TextBox>
+                                    <StackPanel x:Name="pnlEtykietaNrDomu" Orientation="Horizontal">
+                                        <Label x:Name="lblNrDomu" Content="Nr domu:" Style="{DynamicResource stylEtykietyDanychAdresowychLabel}"/>
+                                    </StackPanel>
+                                </DockPanel>
+                            </DockPanel>
+                            <DockPanel x:Name="pnlNrLokalu" DockPanel.Dock="Top">
+                                <DockPanel x:Name="pnlKontrolkiNrLokalu" LastChildFill="False">
+                                    <TextBox x:Name="edNrLokalu" DockPanel.Dock="Right" MaxLength="10" Style="{DynamicResource stylKontrolkiDanychTextBox}" IsReadOnly="True"/>
+                                    <StackPanel x:Name="pnlEtykietaNrLokalu" Orientation="Horizontal">
+                                        <Label x:Name="lblNrLokalu" Content="Nr lokalu:" Style="{DynamicResource stylEtykietyDanychAdresowychLabel}"/>
+                                        <Label x:Name="lblNrLokaluWymagalnosc" Content="" Style="{DynamicResource stylEtykietaWymaganeDane}"/>
+                                    </StackPanel>
+                                </DockPanel>
+                            </DockPanel>
+
+                            <DockPanel x:Name="pnlKodPocztowy" DockPanel.Dock="Top">
+                                <DockPanel x:Name="pnlKontrolkiKodPocztowy" LastChildFill="False">
+                                    <TextBox x:Name="edKodPocztowy" DockPanel.Dock="Right" MaxLength="10" Style="{DynamicResource stylKontrolkiDanychTextBox}" IsReadOnly="True"></TextBox>
+                                    <StackPanel x:Name="pnlEtykietaKodPocztowy" Orientation="Horizontal">
+                                        <Label x:Name="lblKodPocztowy" Content="Kod pocztowy:" Style="{DynamicResource stylEtykietyDanychAdresowychLabel}"/>
+                                    </StackPanel>
+                                </DockPanel>
+                            </DockPanel>
+
+                            <DockPanel x:Name="pnlMiasto" DockPanel.Dock="Top">
+                                <DockPanel x:Name="pnlKontrolkiMiasto" LastChildFill="False">
+                                    <TextBox x:Name="edMiasto" DockPanel.Dock="Right" MaxLength="100" Style="{DynamicResource stylKontrolkiDanychTextBox}" IsReadOnly="True"></TextBox>
+                                    <StackPanel x:Name="pnlEtykietaMiasto" Orientation="Horizontal">
+                                        <Label x:Name="lblMiasto" Content="Miasto:" Style="{DynamicResource stylEtykietyDanychAdresowychLabel}"/>
+                                    </StackPanel>
+                                </DockPanel>
+                            </DockPanel>
+                        </DockPanel>
+                    </GroupBox>
+                </DockPanel>
+            </GroupBox>
+            <GroupBox x:Name="pnlDaneZatrzasniete" DockPanel.Dock="Top" Header="Dane zatrzaśnięte" FontFamily="Lato">
+                <DockPanel x:Name="pnlDanePacjentaZatrzask" LastChildFill="False">
+                    <GroupBox x:Name="pnlDaneOgolneZatrzask" Header="Dane ogólne" Width="400" DockPanel.Dock="Left" Style="{DynamicResource stylGrupowanieDanychPacjentaGroupBox}">
+                        <DockPanel x:Name="pnlKontrolkiDanychOgolnychZatrzask" LastChildFill="False">
+                            <DockPanel x:Name="pnlImieZatrzask" DockPanel.Dock="Top">
+                                <DockPanel x:Name="pnlKontrolkiImieZatrzask" LastChildFill="False">
+                                    <TextBox x:Name="edImieZatrzask" DockPanel.Dock="Right" MaxLength="100" Style="{DynamicResource stylKontrolkiDanychTextBox}" IsReadOnly="True"></TextBox>
+                                    <StackPanel x:Name="pnlEtykietaImieZatrzask" Orientation="Horizontal">
+                                        <Label x:Name="lblImieZatrzask" Content="Imię:" Style="{DynamicResource stylEtykietyDanychOgolnychLabel}"/>
+                                    </StackPanel>
+                                </DockPanel>
+                            </DockPanel>
+
+                            <DockPanel x:Name="pnlNazwiskoZatrzask" DockPanel.Dock="Top">
+                                <DockPanel x:Name="pnlKontrolkiNazwiskoZatrzask" LastChildFill="False">
+                                    <TextBox x:Name="edNazwiskoZatrzask" DockPanel.Dock="Right" MaxLength="100" Style="{DynamicResource stylKontrolkiDanychTextBox}" IsReadOnly="True"></TextBox>
+                                    <StackPanel x:Name="pnlEtykietaNazwiskoZatrzask" Orientation="Horizontal">
+                                        <Label x:Name="lblNazwiskoZatrzask" Content="Nazwisko:" Style="{DynamicResource stylEtykietyDanychOgolnychLabel}"/>
+                                    </StackPanel>
+                                </DockPanel>
+                            </DockPanel>
+
+                            <DockPanel x:Name="pnlNazwiskoRodoweZatrzask" DockPanel.Dock="Top">
+                                <DockPanel x:Name="pnlKontrolkiNazwiskoRodoweZatrzask" LastChildFill="False">
+                                    <TextBox x:Name="edNazwiskoRodoweZatrzask" DockPanel.Dock="Right" MaxLength="50" Style="{DynamicResource stylKontrolkiDanychTextBox}" IsReadOnly="True"></TextBox>
+                                    <StackPanel x:Name="pnlEtykietaNazwiskoRodoweZatrzask" Orientation="Horizontal">
+                                        <Label x:Name="lblNazwiskoRodoweZatrzask" Content="Nazwisko rodowe:" Style="{DynamicResource stylEtykietyDanychOgolnychLabel}"/>
+                                        <Label x:Name="lblNazwiskoRodoweWymagalnoscZatrzask" Content="" Style="{DynamicResource stylEtykietaWymaganeDane}"/>
+                                    </StackPanel>
+                                </DockPanel>
+                            </DockPanel>
+
+                            <DockPanel x:Name="pnlPeselZatrzask" DockPanel.Dock="Top">
+                                <DockPanel x:Name="pnlKontrolkiPeselZatrzask" LastChildFill="False">
+                                    <TextBox x:Name="edPeselZatrzask" DockPanel.Dock="Right" MaxLength="11" Style="{DynamicResource stylKontrolkiDanychTextBox}" IsReadOnly="True"></TextBox>
+                                    <StackPanel x:Name="pnlEtykietaPeselZatrzask" Orientation="Horizontal">
+                                        <Label x:Name="lblPeselZatrzask" Content="PESEL:" Style="{DynamicResource stylEtykietyDanychOgolnychLabel}"/>
+                                    </StackPanel>
+                                </DockPanel>
+                            </DockPanel>
+
+                            <DockPanel x:Name="pnlNrDokumentuZatrzask" DockPanel.Dock="Top">
+                                <DockPanel x:Name="pnlKontrolkiNrDokumentuZatrzask" LastChildFill="False">
+                                    <TextBox x:Name="edNrDokumentuZatrzask" DockPanel.Dock="Right" MaxLength="100" Style="{DynamicResource stylKontrolkiDanychTextBox}" IsReadOnly="True"></TextBox>
+                                    <StackPanel x:Name="pnlEtykietaNrDokumentuZatrzask" Orientation="Horizontal">
+                                        <Label x:Name="lblNrDokumentuZatrzask" Content="Nr dokumentu:" Style="{DynamicResource stylEtykietyDanychOgolnychLabel}"/>
+                                    </StackPanel>
+                                </DockPanel>
+                            </DockPanel>
+                        </DockPanel>
+                    </GroupBox>
+                    <GroupBox x:Name="pnlDaneAdresoweZatrzask" Header="Dane adresowe" Width="400" DockPanel.Dock="Left" Style="{DynamicResource stylGrupowanieDanychPacjentaGroupBox}">
+                        <DockPanel x:Name="pnlKontrolkiDanychAdresowychZatrzask" LastChildFill="False">
+
+                            <DockPanel x:Name="pnlUlicaZatrzask" DockPanel.Dock="Top">
+                                <DockPanel x:Name="pnlKontrolkiUlicaZatrzask" LastChildFill="False">
+                                    <TextBox x:Name="edUlicaZatrzask" DockPanel.Dock="Right" MaxLength="200" Style="{DynamicResource stylKontrolkiDanychTextBox}" IsReadOnly="True"></TextBox>
+                                    <StackPanel x:Name="pnlEtykietaUlicaZatrzask" Orientation="Horizontal">
+                                        <Label x:Name="lblUlicaZatrzask" Content="Ulica:" Style="{DynamicResource stylEtykietyDanychAdresowychLabel}"/>
+                                    </StackPanel>
+                                </DockPanel>
+                            </DockPanel>
+
+                            <DockPanel x:Name="pnlNrDomuZatrzask" DockPanel.Dock="Top">
+                                <DockPanel x:Name="pnlKontrolkiNrDomuZatrzask" LastChildFill="False">
+                                    <TextBox x:Name="edNrDomuZatrzask" DockPanel.Dock="Right" MaxLength="10" Style="{DynamicResource stylKontrolkiDanychTextBox}" IsReadOnly="True"></TextBox>
+                                    <StackPanel x:Name="pnlEtykietaNrDomuZatrzask" Orientation="Horizontal">
+                                        <Label x:Name="lblNrDomuZatrzask" Content="Nr domu:" Style="{DynamicResource stylEtykietyDanychAdresowychLabel}"/>
+                                    </StackPanel>
+                                </DockPanel>
+                            </DockPanel>
+                            <DockPanel x:Name="pnlNrLokaluZatrzask" DockPanel.Dock="Top">
+                                <DockPanel x:Name="pnlKontrolkiNrLokaluZatrzask" LastChildFill="False">
+                                    <TextBox x:Name="edNrLokaluZatrzask" DockPanel.Dock="Right" MaxLength="10" Style="{DynamicResource stylKontrolkiDanychTextBox}" IsReadOnly="True"/>
+                                    <StackPanel x:Name="pnlEtykietaNrLokaluZatrzask" Orientation="Horizontal">
+                                        <Label x:Name="lblNrLokaluZatrzask" Content="Nr lokalu:" Style="{DynamicResource stylEtykietyDanychAdresowychLabel}"/>
+                                        <Label x:Name="lblNrLokaluWymagalnoscZatrzask" Content="" Style="{DynamicResource stylEtykietaWymaganeDane}"/>
+                                    </StackPanel>
+                                </DockPanel>
+                            </DockPanel>
+
+                            <DockPanel x:Name="pnlKodPocztowyZatrzask" DockPanel.Dock="Top">
+                                <DockPanel x:Name="pnlKontrolkiKodPocztowyZatrzask" LastChildFill="False">
+                                    <TextBox x:Name="edKodPocztowyZatrzask" DockPanel.Dock="Right" MaxLength="10" Style="{DynamicResource stylKontrolkiDanychTextBox}" IsReadOnly="True"></TextBox>
+                                    <StackPanel x:Name="pnlEtykietaKodPocztowyZatrzask" Orientation="Horizontal">
+                                        <Label x:Name="lblKodPocztowyZatrzask" Content="Kod pocztowy:" Style="{DynamicResource stylEtykietyDanychAdresowychLabel}"/>
+                                    </StackPanel>
+                                </DockPanel>
+                            </DockPanel>
+
+                            <DockPanel x:Name="pnlMiastoZatrzask" DockPanel.Dock="Top">
+                                <DockPanel x:Name="pnlKontrolkiMiastoZatrzask" LastChildFill="False">
+                                    <TextBox x:Name="edMiastoZatrzask" DockPanel.Dock="Right" MaxLength="100" Style="{DynamicResource stylKontrolkiDanychTextBox}" IsReadOnly="True"></TextBox>
+                                    <StackPanel x:Name="pnlEtykietaMiastoZatrzask" Orientation="Horizontal">
+                                        <Label x:Name="lblMiastoZatrzask" Content="Miasto:" Style="{DynamicResource stylEtykietyDanychAdresowychLabel}"/>
+                                    </StackPanel>
+                                </DockPanel>
+                            </DockPanel>
+                        </DockPanel>
+                    </GroupBox>
+                </DockPanel>
+            </GroupBox>
+        </DockPanel>
     </Grid>
-</Page>
+</Window>
