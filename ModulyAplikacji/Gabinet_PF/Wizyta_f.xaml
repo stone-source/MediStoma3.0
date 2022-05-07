@@ -9,13 +9,13 @@
       Topmost="True"
       Background="#FF495057"
       WindowStartupLocation="CenterScreen"
-      Height="475" Width="850"
+      Height="504" Width="850"
       ResizeMode="NoResize" WindowStyle="SingleBorderWindow">
 
     <Grid>
         <DockPanel x:Name="pnlMain">
-            <StackPanel DockPanel.Dock="Bottom">
-                <TextBlock TextWrapping="Wrap" FontFamily="Lato" FontSize="18" Margin="12" Foreground="White" Height="100">
+            <StackPanel x:Name="pnlInformacjaOZatrzasnieciu" DockPanel.Dock="Bottom">
+                <TextBlock x:Name="lblInformacja" TextWrapping="Wrap" FontFamily="Lato" FontSize="18" Margin="12" Foreground="White" Height="100">
                     W niniejszym oknie wyświetlane są aktualne dane pacjenta oraz dane pacjenta, które zostały zatrzaśnięte w trakcie tworzenia wizyty.
                     Dowodzi to stwierdzeniu, że system wspomaga dokumentację medyczną pacjenta poprzez zapisanie danych, które miały mejsce w określonym czasie - w tym przypadku, w trakcie tworzenia wizyty.
                 </TextBlock>
