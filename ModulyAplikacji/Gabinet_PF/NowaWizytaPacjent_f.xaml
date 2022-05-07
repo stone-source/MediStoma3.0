@@ -1,0 +1,21 @@
+﻿<Window x:Class="MediStoma3._0.ModulyAplikacji.Gabinet_PF.NowaWizytaPacjent_f"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MediStoma3._0.ModulyAplikacji.Gabinet_PF"
+        mc:Ignorable="d"
+        Style="{DynamicResource stylOknaAplikacji}"
+        Title="NowaWizytaPacjent_f" Height="450" Width="800">
+    <Grid>
+        <DockPanel x:Name="pnlMain">
+            <DockPanel x:Name="pnlPrzyciskiAkcji" DockPanel.Dock="Bottom" LastChildFill="False">
+                <Button x:Name="btnOK" Click="btnOK_Click" DockPanel.Dock="Right" Content="OK" Style="{DynamicResource stylMenuPrzyciskiAkcji}"/>
+            </DockPanel>
+            <DockPanel x:Name="pnlDanePacjenta" LastChildFill="False">
+                
+               
+            </DockPanel>
+        </DockPanel>
+    </Grid>
+</Window>

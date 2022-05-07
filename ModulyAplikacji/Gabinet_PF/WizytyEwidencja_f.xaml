@@ -13,6 +13,7 @@
         <DockPanel x:Name="pnlPodzialSekcji">
             <StackPanel x:Name="pnlPrzyciskiMenu" Orientation="Horizontal" DockPanel.Dock="Bottom" Background="#6c757d">
                 <Button x:Name="btnDodaj" Click="btnDodaj_Click" Style="{StaticResource stylMenuPrzyciskiAkcji}">Dodaj</Button>
+                <Button x:Name="btnDane" Click="btnDane_Click" Style="{StaticResource stylMenuPrzyciskiAkcji}">Dane</Button>
                 <Button x:Name="btnUsun" Click="btnUsun_Click" Style="{StaticResource stylMenuPrzyciskiAkcji}">Usuń</Button>
                 <Button x:Name="btnRealizuj" Click="btnRealizuj_Click" Style="{StaticResource stylMenuPrzyciskiAkcji}">Realizuj</Button>
                 <Button x:Name="btnAnuluj" Click="btnAnuluj_Click" Style="{StaticResource stylMenuPrzyciskiAkcji}">Anuluj</Button>

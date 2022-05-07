@@ -39,6 +39,15 @@ namespace MediStoma3._0.ModulyAplikacji.Gabinet_PF
 
         }
 
+        private void btnDane_Click(object sender, RoutedEventArgs e)
+        {
+            if (SprawdzCzyZaznaczonoWizyte())
+            {
+                Wizyta_f form = new Wizyta_f(_aktualnaWizyta.id_wiz, _MSEntities);
+                form.ShowDialog();
+            }
+        }
+
         private void btnUsun_Click(object sender, RoutedEventArgs e)
         {
             if (SprawdzCzyZaznaczonoWizyte())
