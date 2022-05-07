@@ -66,6 +66,25 @@ namespace MediStoma3._0.ModulyAplikacji.Gabinet_PF
                 if (wiz_zmiana != null)
                 {
                     wiz_zmiana.status = PF_Gabinet_Stale.StatusyWizyty[(int)p_StatusWizyty];
+                    switch (p_StatusWizyty)
+                    {
+                        case PF_Gabinet_Stale.StatusWizyty.swZarezerwowana:
+                            wiz_zmiana.data_rezerwacji_wizyty = DateTime.Now;
+                            break;
+                        case PF_Gabinet_Stale.StatusWizyty.swWRealizacji:
+                            wiz_zmiana.data_rozpoczecia_wizyty = DateTime.Now;
+                            break;
+                        case PF_Gabinet_Stale.StatusWizyty.swAnulowana:
+                            wiz_zmiana.data_anulowania_wizyty = DateTime.Now;
+                            break;
+                        case PF_Gabinet_Stale.StatusWizyty.swZakonczona:
+                            wiz_zmiana.data_zakonczenia_wizyty = DateTime.Now;
+                            break;
+                        default:
+                            break;
+                    }
+
+
                     p_entity.SaveChanges();
                 }
             }

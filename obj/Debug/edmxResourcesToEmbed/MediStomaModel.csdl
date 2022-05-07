@@ -43,7 +43,7 @@
   </EntityContainer>
   <EntityType Name="v_pacjent">
     <Key>
-      <PropertyRef Name="id_pac" />
+      <PropertyRef Name="imie_nazwisko" />
     </Key>
     <Property Name="id_pac" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="imie_nazwisko" Type="String" Nullable="false" MaxLength="201" FixedLength="false" Unicode="true" />

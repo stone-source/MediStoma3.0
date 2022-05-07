@@ -60,15 +60,7 @@
 warning 6002: The table/view 'MEDISTOMA.dbo.v_pacjent' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="v_pacjent">
           <Key>
-            <PropertyRef Name="id_pac" />
-            
-            
-            
-            
-            
-            
-            
-            
+            <PropertyRef Name="imie_nazwisko" />
           </Key>
           <Property Name="id_pac" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="imie_nazwisko" Type="nvarchar" MaxLength="201" Nullable="false" />
@@ -86,28 +78,6 @@ warning 6002: The table/view 'MEDISTOMA.dbo.v_wizyta' does not have a primary ke
         <EntityType Name="v_wizyta">
           <Key>
             <PropertyRef Name="imie_nazwisko" />
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
           </Key>
           <Property Name="imie_nazwisko" Type="nvarchar" MaxLength="201" Nullable="false" />
           <Property Name="nazwisko" Type="nvarchar" MaxLength="100" Nullable="false" />
@@ -288,7 +258,7 @@ warning 6002: The table/view 'MEDISTOMA.dbo.v_wizyta' does not have a primary ke
           </EntityContainer>
         <EntityType Name="v_pacjent">
           <Key>
-            <PropertyRef Name="id_pac" />
+            <PropertyRef Name="imie_nazwisko" />
           </Key>
           <Property Name="id_pac" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="imie_nazwisko" Type="String" Nullable="false" MaxLength="201" FixedLength="false" Unicode="true" />

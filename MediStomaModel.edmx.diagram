@@ -6,7 +6,7 @@
     <edmx:Diagrams>
       <Diagram DiagramId="a34d9386da094136b4213c26111ccd7c" Name="Diagram1">
         <EntityTypeShape EntityType="MEDISTOMAModel.pacjent" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="MEDISTOMAModel.v_pacjent" Width="1.5" PointX="6.75" PointY="0.625" />
+        <EntityTypeShape EntityType="MEDISTOMAModel.v_pacjent" Width="1.5" PointX="6.25" PointY="0.625" />
         <EntityTypeShape EntityType="MEDISTOMAModel.v_wizyta" Width="1.5" PointX="8.375" PointY="0.625" />
         <EntityTypeShape EntityType="MEDISTOMAModel.pacjent_zatrzask" Width="1.5" PointX="2.625" PointY="4.375" />
         <AssociationConnector Association="MEDISTOMAModel.fk_pacjent_zatrzask_pacjent" />

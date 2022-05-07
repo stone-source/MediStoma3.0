@@ -12,9 +12,9 @@
     <Grid x:Name="pnlMain">
         <DockPanel x:Name="pnlPodzialSekcji">
             <StackPanel x:Name="pnlPrzyciskiMenu" Orientation="Horizontal" DockPanel.Dock="Bottom" Background="#6c757d">
-                <Button x:Name="btnDodaj" Click="btnDodaj_Click" Style="{StaticResource stylMenuPrzyciskiAkcji}">Dodaj</Button>
-                <Button x:Name="btnDane" Click="btnDane_Click"  Style="{StaticResource stylMenuPrzyciskiAkcji}">Dane</Button>
-                <Button x:Name="btnUsun" Click="btnUsun_Click"  Style="{StaticResource stylMenuPrzyciskiAkcji}">Usuń</Button>
+                <Button x:Name="btnDodaj" Click="btnDodaj_Click" Style="{StaticResource stylMenuPrzyciskiAkcji}">Nowy pacjent</Button>
+                <Button x:Name="btnDane" Click="btnDane_Click"  Style="{StaticResource stylMenuPrzyciskiAkcji}">Dane pacjenta</Button>
+                <Button x:Name="btnUsun" Click="btnUsun_Click"  Style="{StaticResource stylMenuPrzyciskiAkcji}">Usuń pacjenta</Button>
             </StackPanel>
             <StackPanel x:Name="pnlTytulFormatki" Orientation="Horizontal" DockPanel.Dock="Top" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <Label x:Name="lblTytulFormatki">Kartoteka</Label>

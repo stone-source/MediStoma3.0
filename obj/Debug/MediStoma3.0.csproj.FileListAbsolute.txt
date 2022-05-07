@@ -1,3 +1,10 @@
+C:\Users\Sebastian\Documents\Repozytoria\GIT\MediStoma3.0\bin\Debug\MediStoma3.0.exe.config
+C:\Users\Sebastian\Documents\Repozytoria\GIT\MediStoma3.0\bin\Debug\MediStoma3.0.exe
+C:\Users\Sebastian\Documents\Repozytoria\GIT\MediStoma3.0\bin\Debug\MediStoma3.0.pdb
+C:\Users\Sebastian\Documents\Repozytoria\GIT\MediStoma3.0\bin\Debug\EntityFramework.dll
+C:\Users\Sebastian\Documents\Repozytoria\GIT\MediStoma3.0\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Sebastian\Documents\Repozytoria\GIT\MediStoma3.0\bin\Debug\EntityFramework.xml
+C:\Users\Sebastian\Documents\Repozytoria\GIT\MediStoma3.0\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\Sebastian\Documents\Repozytoria\GIT\MediStoma3.0\obj\Debug\MediStoma3.0.csproj.AssemblyReference.cache
 C:\Users\Sebastian\Documents\Repozytoria\GIT\MediStoma3.0\obj\Debug\MediStoma3.0.csproj.SuggestedBindingRedirects.cache
 C:\Users\Sebastian\Documents\Repozytoria\GIT\MediStoma3.0\obj\Debug\ModulyAplikacji\Gabinet_PF\NowaWizytaPacjent_f.g.cs
@@ -12,13 +19,6 @@ C:\Users\Sebastian\Documents\Repozytoria\GIT\MediStoma3.0\obj\Debug\App.g.cs
 C:\Users\Sebastian\Documents\Repozytoria\GIT\MediStoma3.0\obj\Debug\MediStoma3.0_Content.g.cs
 C:\Users\Sebastian\Documents\Repozytoria\GIT\MediStoma3.0\obj\Debug\MediStoma3.0_MarkupCompile.cache
 C:\Users\Sebastian\Documents\Repozytoria\GIT\MediStoma3.0\obj\Debug\MediStoma3.0_MarkupCompile.lref
-C:\Users\Sebastian\Documents\Repozytoria\GIT\MediStoma3.0\bin\Debug\MediStoma3.0.exe.config
-C:\Users\Sebastian\Documents\Repozytoria\GIT\MediStoma3.0\bin\Debug\MediStoma3.0.exe
-C:\Users\Sebastian\Documents\Repozytoria\GIT\MediStoma3.0\bin\Debug\MediStoma3.0.pdb
-C:\Users\Sebastian\Documents\Repozytoria\GIT\MediStoma3.0\bin\Debug\EntityFramework.dll
-C:\Users\Sebastian\Documents\Repozytoria\GIT\MediStoma3.0\bin\Debug\EntityFramework.SqlServer.dll
-C:\Users\Sebastian\Documents\Repozytoria\GIT\MediStoma3.0\bin\Debug\EntityFramework.xml
-C:\Users\Sebastian\Documents\Repozytoria\GIT\MediStoma3.0\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\Sebastian\Documents\Repozytoria\GIT\MediStoma3.0\obj\Debug\App.baml
 C:\Users\Sebastian\Documents\Repozytoria\GIT\MediStoma3.0\obj\Debug\ModulyAplikacji\Gabinet_PF\NowaWizytaPacjent_f.baml
 C:\Users\Sebastian\Documents\Repozytoria\GIT\MediStoma3.0\obj\Debug\ModulyAplikacji\Gabinet_PF\Wizyta_f.baml
