@@ -25,6 +25,24 @@
           <Property Name="wpis_data_aktualizacji" Type="datetime" Nullable="false" />
           <Property Name="wpis_czy_aktualny" Type="bit" Nullable="false" />
         </EntityType>
+        <EntityType Name="pacjent_zatrzask">
+          <Key>
+            <PropertyRef Name="id_pac_zatrzask" />
+          </Key>
+          <Property Name="id_pac_zatrzask" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_pac" Type="int" Nullable="false" />
+          <Property Name="nazwisko" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="nazwisko_pan" Type="nvarchar" MaxLength="50" />
+          <Property Name="imie" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="pesel" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="plec" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="nr_dokumentu" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="miasto" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="kod_poczt" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="ulica" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="nr_domu" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="nr_lokalu" Type="varchar" MaxLength="10" />
+        </EntityType>
         <EntityType Name="wizyta">
           <Key>
             <PropertyRef Name="id_wiz" />
@@ -68,6 +86,28 @@ warning 6002: The table/view 'MEDISTOMA.dbo.v_wizyta' does not have a primary ke
         <EntityType Name="v_wizyta">
           <Key>
             <PropertyRef Name="imie_nazwisko" />
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
           </Key>
           <Property Name="imie_nazwisko" Type="nvarchar" MaxLength="201" Nullable="false" />
           <Property Name="nazwisko" Type="nvarchar" MaxLength="100" Nullable="false" />
@@ -93,12 +133,25 @@ warning 6002: The table/view 'MEDISTOMA.dbo.v_wizyta' does not have a primary ke
           <Property Name="ulica_zatrzask" Type="nvarchar" MaxLength="200" Nullable="false" />
           <Property Name="nr_domu_zatrzask" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="nr_lokalu_zatrzask" Type="varchar" MaxLength="10" />
+          <Property Name="id_wiz" Type="int" Nullable="false" />
           <Property Name="status_wizyty" Type="varchar" MaxLength="13" Nullable="false" />
           <Property Name="data_rezerwacji_wizyty" Type="datetime" Nullable="false" />
           <Property Name="data_anulowania_wizyty" Type="datetime" />
           <Property Name="data_rozpoczecia_wizyty" Type="datetime" />
           <Property Name="data_zakonczenia_wizyty" Type="datetime" />
         </EntityType>
+        <Association Name="fk_pacjent_zatrzask_pacjent">
+          <End Role="pacjent" Type="Self.pacjent" Multiplicity="1" />
+          <End Role="pacjent_zatrzask" Type="Self.pacjent_zatrzask" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pacjent">
+              <PropertyRef Name="id_pac" />
+            </Principal>
+            <Dependent Role="pacjent_zatrzask">
+              <PropertyRef Name="id_pac" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="fk_wizyta_pacjent">
           <End Role="pacjent" Type="Self.pacjent" Multiplicity="1" />
           <End Role="wizyta" Type="Self.wizyta" Multiplicity="*" />
@@ -111,8 +164,21 @@ warning 6002: The table/view 'MEDISTOMA.dbo.v_wizyta' does not have a primary ke
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="fk_wizyta_pacjent_zatrzask">
+          <End Role="pacjent_zatrzask" Type="Self.pacjent_zatrzask" Multiplicity="1" />
+          <End Role="wizyta" Type="Self.wizyta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pacjent_zatrzask">
+              <PropertyRef Name="id_pac_zatrzask" />
+            </Principal>
+            <Dependent Role="wizyta">
+              <PropertyRef Name="id_pac_zatrzask" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="MEDISTOMAModelStoreContainer">
           <EntitySet Name="pacjent" EntityType="Self.pacjent" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="pacjent_zatrzask" EntityType="Self.pacjent_zatrzask" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="wizyta" EntityType="Self.wizyta" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="v_pacjent" EntityType="Self.v_pacjent" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -154,6 +220,7 @@ warning 6002: The table/view 'MEDISTOMA.dbo.v_wizyta' does not have a primary ke
     [v_wizyta].[ulica_zatrzask] AS [ulica_zatrzask], 
     [v_wizyta].[nr_domu_zatrzask] AS [nr_domu_zatrzask], 
     [v_wizyta].[nr_lokalu_zatrzask] AS [nr_lokalu_zatrzask], 
+    [v_wizyta].[id_wiz] AS [id_wiz], 
     [v_wizyta].[status_wizyty] AS [status_wizyty], 
     [v_wizyta].[data_rezerwacji_wizyty] AS [data_rezerwacji_wizyty], 
     [v_wizyta].[data_anulowania_wizyty] AS [data_anulowania_wizyty], 
@@ -161,8 +228,16 @@ warning 6002: The table/view 'MEDISTOMA.dbo.v_wizyta' does not have a primary ke
     [v_wizyta].[data_zakonczenia_wizyty] AS [data_zakonczenia_wizyty]
     FROM [dbo].[v_wizyta] AS [v_wizyta]</DefiningQuery>
           </EntitySet>
+          <AssociationSet Name="fk_pacjent_zatrzask_pacjent" Association="Self.fk_pacjent_zatrzask_pacjent">
+            <End Role="pacjent" EntitySet="pacjent" />
+            <End Role="pacjent_zatrzask" EntitySet="pacjent_zatrzask" />
+          </AssociationSet>
           <AssociationSet Name="fk_wizyta_pacjent" Association="Self.fk_wizyta_pacjent">
             <End Role="pacjent" EntitySet="pacjent" />
+            <End Role="wizyta" EntitySet="wizyta" />
+          </AssociationSet>
+          <AssociationSet Name="fk_wizyta_pacjent_zatrzask" Association="Self.fk_wizyta_pacjent_zatrzask">
+            <End Role="pacjent_zatrzask" EntitySet="pacjent_zatrzask" />
             <End Role="wizyta" EntitySet="wizyta" />
           </AssociationSet>
         </EntityContainer>
@@ -189,43 +264,27 @@ warning 6002: The table/view 'MEDISTOMA.dbo.v_wizyta' does not have a primary ke
           <Property Name="wpis_data_dodania" Type="DateTime" Precision="3" Nullable="false" />
           <Property Name="wpis_data_aktualizacji" Type="DateTime" Precision="3" Nullable="false" />
           <Property Name="wpis_czy_aktualny" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="wizyta" Relationship="Self.fk_wizyta_pacjent" FromRole="pacjent" ToRole="wizyta" />
+          <NavigationProperty Name="pacjent_zatrzask" Relationship="MEDISTOMAModel.fk_pacjent_zatrzask_pacjent" FromRole="pacjent" ToRole="pacjent_zatrzask" />
+          <NavigationProperty Name="wizyta" Relationship="MEDISTOMAModel.fk_wizyta_pacjent" FromRole="pacjent" ToRole="wizyta" />
         </EntityType>
-        <EntityType Name="wizyta">
-          <Key>
-            <PropertyRef Name="id_wiz" />
-          </Key>
-          <Property Name="id_wiz" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="id_pac" Type="Int32" Nullable="false" />
-          <Property Name="id_pac_zatrzask" Type="Int32" Nullable="false" />
-          <Property Name="status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="data_rezerwacji_wizyty" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="data_anulowania_wizyty" Type="DateTime" Precision="3" />
-          <Property Name="data_rozpoczecia_wizyty" Type="DateTime" Precision="3" />
-          <Property Name="data_zakonczenia_wizyty" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="pacjent" Relationship="Self.fk_wizyta_pacjent" FromRole="wizyta" ToRole="pacjent" />
-        </EntityType>
-        <Association Name="fk_wizyta_pacjent">
-          <End Role="pacjent" Type="Self.pacjent" Multiplicity="1" />
-          <End Role="wizyta" Type="Self.wizyta" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="pacjent">
-              <PropertyRef Name="id_pac" />
-            </Principal>
-            <Dependent Role="wizyta">
-              <PropertyRef Name="id_pac" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="MEDISTOMAEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="pacjent" EntityType="Self.pacjent" />
-          <EntitySet Name="wizyta" EntityType="Self.wizyta" />
-          <AssociationSet Name="fk_wizyta_pacjent" Association="Self.fk_wizyta_pacjent">
+          <EntitySet Name="v_pacjent" EntityType="MEDISTOMAModel.v_pacjent" />
+          <EntitySet Name="v_wizyta" EntityType="MEDISTOMAModel.v_wizyta" />
+          <EntitySet Name="pacjent_zatrzask" EntityType="MEDISTOMAModel.pacjent_zatrzask" />
+          <EntitySet Name="wizyta" EntityType="MEDISTOMAModel.wizyta" />
+          <AssociationSet Name="fk_pacjent_zatrzask_pacjent" Association="MEDISTOMAModel.fk_pacjent_zatrzask_pacjent">
+            <End Role="pacjent" EntitySet="pacjent" />
+            <End Role="pacjent_zatrzask" EntitySet="pacjent_zatrzask" />
+          </AssociationSet>
+          <AssociationSet Name="fk_wizyta_pacjent" Association="MEDISTOMAModel.fk_wizyta_pacjent">
             <End Role="pacjent" EntitySet="pacjent" />
             <End Role="wizyta" EntitySet="wizyta" />
           </AssociationSet>
-          <EntitySet Name="v_pacjent" EntityType="MEDISTOMAModel.v_pacjent" />
-          <EntitySet Name="v_wizyta" EntityType="MEDISTOMAModel.v_wizyta" />
+          <AssociationSet Name="fk_wizyta_pacjent_zatrzask" Association="MEDISTOMAModel.fk_wizyta_pacjent_zatrzask">
+            <End Role="pacjent_zatrzask" EntitySet="pacjent_zatrzask" />
+            <End Role="wizyta" EntitySet="wizyta" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="v_pacjent">
           <Key>
@@ -270,12 +329,84 @@ warning 6002: The table/view 'MEDISTOMA.dbo.v_wizyta' does not have a primary ke
           <Property Name="ulica_zatrzask" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="nr_domu_zatrzask" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="nr_lokalu_zatrzask" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="id_wiz" Type="Int32" Nullable="false" />
           <Property Name="status_wizyty" Type="String" Nullable="false" MaxLength="13" FixedLength="false" Unicode="false" />
           <Property Name="data_rezerwacji_wizyty" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="data_anulowania_wizyty" Type="DateTime" Precision="3" />
           <Property Name="data_rozpoczecia_wizyty" Type="DateTime" Precision="3" />
           <Property Name="data_zakonczenia_wizyty" Type="DateTime" Precision="3" />
         </EntityType>
+        <EntityType Name="pacjent_zatrzask">
+          <Key>
+            <PropertyRef Name="id_pac_zatrzask" />
+          </Key>
+          <Property Name="id_pac_zatrzask" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_pac" Type="Int32" Nullable="false" />
+          <Property Name="nazwisko" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="nazwisko_pan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="imie" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="pesel" Type="String" Nullable="false" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="plec" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="nr_dokumentu" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="miasto" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="kod_poczt" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="ulica" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="nr_domu" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="nr_lokalu" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="pacjent" Relationship="MEDISTOMAModel.fk_pacjent_zatrzask_pacjent" FromRole="pacjent_zatrzask" ToRole="pacjent" />
+          <NavigationProperty Name="wizyta" Relationship="MEDISTOMAModel.fk_wizyta_pacjent_zatrzask" FromRole="pacjent_zatrzask" ToRole="wizyta" />
+        </EntityType>
+        <EntityType Name="wizyta">
+          <Key>
+            <PropertyRef Name="id_wiz" />
+          </Key>
+          <Property Name="id_wiz" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_pac" Type="Int32" Nullable="false" />
+          <Property Name="id_pac_zatrzask" Type="Int32" Nullable="false" />
+          <Property Name="status" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="data_rezerwacji_wizyty" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="data_anulowania_wizyty" Type="DateTime" Precision="3" />
+          <Property Name="data_rozpoczecia_wizyty" Type="DateTime" Precision="3" />
+          <Property Name="data_zakonczenia_wizyty" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="pacjent" Relationship="MEDISTOMAModel.fk_wizyta_pacjent" FromRole="wizyta" ToRole="pacjent" />
+          <NavigationProperty Name="pacjent_zatrzask" Relationship="MEDISTOMAModel.fk_wizyta_pacjent_zatrzask" FromRole="wizyta" ToRole="pacjent_zatrzask" />
+        </EntityType>
+        <Association Name="fk_pacjent_zatrzask_pacjent">
+          <End Type="MEDISTOMAModel.pacjent" Role="pacjent" Multiplicity="1" />
+          <End Type="MEDISTOMAModel.pacjent_zatrzask" Role="pacjent_zatrzask" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pacjent">
+              <PropertyRef Name="id_pac" />
+            </Principal>
+            <Dependent Role="pacjent_zatrzask">
+              <PropertyRef Name="id_pac" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_wizyta_pacjent">
+          <End Type="MEDISTOMAModel.pacjent" Role="pacjent" Multiplicity="1" />
+          <End Type="MEDISTOMAModel.wizyta" Role="wizyta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pacjent">
+              <PropertyRef Name="id_pac" />
+            </Principal>
+            <Dependent Role="wizyta">
+              <PropertyRef Name="id_pac" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_wizyta_pacjent_zatrzask">
+          <End Type="MEDISTOMAModel.pacjent_zatrzask" Role="pacjent_zatrzask" Multiplicity="1" />
+          <End Type="MEDISTOMAModel.wizyta" Role="wizyta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pacjent_zatrzask">
+              <PropertyRef Name="id_pac_zatrzask" />
+            </Principal>
+            <Dependent Role="wizyta">
+              <PropertyRef Name="id_pac_zatrzask" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -303,20 +434,6 @@ warning 6002: The table/view 'MEDISTOMA.dbo.v_wizyta' does not have a primary ke
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="wizyta">
-            <EntityTypeMapping TypeName="MEDISTOMAModel.wizyta">
-              <MappingFragment StoreEntitySet="wizyta">
-                <ScalarProperty Name="id_wiz" ColumnName="id_wiz" />
-                <ScalarProperty Name="id_pac" ColumnName="id_pac" />
-                <ScalarProperty Name="id_pac_zatrzask" ColumnName="id_pac_zatrzask" />
-                <ScalarProperty Name="status" ColumnName="status" />
-                <ScalarProperty Name="data_rezerwacji_wizyty" ColumnName="data_rezerwacji_wizyty" />
-                <ScalarProperty Name="data_anulowania_wizyty" ColumnName="data_anulowania_wizyty" />
-                <ScalarProperty Name="data_rozpoczecia_wizyty" ColumnName="data_rozpoczecia_wizyty" />
-                <ScalarProperty Name="data_zakonczenia_wizyty" ColumnName="data_zakonczenia_wizyty" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="v_pacjent">
             <EntityTypeMapping TypeName="MEDISTOMAModel.v_pacjent">
               <MappingFragment StoreEntitySet="v_pacjent">
@@ -341,6 +458,7 @@ warning 6002: The table/view 'MEDISTOMA.dbo.v_wizyta' does not have a primary ke
                 <ScalarProperty Name="data_anulowania_wizyty" ColumnName="data_anulowania_wizyty" />
                 <ScalarProperty Name="data_rezerwacji_wizyty" ColumnName="data_rezerwacji_wizyty" />
                 <ScalarProperty Name="status_wizyty" ColumnName="status_wizyty" />
+                <ScalarProperty Name="id_wiz" ColumnName="id_wiz" />
                 <ScalarProperty Name="nr_lokalu_zatrzask" ColumnName="nr_lokalu_zatrzask" />
                 <ScalarProperty Name="nr_domu_zatrzask" ColumnName="nr_domu_zatrzask" />
                 <ScalarProperty Name="ulica_zatrzask" ColumnName="ulica_zatrzask" />
@@ -365,6 +483,39 @@ warning 6002: The table/view 'MEDISTOMA.dbo.v_wizyta' does not have a primary ke
                 <ScalarProperty Name="nazwisko_pan" ColumnName="nazwisko_pan" />
                 <ScalarProperty Name="nazwisko" ColumnName="nazwisko" />
                 <ScalarProperty Name="imie_nazwisko" ColumnName="imie_nazwisko" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="pacjent_zatrzask">
+            <EntityTypeMapping TypeName="MEDISTOMAModel.pacjent_zatrzask">
+              <MappingFragment StoreEntitySet="pacjent_zatrzask">
+                <ScalarProperty Name="nr_lokalu" ColumnName="nr_lokalu" />
+                <ScalarProperty Name="nr_domu" ColumnName="nr_domu" />
+                <ScalarProperty Name="ulica" ColumnName="ulica" />
+                <ScalarProperty Name="kod_poczt" ColumnName="kod_poczt" />
+                <ScalarProperty Name="miasto" ColumnName="miasto" />
+                <ScalarProperty Name="nr_dokumentu" ColumnName="nr_dokumentu" />
+                <ScalarProperty Name="plec" ColumnName="plec" />
+                <ScalarProperty Name="pesel" ColumnName="pesel" />
+                <ScalarProperty Name="imie" ColumnName="imie" />
+                <ScalarProperty Name="nazwisko_pan" ColumnName="nazwisko_pan" />
+                <ScalarProperty Name="nazwisko" ColumnName="nazwisko" />
+                <ScalarProperty Name="id_pac" ColumnName="id_pac" />
+                <ScalarProperty Name="id_pac_zatrzask" ColumnName="id_pac_zatrzask" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="wizyta">
+            <EntityTypeMapping TypeName="MEDISTOMAModel.wizyta">
+              <MappingFragment StoreEntitySet="wizyta">
+                <ScalarProperty Name="data_zakonczenia_wizyty" ColumnName="data_zakonczenia_wizyty" />
+                <ScalarProperty Name="data_rozpoczecia_wizyty" ColumnName="data_rozpoczecia_wizyty" />
+                <ScalarProperty Name="data_anulowania_wizyty" ColumnName="data_anulowania_wizyty" />
+                <ScalarProperty Name="data_rezerwacji_wizyty" ColumnName="data_rezerwacji_wizyty" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="id_pac_zatrzask" ColumnName="id_pac_zatrzask" />
+                <ScalarProperty Name="id_pac" ColumnName="id_pac" />
+                <ScalarProperty Name="id_wiz" ColumnName="id_wiz" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -95,6 +95,7 @@
       <DependentUpon>MediStomaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="ModulyAplikacji\Gabinet_PF\PF_Gabinet_Funkcje.cs" />
+    <Compile Include="ModulyAplikacji\Gabinet_PF\PF_Gabinet_Powiadomienia.cs" />
     <Compile Include="ModulyAplikacji\Gabinet_PF\PF_Gabinet_Stale.cs" />
     <Compile Include="ModulyAplikacji\Ogolne_PF\PF_Ogolne_Funkcje.cs" />
     <Compile Include="ModulyAplikacji\Ogolne_PF\PF_Ogolne_Powiadomienia.cs" />
@@ -106,6 +107,9 @@
     <Compile Include="ModulyAplikacji\Pacjent_PF\PF_Pacjent_Powiadomienia.cs" />
     <Compile Include="ModulyAplikacji\Pacjent_PF\PF_Pacjent_Stale.cs" />
     <Compile Include="pacjent.cs">
+      <DependentUpon>MediStomaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pacjent_zatrzask.cs">
       <DependentUpon>MediStomaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="v_pacjent.cs">

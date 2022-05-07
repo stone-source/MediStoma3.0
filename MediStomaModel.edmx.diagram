@@ -6,10 +6,13 @@
     <edmx:Diagrams>
       <Diagram DiagramId="a34d9386da094136b4213c26111ccd7c" Name="Diagram1">
         <EntityTypeShape EntityType="MEDISTOMAModel.pacjent" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="MEDISTOMAModel.wizyta" Width="1.5" PointX="3" PointY="1.75" IsExpanded="true" />
-        <AssociationConnector Association="MEDISTOMAModel.fk_wizyta_pacjent" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="MEDISTOMAModel.v_pacjent" Width="1.5" PointX="5.75" PointY="1.625" />
-        <EntityTypeShape EntityType="MEDISTOMAModel.v_wizyta" Width="1.5" PointX="8" PointY="1.5" />
+        <EntityTypeShape EntityType="MEDISTOMAModel.v_pacjent" Width="1.5" PointX="6.75" PointY="0.625" />
+        <EntityTypeShape EntityType="MEDISTOMAModel.v_wizyta" Width="1.5" PointX="8.375" PointY="0.625" />
+        <EntityTypeShape EntityType="MEDISTOMAModel.pacjent_zatrzask" Width="1.5" PointX="2.625" PointY="4.375" />
+        <EntityTypeShape EntityType="MEDISTOMAModel.wizyta" Width="1.5" PointX="4.875" PointY="0.875" />
+        <AssociationConnector Association="MEDISTOMAModel.fk_pacjent_zatrzask_pacjent" />
+        <AssociationConnector Association="MEDISTOMAModel.fk_wizyta_pacjent" />
+        <AssociationConnector Association="MEDISTOMAModel.fk_wizyta_pacjent_zatrzask" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

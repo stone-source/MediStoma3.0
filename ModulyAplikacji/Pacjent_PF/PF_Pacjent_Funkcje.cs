@@ -1,9 +1,6 @@
 ﻿using MediStoma3._0.ModulyAplikacji.Ogolne_PF;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MediStoma3._0.ModulyAplikacji.Pacjent_PF
 {
@@ -51,7 +48,7 @@ namespace MediStoma3._0.ModulyAplikacji.Pacjent_PF
                 {
                     var pac_usun = (from p in p_entity.pacjent
                                     where p.id_pac == p_idPac
-                                    select p).First();
+                                    select p).FirstOrDefault();
 
                     if (pac_usun != null)
                     {

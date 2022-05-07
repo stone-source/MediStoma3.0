@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using MediStoma3._0.ModulyAplikacji.Ogolne_PF;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -40,27 +41,54 @@ namespace MediStoma3._0.ModulyAplikacji.Gabinet_PF
 
         private void btnUsun_Click(object sender, RoutedEventArgs e)
         {
-
+            if (SprawdzCzyZaznaczonoWizyte())
+            {
+                PF_Gabinet_Funkcje.UsunWizyte(_MSEntities, _aktualnaWizyta.id_wiz);
+                ZaladujDane();
+            }
         }
 
         private void btnRealizuj_Click(object sender, RoutedEventArgs e)
         {
-
+            if (SprawdzCzyZaznaczonoWizyte())
+            {
+                PF_Gabinet_Funkcje.RozpocznijWizyte(_MSEntities, _aktualnaWizyta.id_wiz);
+                ZaladujDane();
+            }
         }
 
         private void btnAnuluj_Click(object sender, RoutedEventArgs e)
         {
-
+            if (SprawdzCzyZaznaczonoWizyte())
+            {
+                PF_Gabinet_Funkcje.AnulujWizyte(_MSEntities, _aktualnaWizyta.id_wiz);
+                ZaladujDane();
+            }
         }
 
         private void btnZakoncz_Click(object sender, RoutedEventArgs e)
         {
-
+            if (SprawdzCzyZaznaczonoWizyte())
+            {
+                PF_Gabinet_Funkcje.ZakonczWizyte(_MSEntities, _aktualnaWizyta.id_wiz);
+                ZaladujDane();
+            }
         }
 
         private void btnZastosujFiltr_Click(object sender, RoutedEventArgs e)
         {
+            ZaladujDane();
+        }
 
+        private bool SprawdzCzyZaznaczonoWizyte()
+        {
+            _aktualnaWizyta = (v_wizyta)grdWizyty.SelectedItem;
+            bool czyZaznaczonaWizyta = _aktualnaWizyta != null;
+            if (!czyZaznaczonaWizyta)
+            {
+                Ogolne_Informacja.Informacja(PF_Gabinet_Powiadomienia.c_Wizyta_NieZaznaczono);
+            }
+            return czyZaznaczonaWizyta;
         }
     }
 }

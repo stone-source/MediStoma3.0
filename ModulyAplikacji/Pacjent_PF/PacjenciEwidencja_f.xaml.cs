@@ -50,7 +50,6 @@ namespace MediStoma3._0.ModulyAplikacji.Pacjent_PF
         {
             if (SprawdzCzyZaznaczonoPacjenta())
             {
-                _aktualnyPacjent = (v_pacjent)grdPacjenci.SelectedItem;
                 Pacjent_f form = new Pacjent_f(_aktualnyPacjent.id_pac, (int)CelUruchomonegoOkna.coAktualizacjaDanych, _MSEntities);
                 form.ShowDialog();
                 ZaladujDane();

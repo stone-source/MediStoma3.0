@@ -24,5 +24,6 @@ namespace MediStoma3._0
         public Nullable<System.DateTime> data_zakonczenia_wizyty { get; set; }
     
         public virtual pacjent pacjent { get; set; }
+        public virtual pacjent_zatrzask pacjent_zatrzask { get; set; }
     }
 }

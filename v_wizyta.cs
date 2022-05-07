@@ -38,6 +38,7 @@ namespace MediStoma3._0
         public string ulica_zatrzask { get; set; }
         public string nr_domu_zatrzask { get; set; }
         public string nr_lokalu_zatrzask { get; set; }
+        public int id_wiz { get; set; }
         public string status_wizyty { get; set; }
         public System.DateTime data_rezerwacji_wizyty { get; set; }
         public Nullable<System.DateTime> data_anulowania_wizyty { get; set; }

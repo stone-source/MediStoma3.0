@@ -2,13 +2,14 @@
 {
     internal class PF_Gabinet_Stale
     {
-        public enum StatusWizyty
-        {
-            swZarezerwowana = 'Z',
-            swWRealizacji = 'R',
-            swAnulowana = 'A',
-            swZakonczona = 'K'
-        };
+        public static string[] StatusyWizyty = { "Z", "R", "A", "K" };
 
+        public enum StatusWizyty: int
+        {
+            swZarezerwowana = 0,
+            swWRealizacji,
+            swAnulowana,
+            swZakonczona
+        };
     }
 }

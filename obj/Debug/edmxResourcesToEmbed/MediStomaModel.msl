@@ -22,20 +22,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="wizyta">
-      <EntityTypeMapping TypeName="MEDISTOMAModel.wizyta">
-        <MappingFragment StoreEntitySet="wizyta">
-          <ScalarProperty Name="id_wiz" ColumnName="id_wiz" />
-          <ScalarProperty Name="id_pac" ColumnName="id_pac" />
-          <ScalarProperty Name="id_pac_zatrzask" ColumnName="id_pac_zatrzask" />
-          <ScalarProperty Name="status" ColumnName="status" />
-          <ScalarProperty Name="data_rezerwacji_wizyty" ColumnName="data_rezerwacji_wizyty" />
-          <ScalarProperty Name="data_anulowania_wizyty" ColumnName="data_anulowania_wizyty" />
-          <ScalarProperty Name="data_rozpoczecia_wizyty" ColumnName="data_rozpoczecia_wizyty" />
-          <ScalarProperty Name="data_zakonczenia_wizyty" ColumnName="data_zakonczenia_wizyty" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="v_pacjent">
       <EntityTypeMapping TypeName="MEDISTOMAModel.v_pacjent">
         <MappingFragment StoreEntitySet="v_pacjent">
@@ -60,6 +46,7 @@
           <ScalarProperty Name="data_anulowania_wizyty" ColumnName="data_anulowania_wizyty" />
           <ScalarProperty Name="data_rezerwacji_wizyty" ColumnName="data_rezerwacji_wizyty" />
           <ScalarProperty Name="status_wizyty" ColumnName="status_wizyty" />
+          <ScalarProperty Name="id_wiz" ColumnName="id_wiz" />
           <ScalarProperty Name="nr_lokalu_zatrzask" ColumnName="nr_lokalu_zatrzask" />
           <ScalarProperty Name="nr_domu_zatrzask" ColumnName="nr_domu_zatrzask" />
           <ScalarProperty Name="ulica_zatrzask" ColumnName="ulica_zatrzask" />
@@ -84,6 +71,39 @@
           <ScalarProperty Name="nazwisko_pan" ColumnName="nazwisko_pan" />
           <ScalarProperty Name="nazwisko" ColumnName="nazwisko" />
           <ScalarProperty Name="imie_nazwisko" ColumnName="imie_nazwisko" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="pacjent_zatrzask">
+      <EntityTypeMapping TypeName="MEDISTOMAModel.pacjent_zatrzask">
+        <MappingFragment StoreEntitySet="pacjent_zatrzask">
+          <ScalarProperty Name="nr_lokalu" ColumnName="nr_lokalu" />
+          <ScalarProperty Name="nr_domu" ColumnName="nr_domu" />
+          <ScalarProperty Name="ulica" ColumnName="ulica" />
+          <ScalarProperty Name="kod_poczt" ColumnName="kod_poczt" />
+          <ScalarProperty Name="miasto" ColumnName="miasto" />
+          <ScalarProperty Name="nr_dokumentu" ColumnName="nr_dokumentu" />
+          <ScalarProperty Name="plec" ColumnName="plec" />
+          <ScalarProperty Name="pesel" ColumnName="pesel" />
+          <ScalarProperty Name="imie" ColumnName="imie" />
+          <ScalarProperty Name="nazwisko_pan" ColumnName="nazwisko_pan" />
+          <ScalarProperty Name="nazwisko" ColumnName="nazwisko" />
+          <ScalarProperty Name="id_pac" ColumnName="id_pac" />
+          <ScalarProperty Name="id_pac_zatrzask" ColumnName="id_pac_zatrzask" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="wizyta">
+      <EntityTypeMapping TypeName="MEDISTOMAModel.wizyta">
+        <MappingFragment StoreEntitySet="wizyta">
+          <ScalarProperty Name="data_zakonczenia_wizyty" ColumnName="data_zakonczenia_wizyty" />
+          <ScalarProperty Name="data_rozpoczecia_wizyty" ColumnName="data_rozpoczecia_wizyty" />
+          <ScalarProperty Name="data_anulowania_wizyty" ColumnName="data_anulowania_wizyty" />
+          <ScalarProperty Name="data_rezerwacji_wizyty" ColumnName="data_rezerwacji_wizyty" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="id_pac_zatrzask" ColumnName="id_pac_zatrzask" />
+          <ScalarProperty Name="id_pac" ColumnName="id_pac" />
+          <ScalarProperty Name="id_wiz" ColumnName="id_wiz" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

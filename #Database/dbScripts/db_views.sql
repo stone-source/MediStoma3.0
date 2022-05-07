@@ -45,6 +45,7 @@ SELECT
     pz.ulica AS ulica_zatrzask,
     pz.nr_domu AS nr_domu_zatrzask,
     pz.nr_lokalu AS nr_lokalu_zatrzask,
+    w.id_wiz,
     CASE
         WHEN w.status = 'Z' THEN 'Zarezerwowana'
         WHEN w.status = 'R' THEN 'W realizacji'

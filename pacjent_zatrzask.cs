@@ -12,15 +12,15 @@ namespace MediStoma3._0
     using System;
     using System.Collections.Generic;
     
-    public partial class pacjent
+    public partial class pacjent_zatrzask
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public pacjent()
+        public pacjent_zatrzask()
         {
-            this.pacjent_zatrzask = new HashSet<pacjent_zatrzask>();
             this.wizyta = new HashSet<wizyta>();
         }
     
+        public int id_pac_zatrzask { get; set; }
         public int id_pac { get; set; }
         public string nazwisko { get; set; }
         public string nazwisko_pan { get; set; }
@@ -33,12 +33,8 @@ namespace MediStoma3._0
         public string ulica { get; set; }
         public string nr_domu { get; set; }
         public string nr_lokalu { get; set; }
-        public System.DateTime wpis_data_dodania { get; set; }
-        public System.DateTime wpis_data_aktualizacji { get; set; }
-        public bool wpis_czy_aktualny { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<pacjent_zatrzask> pacjent_zatrzask { get; set; }
+        public virtual pacjent pacjent { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<wizyta> wizyta { get; set; }
     }
